@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/**
+ * _header.scss
+ **/
+header {
+  background: whitesmoke;
+  box-shadow: 0 2px 2px gray;
+  display:    flex;
+  flex-flow:  row wrap;
+  height:     5.0rem;
+  position:   fixed;
+  width:      100%;
+
+  @media screen and (min-aspect-ratio: 4 / 3) {
+    box-shadow:      0 0 0.2rem gray;
+    flex-flow:       column nowrap;
+    height:          100vh;
+    justify-content: flex-start;
+    overflow-y:      scroll;
+    width:           calc(8.0rem + 10vw);
+  }
+
+  @media screen and (min-width: 1600px) {
+    padding: 0 0 0 12.5vw;
+    width:   15.0vw;
+  }
+
+  > section {
+    display:         flex;
+    flex-flow:       row nowrap;
+    height:          5.0rem;
+    justify-content: space-between;
+    width:           100%;
+
+    @media screen and (min-aspect-ratio: 4 / 3) {
+      height:    8.0rem;
+      flex-flow: column nowrap;
+      margin:    0 auto 0 auto;
+    }
+
+    > .website-title {
+      color:       #4f4f4f;
+      font-size:   1.6rem;
+      font-weight: bold;
+      margin:      auto 0 auto 0;
+
+      @media screen and (min-aspect-ratio: 4 / 3) {
+        margin:    auto;
+      }
+    }
+
+    > .operation-button-left {
+      align-items:     center;
+      border-right:    gray solid thin;
+      color:           #4f4f4f;
+      display:         flex;
+      flex-flow:       column;
+      height:          5.0rem;
+      justify-content: center;
+      width:           30%;
+
+      @media screen and (min-aspect-ratio: 4 / 3) {
+        display: none;
+      }
+
+      &:hover {
+        background: lightgray;
+      }
+
+      > img {
+        height: 3.0rem;
+        width:  3.0rem;
+      }
+
+      > span {
+        font-weight: bold;
+      }
+    } // End: .operation-button-left
+
+    > .operation-button-right {
+      align-items:     center;
+      border-left:     gray solid thin;
+      color:           #4f4f4f;
+      display:         flex;
+      flex-flow:       column;
+      height:          5.0rem;
+      justify-content: center;
+      width:           30%;
+
+      @media screen and (min-aspect-ratio: 4 / 3) {
+        display: none;
+      }
+    }
+  } // End: section
+}

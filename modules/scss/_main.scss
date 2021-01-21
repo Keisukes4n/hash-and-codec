@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+/**
+ * _main.scss
+ */
+main {
+  margin:  5.0rem 0 0 0;
+  padding: 0 4% 4.0rem 4%;
+
+  @media screen and (min-aspect-ratio: 4 / 3) {
+    margin:  0 0 0 calc(8.0rem + 10vw);
+    padding: 0 1.0rem 4.0rem 1.0rem;
+  }
+
+  @media screen and (min-width: 1600px) {
+    margin:  0 0 0 27.5vw;
+    padding: 0 12.5vw 4.0rem 1.0rem;
+    width:   100%;
+  }
+
+  h1 {
+    font-size:     2.0rem;
+    padding:       0 0 0.1rem 0;
+    text-align:    center;
+  }
+
+  h2 {
+    border-bottom: lightgray solid thin;
+    font-size:     1.6rem;
+    margin:        1.0rem 0 0.5rem 0.5rem;
+    padding:       0 0 0.2rem 0rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin:    0.5rem 0 0 0;
+    padding:   0 0 0 1.0rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    padding:   0 0 0 1.0rem;
+  }
+
+  h5 {
+    font-size: 1.1rem;
+    padding:   0 0 0 1.0rem;
+  }
+
+  h6 {
+    font-size: 1.0rem;
+    padding:   0 0 0 1.0rem;
+  }
+
+  pre {
+    background:  midnightblue;
+    border-left: royalblue solid thick;
+    color:       whitesmoke;
+    padding:     0.5rem;
+  }
+
+  > .breadcrumbs {
+    color:     gray;
+    font-size: small;
+    padding:   1.0rem;
+  }
+
+  > .copyright {
+    color:      grey;
+    font-size:  small;
+    text-align: center;
+  }
+
+  > .time-stamp {
+    color:      grey;
+    font-size:  small;
+    text-align: center;
+  }
+}

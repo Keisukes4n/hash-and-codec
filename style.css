@@ -113,12 +113,31 @@ body a {
 }
 
 /**
+ * _footer.scss
+ **/
+footer {
+  background-color: #4f4f4f;
+  color: white;
+  padding: 1.0rem;
+}
+
+footer > section.timestamp {
+  font-size: small;
+  text-align: center;
+}
+
+footer > section.copyright {
+  font-size: small;
+  text-align: center;
+}
+
+/**
  * _header.scss
  **/
 header {
   background: whitesmoke;
-  -webkit-box-shadow: 0 2px 2px gray;
-          box-shadow: 0 2px 2px gray;
+  -webkit-box-shadow: 0 1px 2px gray;
+          box-shadow: 0 1px 2px gray;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -335,4 +354,55 @@ nav.menu > ul > .menu-head {
   display: block;
   font-weight: bold;
   padding: 0.5rem 0 0.5rem 1.0rem;
+}
+
+/**
+ * _section.hash-generator.scss
+ */
+section.hash-generator {
+  margin: 0;
+  padding: 0;
+}
+
+section.hash-generator > form.select-algorithm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+section.hash-generator > form.select-algorithm > label.tile {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 2px gray;
+          box-shadow: 0 0 2px gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3.0rem;
+  margin: 0.2rem 0 0.2rem 0;
+  width: 32%;
+}
+
+section.hash-generator > form.select-algorithm > label.tile:hover {
+  background: lightgray;
+}
+
+section.hash-generator > form.select-algorithm > label.tile > input {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+section.hash-generator > form.select-algorithm > label.tile > span {
+  font-weight: bold;
+}
+
+section.hash-generator > textarea {
+  height: 8.0rem;
+  width: 100%;
 }

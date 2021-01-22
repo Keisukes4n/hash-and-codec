@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/**
+ * _footer.scss
+ **/
+footer {
+  background-color: #4f4f4f;
+  color: white;
+  padding: 1.0rem;
+
+  > section.timestamp {
+    font-size: small;
+    text-align: center;
+  }
+  > section.copyright {
+    font-size: small;
+		text-align: center;
+  }
+}

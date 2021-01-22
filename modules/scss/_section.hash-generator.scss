@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/**
+ * _section.hash-generator.scss
+ */
+ section.hash-generator {
+   margin:  0;
+   padding: 0;
+
+   > form.select-algorithm {
+     display:         flex;
+     flex-flow:       row wrap;
+     justify-content: space-around;
+
+     > label.tile {
+      align-items: center;
+      box-shadow:  0 0 2px gray;
+      display:     flex;
+      height:      3.0rem;
+      margin:      0.2rem 0 0.2rem 0;
+      width:       32%;
+
+      &:hover {
+        background: lightgray;
+      }
+
+      > input {
+        margin: 0 0.5rem 0 0.5rem;
+      }
+
+      > span {
+        font-weight: bold;
+      }
+     }
+   }
+
+   > textarea {
+     height: 8.0rem;
+     width:  100%;
+   }
+ }

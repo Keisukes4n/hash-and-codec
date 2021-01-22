@@ -1,5 +1,5 @@
 <?php
-  $page_title = 'Hash and codec';
+  $page_title = 'Web tools - HC';
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./style.css" rel="stylesheet" type="text/css">
-    <title>Web tools - <?php echo $page_title; ?></title>
+    <title><?php echo $page_title; ?></title>
   </head>
   <body>
     <header>
@@ -55,43 +55,57 @@
     <main>
       <h1><?php echo $page_title; ?></h1>
 
-      <h2>1. Select hash algorithm</h2>
-      <form class="select-algorithm" action="#result" method="POST" id="main">
-        <label class="select-area">
-          <input type="radio" name="hashAlgorithm" value="sha256" required> sha256
-        </label>
-        <label class="select-area">
-          <input type="radio" name="hashAlgorithm" value="sha384"> sha384
-        </label>
-        <label class="select-area">
-          <input type="radio" name="hashAlgorithm" value="sha512"> sha512
-        </label>
-        <label class="select-area">
-          <input type="radio" name="hashAlgorithm" value="sha3-256"> sha3-256
-        </label>
-        <label class="select-area">
-          <input type="radio" name="hashAlgorithm" value="sha3-384"> sha3-384
-        </label>
-        <label class="select-area">
-          <input type="radio" name="hashAlgorithm" value="sha3-512"> sha3-512
-        </label>
-        <label class="select-area">
-          <input type="radio" name="hashAlgorithm" value="ripemd160"> RIPEMD160
-        </label>
-        <label class="select-area">
-          <input type="radio" name="hashAlgorithm" value="whirlpool"> Whirlpool
-        </label>
-        <label class="select-area">
-          <input type="radio" name="hashAlgorithm" value="md5"> md5
-        </label>
-      </form>
-      <h2>2. Input text</h2>
-        <textarea name="textareaInputArea" placeholder="Input area" form="main" required></textarea>
-        <div class="generate-button">
-          <input form="main" type="submit" value="Generate">
-        </div>
-      <h2 id="result">3. Result</h2>
-        <textarea placeholder="Result">$outputResult</textarea>
+      <section class="hash-generator">
+        <h2>1. Select hash algorithm</h2>
+        <form class="select-algorithm" action="#result" method="POST" id="main">
+          <label class="tile">
+            <input type="radio" name="hashAlgorithm" value="sha256" required><span>sha256</span>
+          </label>
+          <label class="tile">
+            <input type="radio" name="hashAlgorithm" value="sha384"><span>sha384</span>
+          </label>
+          <label class="tile">
+            <input type="radio" name="hashAlgorithm" value="sha512"><span>sha512</span>
+          </label>
+          <label class="tile">
+            <input type="radio" name="hashAlgorithm" value="sha3-256"><span>sha3-256</span>
+          </label>
+          <label class="tile">
+            <input type="radio" name="hashAlgorithm" value="sha3-384"><span>sha3-384</span>
+          </label>
+          <label class="tile">
+            <input type="radio" name="hashAlgorithm" value="sha3-512"><span>sha3-512</span>
+          </label>
+          <label class="tile">
+            <input type="radio" name="hashAlgorithm" value="ripemd160"><span>RIPEMD160</span>
+          </label>
+          <label class="tile">
+            <input type="radio" name="hashAlgorithm" value="whirlpool"><span>Whirlpool</span>
+          </label>
+          <label class="tile">
+            <input type="radio" name="hashAlgorithm" value="md5"><span>md5</span>
+          </label>
+        </form>
+        <h2>2. Input text</h2>
+          <textarea name="textareaInputArea" placeholder="Input area" form="main" required></textarea>
+          <div class="generate-button">
+            <input form="main" type="submit" value="Generate">
+          </div>
+        <h2 id="result">3. Result</h2>
+          <textarea placeholder="Result">$outputResult</textarea>
+      </section>
     </main>
+    <footer>
+      <section class="timestamp">
+        <?php
+          $cre_date = '22nd January, 2021';
+          $mod_date = date( "jS F, Y", getlastmod() );
+          echo 'Created: ', $cre_date,' | Modified: ', $mod_date;
+        ?>
+      </section>
+      <section class="copyright">
+        Copyright 2021 Keisukes4n
+      </section>
+    </footer>
   </body>
 </html>

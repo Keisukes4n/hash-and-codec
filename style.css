@@ -117,6 +117,8 @@ body a {
  **/
 footer {
   background-color: #4f4f4f;
+  -webkit-box-shadow: 0 0 2px gray;
+          box-shadow: 0 0 2px gray;
   color: white;
   padding: 1.0rem;
 }
@@ -340,7 +342,7 @@ nav.menu > ul > .item:hover {
   background: lightgray;
 }
 
-nav.menu > ul > .item > .icon {
+nav.menu > ul > .item > img {
   height: 1.5rem;
   width: 1.5rem;
 }

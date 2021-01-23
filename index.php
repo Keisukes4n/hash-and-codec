@@ -1,5 +1,9 @@
 <?php
-  $page_title = 'Web tools - HC';
+  /**
+   * 
+   **/
+  $page_title        = 'Web tools - HC';
+  $pass_modules_page = $_SERVER['DOCUMENT_ROOT'] . '/web-tools-hc/modules/page';
 ?>
 
 <!DOCTYPE html>
@@ -11,47 +15,7 @@
     <title><?php echo $page_title; ?></title>
   </head>
   <body>
-    <header>
-      <section>
-        <div class="operation-button-left" id="divOperationButtonLeft">
-          <img alt="menu-icon-plain.svg" id="imgMenuIcon" src="/icons/menu-icon-plain.svg">
-          <span>MENU</span>
-        </div>
-        <span class="website-title" id="spanWebsiteTitle">Website title</span>
-        <div class="operation-button-right "></div>
-      </section>
-      <nav class="menu" id="navMenuArea">
-        <ul>
-          <span class="menu-head">Options</span>
-          <a class="item" href="/documents/options/option-page.html">
-            <img alt="option-icon-plain.svg" class="icon" src="/icons/option-icon-plain.svg" >
-            <li>Option</li>
-          </a>
-        </ul>
-        <ul>
-          <span class="menu-head">Guides</span>
-          <a class="item" href="/documents/guides/en/guide-page.html">
-            <img alt="guide-icon-plain.svg" class="icon" src="/icons/guide-icon-plain.svg">
-            <li>English</li>
-          </a>
-          <a class="item" href="/documents/guides/ja/guide-page.html">
-            <img alt="guide-icon-plain.svg" class="icon" src="/icons/guide-icon-plain.svg">
-            <li>日本語</li>
-          </a>
-        </ul>
-        <ul>
-          <span class="menu-head">About add-on</span>
-          <a class="item" href="/License" rel="noopener noreferrer" target="_balnk">
-            <img alt="/icons/license-icon-plain.svg" class="icon" src="/icons/license-icon-plain.svg">
-            <li>License</li>
-          </a>
-          <a class="item" href="https://addons.mozilla.org/en-US/firefox/addon/quicktranslator/" rel="noopener noreferrer" target="_balnk">
-            <img alt="information-icon-plain.svg" class="icon" src="/icons/information-icon-plain.svg">
-            <li>Product page</li>
-          </a>
-        </ul>
-      </nav>
-    </header>
+    <?php include $pass_modules_page . '/_header.php'; ?>
     <main>
       <h1><?php echo $page_title; ?></h1>
 
@@ -100,11 +64,13 @@
         <?php
           $cre_date = '22nd January, 2021';
           $mod_date = date( "jS F, Y", getlastmod() );
+          echo '<p>';
           echo 'Created: ', $cre_date,' | Modified: ', $mod_date;
+          echo '</p>';
         ?>
       </section>
       <section class="copyright">
-        Copyright 2021 Keisukes4n
+        <p>Copyright 2021 Keisukes4n</p>
       </section>
     </footer>
   </body>

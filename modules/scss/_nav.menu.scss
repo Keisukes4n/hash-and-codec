@@ -15,12 +15,7 @@ nav.menu {
   width:        calc(30% - 1.0rem);
 
   @media screen and (min-aspect-ratio: 4 / 3) {
-    border-right: none;
-    box-shadow:   none;
-    max-height:   auto;
-    overflow-y:   visible;
-    transition:   0ms;
-    width:        auto;
+    display: none;
   }
 
   > ul {

@@ -4,17 +4,19 @@
  * _footer.scss
  **/
 footer {
-  background-color: #4f4f4f;
+  background: #4f4f4f;
   box-shadow: 0 0 2px gray;
-  color: white;
-  padding: 1.0rem;
+  color:      white;
+  padding:    1.0rem;
+  flex:       1 0 auto;
 
   > section.timestamp {
-    font-size: small;
+    font-size:  small;
     text-align: center;
   }
+
   > section.copyright {
-    font-size: small;
+    font-size:  small;
 		text-align: center;
   }
 }

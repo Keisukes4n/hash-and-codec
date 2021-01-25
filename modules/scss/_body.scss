@@ -7,15 +7,12 @@ body {
 	background:    white;
   color:         #2f2f2f;
   display:       flex;
-  flex-flow:     column wrap;
+  flex-flow:     column;
+  height:        100vh;
   margin:        0;
   overflow-wrap: break-word;
   overflow-x:    hidden;
   padding:       0;
-
-	@media screen and (min-aspect-ratio: 4 / 3) {
-		flex-flow: row wrap;
-	}
 
 	a {
 		text-decoration: none;

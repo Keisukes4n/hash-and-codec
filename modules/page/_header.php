@@ -1,19 +1,19 @@
 <?php 
   /**
    * page module file: _header.php
-   **/
+   * 
+   */
 
-  $pass_modules_icon = '/web-tools-hc/modules/icon';
+  $pass_modules_icon = '/web-tools-string-conversion/modules/icon';
 ?>
 
 <header>
   <section>
     <div class="operation-button-left" id="divOperationButtonLeft">
-      <img src="<?php echo $pass_modules_icon; ?>/menu-icon-plain.svg" alt="menu-icon-plain.svg" id="imgMenuIcon">
-      <span>MENU</span>
     </div>
     <span class="website-title" id="spanWebsiteTitle">Website title</span>
-    <div class="operation-button-right "></div>
+    <div class="operation-button-right ">
+    </div>
   </section>
   <nav class="menu" id="navMenuArea">
     <ul>

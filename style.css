@@ -2,28 +2,21 @@
  * _main.scss
  */
 main {
-  margin: 5.0rem 0 0 0;
-  padding: 0 4% 4.0rem 4%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 5.0rem 4% 4.0rem 4%;
 }
 
 @media screen and (min-aspect-ratio: 4 / 3) {
   main {
-    margin: 0 0 0 calc(8.0rem + 10vw);
-    padding: 0 1.0rem 4.0rem 1.0rem;
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  main {
-    margin: 0 0 0 27.5vw;
-    padding: 0 12.5vw 4.0rem 1.0rem;
-    width: 100%;
+    margin: 0 auto 0 auto;
+    padding: 5.0rem 0 5.0rem 0;
+    width: 60%;
   }
 }
 
 main h1 {
   font-size: 2.0rem;
-  padding: 0 0 0.1rem 0;
   text-align: center;
 }
 
@@ -58,6 +51,8 @@ main h6 {
 main pre {
   background: midnightblue;
   border-left: royalblue solid thick;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   color: whitesmoke;
   padding: 0.5rem;
 }
@@ -91,21 +86,13 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 100vh;
   margin: 0;
   overflow-wrap: break-word;
   overflow-x: hidden;
   padding: 0;
-}
-
-@media screen and (min-aspect-ratio: 4 / 3) {
-  body {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-  }
 }
 
 body a {
@@ -116,11 +103,14 @@ body a {
  * _footer.scss
  **/
 footer {
-  background-color: #4f4f4f;
+  background: #4f4f4f;
   -webkit-box-shadow: 0 0 2px gray;
           box-shadow: 0 0 2px gray;
   color: white;
   padding: 1.0rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
 }
 
 footer > section.timestamp {
@@ -152,31 +142,9 @@ header {
   width: 100%;
 }
 
-@media screen and (min-aspect-ratio: 4 / 3) {
-  header {
-    -webkit-box-shadow: 0 0 0.2rem gray;
-            box-shadow: 0 0 0.2rem gray;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column nowrap;
-            flex-flow: column nowrap;
-    height: 100vh;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    overflow-y: scroll;
-    width: calc(8.0rem + 10vw);
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  header {
-    padding: 0 0 0 12.5vw;
-    width: 15.0vw;
-  }
-}
-
 header > section {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -191,28 +159,11 @@ header > section {
   width: 100%;
 }
 
-@media screen and (min-aspect-ratio: 4 / 3) {
-  header > section {
-    height: 8.0rem;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column nowrap;
-            flex-flow: column nowrap;
-    margin: 0 auto 0 auto;
-  }
-}
-
 header > section > .website-title {
   color: #4f4f4f;
   font-size: 1.6rem;
   font-weight: bold;
-  margin: auto 0 auto 0;
-}
-
-@media screen and (min-aspect-ratio: 4 / 3) {
-  header > section > .website-title {
-    margin: auto;
-  }
+  margin: auto;
 }
 
 header > section > .operation-button-left {
@@ -233,12 +184,6 @@ header > section > .operation-button-left {
       -ms-flex-pack: center;
           justify-content: center;
   width: 30%;
-}
-
-@media screen and (min-aspect-ratio: 4 / 3) {
-  header > section > .operation-button-left {
-    display: none;
-  }
 }
 
 header > section > .operation-button-left:hover {
@@ -274,12 +219,6 @@ header > section > .operation-button-right {
   width: 30%;
 }
 
-@media screen and (min-aspect-ratio: 4 / 3) {
-  header > section > .operation-button-right {
-    display: none;
-  }
-}
-
 /**
  * _nav.menu.scss
  */
@@ -302,14 +241,7 @@ nav.menu {
 
 @media screen and (min-aspect-ratio: 4 / 3) {
   nav.menu {
-    border-right: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    max-height: auto;
-    overflow-y: visible;
-    -webkit-transition: 0ms;
-    transition: 0ms;
-    width: auto;
+    display: none;
   }
 }
 
@@ -402,6 +334,20 @@ section.hash-generator > form.select-algorithm > label.tile > input {
 
 section.hash-generator > form.select-algorithm > label.tile > span {
   font-weight: bold;
+}
+
+section.hash-generator > input.submit-button {
+  background: white;
+  border: none;
+  -webkit-box-shadow: 0 0 2px gray;
+          box-shadow: 0 0 2px gray;
+  display: block;
+  margin: 1.0rem auto 1.0rem auto;
+  padding: 1.0rem;
+}
+
+section.hash-generator > input.submit-button:hover {
+  background: lightgray;
 }
 
 section.hash-generator > textarea {

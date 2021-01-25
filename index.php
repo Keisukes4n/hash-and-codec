@@ -1,9 +1,27 @@
 <?php
   /**
    * 
-   **/
-  $page_title        = 'Web tools - HC';
-  $pass_modules_page = $_SERVER['DOCUMENT_ROOT'] . '/web-tools-hc/modules/page';
+   * 
+   */
+  $page_title        = 'Web tools - String conversion';
+  $pass_modules_page = $_SERVER['DOCUMENT_ROOT'] . '/web-tools-string-conversion/modules/page';
+
+  $result_text = NULL;
+  
+  if ( isset( $_POST['hash-algorithm'] ) ):
+    $hash_algorithm = $_POST['hash-algorithm'];
+    $input_string   = htmlspecialchars( $_POST['input-string'], ENT_QUOTES, 'UTF-8' );
+
+    $hash_value  = hash( $hash_algorithm, $input_string, false );
+    $result_text = <<< "EOD"
+    * Hash value
+    $hash_value
+    * Input string
+    $input_string
+    * Hash algorithm
+    $hash_algorithm
+    EOD;
+  endif;
 ?>
 
 <!DOCTYPE html>
@@ -23,55 +41,40 @@
         <h2>1. Select hash algorithm</h2>
         <form class="select-algorithm" action="#result" method="POST" id="main">
           <label class="tile">
-            <input type="radio" name="hashAlgorithm" value="sha256" required><span>sha256</span>
+            <input type="radio" name="hash-algorithm" value="sha256" required><span>sha256</span>
           </label>
           <label class="tile">
-            <input type="radio" name="hashAlgorithm" value="sha384"><span>sha384</span>
+            <input type="radio" name="hash-algorithm" value="sha384"><span>sha384</span>
           </label>
           <label class="tile">
-            <input type="radio" name="hashAlgorithm" value="sha512"><span>sha512</span>
+            <input type="radio" name="hash-algorithm" value="sha512"><span>sha512</span>
           </label>
           <label class="tile">
-            <input type="radio" name="hashAlgorithm" value="sha3-256"><span>sha3-256</span>
+            <input type="radio" name="hash-algorithm" value="sha3-256"><span>sha3-256</span>
           </label>
           <label class="tile">
-            <input type="radio" name="hashAlgorithm" value="sha3-384"><span>sha3-384</span>
+            <input type="radio" name="hash-algorithm" value="sha3-384"><span>sha3-384</span>
           </label>
           <label class="tile">
-            <input type="radio" name="hashAlgorithm" value="sha3-512"><span>sha3-512</span>
+            <input type="radio" name="hash-algorithm" value="sha3-512"><span>sha3-512</span>
           </label>
           <label class="tile">
-            <input type="radio" name="hashAlgorithm" value="ripemd160"><span>RIPEMD160</span>
+            <input type="radio" name="hash-algorithm" value="ripemd160"><span>RIPEMD160</span>
           </label>
           <label class="tile">
-            <input type="radio" name="hashAlgorithm" value="whirlpool"><span>Whirlpool</span>
+            <input type="radio" name="hash-algorithm" value="whirlpool"><span>Whirlpool</span>
           </label>
           <label class="tile">
-            <input type="radio" name="hashAlgorithm" value="md5"><span>md5</span>
+            <input type="radio" name="hash-algorithm" value="md5"><span>md5</span>
           </label>
         </form>
         <h2>2. Input text</h2>
-          <textarea name="textareaInputArea" placeholder="Input area" form="main" required></textarea>
-          <div class="generate-button">
-            <input form="main" type="submit" value="Generate">
-          </div>
+          <textarea name="input-string" placeholder="Input area" form="main" required></textarea>
+          <input class="submit-button" form="main" type="submit" value="Generate!">
         <h2 id="result">3. Result</h2>
-          <textarea placeholder="Result">$outputResult</textarea>
+          <textarea placeholder="Result"><?php echo $result_text; ?></textarea>
       </section>
     </main>
-    <footer>
-      <section class="timestamp">
-        <?php
-          $cre_date = '22nd January, 2021';
-          $mod_date = date( "jS F, Y", getlastmod() );
-          echo '<p>';
-          echo 'Created: ', $cre_date,' | Modified: ', $mod_date;
-          echo '</p>';
-        ?>
-      </section>
-      <section class="copyright">
-        <p>Copyright 2021 Keisukes4n</p>
-      </section>
-    </footer>
+    <?php include $pass_modules_page . '/_footer.php'; ?>
   </body>
 </html>

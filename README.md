@@ -1,5 +1,5 @@
 # Web tools - HC
-Version: 0.0.5dev
+Version: 0.0.6dev
 
 ## License
 CC BY 4.0  

@@ -12,8 +12,8 @@ header {
   position:   fixed;
   width:      100%;
 
-  > section {
-    box-sizing: border-box;
+  > section.primary {
+    box-sizing:      border-box;
     display:         flex;
     flex-flow:       row nowrap;
     height:          5.0rem;
@@ -35,15 +35,15 @@ header {
       flex-flow:       column;
       height:          5.0rem;
       justify-content: center;
-      width:           30%;
-
-      &:hover {
-        background: lightgray;
-      }
+      width:           25%;
 
       > img {
         height: 3.0rem;
         width:  3.0rem;
+
+        &:hover {
+          background: lightgray;
+        }
       }
 
       > span {
@@ -59,7 +59,7 @@ header {
       flex-flow:       column;
       height:          5.0rem;
       justify-content: center;
-      width:           30%;
+      width:           25%;
     }
   } // End: section
 }

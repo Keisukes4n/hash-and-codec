@@ -4,7 +4,7 @@
 main {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 5.0rem 4% 4.0rem 4%;
+  padding: 5.0rem 4% 5.0rem 4%;
 }
 
 @media screen and (min-aspect-ratio: 4 / 3) {
@@ -101,7 +101,7 @@ body a {
 
 /**
  * _footer.scss
- **/
+ */
 footer {
   background: #4f4f4f;
   -webkit-box-shadow: 0 0 2px gray;
@@ -125,7 +125,7 @@ footer > section.copyright {
 
 /**
  * _header.scss
- **/
+ */
 header {
   background: whitesmoke;
   -webkit-box-shadow: 0 1px 2px gray;
@@ -142,7 +142,7 @@ header {
   width: 100%;
 }
 
-header > section {
+header > section.primary {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
@@ -159,14 +159,14 @@ header > section {
   width: 100%;
 }
 
-header > section > .website-title {
+header > section.primary > .website-title {
   color: #4f4f4f;
   font-size: 1.6rem;
   font-weight: bold;
   margin: auto;
 }
 
-header > section > .operation-button-left {
+header > section.primary > .operation-button-left {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -183,23 +183,23 @@ header > section > .operation-button-left {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 30%;
+  width: 25%;
 }
 
-header > section > .operation-button-left:hover {
-  background: lightgray;
-}
-
-header > section > .operation-button-left > img {
+header > section.primary > .operation-button-left > img {
   height: 3.0rem;
   width: 3.0rem;
 }
 
-header > section > .operation-button-left > span {
+header > section.primary > .operation-button-left > img:hover {
+  background: lightgray;
+}
+
+header > section.primary > .operation-button-left > span {
   font-weight: bold;
 }
 
-header > section > .operation-button-right {
+header > section.primary > .operation-button-right {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -216,7 +216,7 @@ header > section > .operation-button-right {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 30%;
+  width: 25%;
 }
 
 /**
@@ -225,8 +225,8 @@ header > section > .operation-button-right {
 nav.menu {
   background: whitesmoke;
   border-right: gray solid thin;
-  -webkit-box-shadow: 0 2px 2px gray;
-          box-shadow: 0 2px 2px gray;
+  -webkit-box-shadow: 0 0 2px gray;
+          box-shadow: 0 0 2px gray;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
@@ -236,12 +236,12 @@ nav.menu {
   padding: 0 0.5rem 0 0.5rem;
   -webkit-transition: 400ms;
   transition: 400ms;
-  width: calc(30% - 1.0rem);
+  width: 40%;
 }
 
 @media screen and (min-aspect-ratio: 4 / 3) {
   nav.menu {
-    display: none;
+    width: 30%;
   }
 }
 
@@ -259,15 +259,6 @@ nav.menu > ul > .item {
   display: -ms-flexbox;
   display: flex;
   padding: 1.0rem 0.5rem 1.0rem 0.5rem;
-}
-
-@media screen and (min-aspect-ratio: 4 / 3) {
-  nav.menu > ul > .item {
-    background: whitesmoke;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    padding: 0.5rem;
-  }
 }
 
 nav.menu > ul > .item:hover {

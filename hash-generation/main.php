@@ -7,17 +7,20 @@
   
   if ( isset( $_POST['hash-algorithm'] ) ):
     $hash_algorithm = $_POST['hash-algorithm'];
-    $input_string   = htmlspecialchars( $_POST['input-string'], ENT_QUOTES, 'UTF-8' );
 
-    $hash_value  = hash( $hash_algorithm, $input_string, false );
-    $result_text = <<< "EOD"
-    * Hash value
-    $hash_value
-    * Input string
-    $input_string
-    * Hash algorithm
-    $hash_algorithm
-    EOD;
+    if ( isset( $_POST['input-string'] ) ):
+      $input_string   = htmlspecialchars( $_POST['input-string'], ENT_QUOTES, 'UTF-8' );
+
+      $hash_value  = hash( $hash_algorithm, $input_string, false );
+      $result_text = <<< "EOD"
+      * Hash value
+      $hash_value
+      * Input string
+      $input_string
+      * Hash algorithm
+      $hash_algorithm
+      EOD;
+    endif;
   endif;
 ?>
 
@@ -33,8 +36,7 @@
     <?php include $pass_modules_header . '/_header.php'; ?>
     <main>
       <h1><?php echo $page_title; ?></h1>
-
-      <section class="hash-generator">
+      <section class="hash-generation">
         <h2>1. Select hash algorithm</h2>
         <form class="select-algorithm" action="#result" method="POST" id="main">
           <label class="tile">
@@ -66,7 +68,7 @@
           </label>
         </form>
         <h2>2. Input text</h2>
-          <textarea name="input-string" placeholder="Input area" form="main" required></textarea>
+          <textarea name="input-string" placeholder="text" form="main" required></textarea>
           <input class="submit-button" form="main" type="submit" value="Generate!">
         <h2 id="result">3. Result</h2>
           <textarea placeholder="Result"><?php echo $result_text; ?></textarea>

@@ -282,14 +282,14 @@ nav.menu > ul > .menu-head {
 }
 
 /**
- * _section.hash-generator.scss
+ * _section.base64-codec.scss
  */
-section.hash-generator {
+section.base64-codec {
   margin: 0;
   padding: 0;
 }
 
-section.hash-generator > form.select-algorithm {
+section.base64-codec > form.convertion-process {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -297,11 +297,12 @@ section.hash-generator > form.select-algorithm {
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
-section.hash-generator > form.select-algorithm > label.tile {
+section.base64-codec > form.convertion-process > label.tile {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -310,24 +311,26 @@ section.hash-generator > form.select-algorithm > label.tile {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
   height: 3.0rem;
-  margin: 0.2rem 0 0.2rem 0;
-  width: 32%;
+  margin: 0.2rem;
 }
 
-section.hash-generator > form.select-algorithm > label.tile:hover {
+section.base64-codec > form.convertion-process > label.tile:hover {
   background: lightgray;
 }
 
-section.hash-generator > form.select-algorithm > label.tile > input {
+section.base64-codec > form.convertion-process > label.tile > input {
   margin: 0 0.5rem 0 0.5rem;
 }
 
-section.hash-generator > form.select-algorithm > label.tile > span {
+section.base64-codec > form.convertion-process > label.tile > span {
   font-weight: bold;
 }
 
-section.hash-generator > input.submit-button {
+section.base64-codec > input.submit-button {
   background: white;
   border: none;
   -webkit-box-shadow: 0 0 2px gray;
@@ -337,11 +340,79 @@ section.hash-generator > input.submit-button {
   padding: 1.0rem;
 }
 
-section.hash-generator > input.submit-button:hover {
+section.base64-codec > input.submit-button:hover {
   background: lightgray;
 }
 
-section.hash-generator > textarea {
+section.base64-codec > textarea {
+  height: 8.0rem;
+  width: 100%;
+}
+
+/**
+ * _section.hash-generation.scss
+ */
+section.hash-generation {
+  margin: 0;
+  padding: 0;
+}
+
+section.hash-generation > form.select-algorithm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+section.hash-generation > form.select-algorithm > label.tile {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 2px gray;
+          box-shadow: 0 0 2px gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
+  height: 3.0rem;
+  margin: 0.2rem;
+}
+
+section.hash-generation > form.select-algorithm > label.tile:hover {
+  background: lightgray;
+}
+
+section.hash-generation > form.select-algorithm > label.tile > input {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+section.hash-generation > form.select-algorithm > label.tile > span {
+  font-weight: bold;
+}
+
+section.hash-generation > input.submit-button {
+  background: white;
+  border: none;
+  -webkit-box-shadow: 0 0 2px gray;
+          box-shadow: 0 0 2px gray;
+  display: block;
+  margin: 1.0rem auto 1.0rem auto;
+  padding: 1.0rem;
+}
+
+section.hash-generation > input.submit-button:hover {
+  background: lightgray;
+}
+
+section.hash-generation > textarea {
   height: 8.0rem;
   width: 100%;
 }

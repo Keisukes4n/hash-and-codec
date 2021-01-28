@@ -1,5 +1,5 @@
-# Web tools - HC
-Version: 0.0.6dev
+# Web tools - String conversion
+Version: 0.0.7dev
 
 ## License
 CC BY 4.0  

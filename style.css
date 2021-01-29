@@ -282,14 +282,24 @@ nav.menu > ul > .menu-head {
 }
 
 /**
- * _section.base64-codec.scss
+ * _section.string-conversion.scss
  */
-section.base64-codec {
+section.string-conversion {
   margin: 0;
   padding: 0;
+  /**
+ * _div.hash-generation.scss
+ */
+  /**
+ * _div.base64-codec.scss
+ */
 }
 
-section.base64-codec > form.convertion-process {
+section.string-conversion div.hash-generation {
+  display: none;
+}
+
+section.string-conversion div.hash-generation > form.select-algorithm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -302,7 +312,7 @@ section.base64-codec > form.convertion-process {
           justify-content: space-evenly;
 }
 
-section.base64-codec > form.convertion-process > label.tile {
+section.string-conversion div.hash-generation > form.select-algorithm > label.tile {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -318,46 +328,23 @@ section.base64-codec > form.convertion-process > label.tile {
   margin: 0.2rem;
 }
 
-section.base64-codec > form.convertion-process > label.tile:hover {
+section.string-conversion div.hash-generation > form.select-algorithm > label.tile:hover {
   background: lightgray;
 }
 
-section.base64-codec > form.convertion-process > label.tile > input {
+section.string-conversion div.hash-generation > form.select-algorithm > label.tile > input {
   margin: 0 0.5rem 0 0.5rem;
 }
 
-section.base64-codec > form.convertion-process > label.tile > span {
+section.string-conversion div.hash-generation > form.select-algorithm > label.tile > span {
   font-weight: bold;
 }
 
-section.base64-codec > input.submit-button {
-  background: white;
-  border: none;
-  -webkit-box-shadow: 0 0 2px gray;
-          box-shadow: 0 0 2px gray;
+section.string-conversion div.base64-codec {
   display: block;
-  margin: 1.0rem auto 1.0rem auto;
-  padding: 1.0rem;
 }
 
-section.base64-codec > input.submit-button:hover {
-  background: lightgray;
-}
-
-section.base64-codec > textarea {
-  height: 8.0rem;
-  width: 100%;
-}
-
-/**
- * _section.hash-generation.scss
- */
-section.hash-generation {
-  margin: 0;
-  padding: 0;
-}
-
-section.hash-generation > form.select-algorithm {
+section.string-conversion div.base64-codec > form.convertion-process {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -370,7 +357,7 @@ section.hash-generation > form.select-algorithm {
           justify-content: space-evenly;
 }
 
-section.hash-generation > form.select-algorithm > label.tile {
+section.string-conversion div.base64-codec > form.convertion-process > label.tile {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -386,19 +373,19 @@ section.hash-generation > form.select-algorithm > label.tile {
   margin: 0.2rem;
 }
 
-section.hash-generation > form.select-algorithm > label.tile:hover {
+section.string-conversion div.base64-codec > form.convertion-process > label.tile:hover {
   background: lightgray;
 }
 
-section.hash-generation > form.select-algorithm > label.tile > input {
+section.string-conversion div.base64-codec > form.convertion-process > label.tile > input {
   margin: 0 0.5rem 0 0.5rem;
 }
 
-section.hash-generation > form.select-algorithm > label.tile > span {
+section.string-conversion div.base64-codec > form.convertion-process > label.tile > span {
   font-weight: bold;
 }
 
-section.hash-generation > input.submit-button {
+section.string-conversion input.submit-button {
   background: white;
   border: none;
   -webkit-box-shadow: 0 0 2px gray;
@@ -408,11 +395,11 @@ section.hash-generation > input.submit-button {
   padding: 1.0rem;
 }
 
-section.hash-generation > input.submit-button:hover {
+section.string-conversion input.submit-button:hover {
   background: lightgray;
 }
 
-section.hash-generation > textarea {
+section.string-conversion textarea {
   height: 8.0rem;
   width: 100%;
 }

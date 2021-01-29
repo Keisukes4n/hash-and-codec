@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/**
+ * _section.string-conversion.scss
+ */
+ section.string-conversion {
+  margin:  0;
+  padding: 0;
+
+  @import "./_div.hash-generation.scss";
+  @import "./_div.base64-codec";
+
+  input.submit-button {
+    background: white;
+    border:     none;
+    box-shadow: 0 0 2px gray;
+    display:    block;
+    margin:     1.0rem auto 1.0rem auto;
+    padding:    1.0rem;
+
+    &:hover {
+      background: lightgray;
+    }
+  }
+
+  textarea {
+    height: 8.0rem;
+    width:  100%;
+  }
+ }

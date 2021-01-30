@@ -287,105 +287,9 @@ nav.menu > ul > .menu-head {
 section.string-conversion {
   margin: 0;
   padding: 0;
-  /**
- * _div.hash-generation.scss
- */
-  /**
- * _div.base64-codec.scss
- */
 }
 
-section.string-conversion div.hash-generation {
-  display: none;
-}
-
-section.string-conversion div.hash-generation > form.select-algorithm {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-}
-
-section.string-conversion div.hash-generation > form.select-algorithm > label.tile {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-shadow: 0 0 2px gray;
-          box-shadow: 0 0 2px gray;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 30%;
-          flex: 1 1 30%;
-  height: 3.0rem;
-  margin: 0.2rem;
-}
-
-section.string-conversion div.hash-generation > form.select-algorithm > label.tile:hover {
-  background: lightgray;
-}
-
-section.string-conversion div.hash-generation > form.select-algorithm > label.tile > input {
-  margin: 0 0.5rem 0 0.5rem;
-}
-
-section.string-conversion div.hash-generation > form.select-algorithm > label.tile > span {
-  font-weight: bold;
-}
-
-section.string-conversion div.base64-codec {
-  display: block;
-}
-
-section.string-conversion div.base64-codec > form.convertion-process {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-}
-
-section.string-conversion div.base64-codec > form.convertion-process > label.tile {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-shadow: 0 0 2px gray;
-          box-shadow: 0 0 2px gray;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 30%;
-          flex: 1 1 30%;
-  height: 3.0rem;
-  margin: 0.2rem;
-}
-
-section.string-conversion div.base64-codec > form.convertion-process > label.tile:hover {
-  background: lightgray;
-}
-
-section.string-conversion div.base64-codec > form.convertion-process > label.tile > input {
-  margin: 0 0.5rem 0 0.5rem;
-}
-
-section.string-conversion div.base64-codec > form.convertion-process > label.tile > span {
-  font-weight: bold;
-}
-
-section.string-conversion input.submit-button {
+section.string-conversion button.submit {
   background: white;
   border: none;
   -webkit-box-shadow: 0 0 2px gray;
@@ -395,11 +299,108 @@ section.string-conversion input.submit-button {
   padding: 1.0rem;
 }
 
-section.string-conversion input.submit-button:hover {
+section.string-conversion button.submit:hover {
   background: lightgray;
 }
 
 section.string-conversion textarea {
   height: 8.0rem;
   width: 100%;
+}
+
+/**
+ * _form.hash-generation.scss
+ */
+form.hash-generation {
+  margin: 0;
+  padding: 0;
+}
+
+form.hash-generation > div.algorithm-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+form.hash-generation > div.algorithm-list > label.tile {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 2px gray;
+          box-shadow: 0 0 2px gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
+  height: 3.0rem;
+  margin: 0.2rem;
+}
+
+form.hash-generation > div.algorithm-list > label.tile:hover {
+  background: lightgray;
+}
+
+form.hash-generation > div.algorithm-list > label.tile > input {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+form.hash-generation > div.algorithm-list > label.tile > span {
+  font-weight: bold;
+}
+
+/**
+ * _form.base64-codec.scss
+ */
+form.base64-codec {
+  display: block;
+}
+
+form.base64-codec > div.conversion-process {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+form.base64-codec > div.conversion-process > label.tile {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 2px gray;
+          box-shadow: 0 0 2px gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
+  height: 3.0rem;
+  margin: 0.2rem;
+}
+
+form.base64-codec > div.conversion-process > label.tile:hover {
+  background: lightgray;
+}
+
+form.base64-codec > div.conversion-process > label.tile > input {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+form.base64-codec > div.conversion-process > label.tile > span {
+  font-weight: bold;
 }

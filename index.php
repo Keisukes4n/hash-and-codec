@@ -3,10 +3,9 @@
    * 
    * 
    */
-  $page_title          = 'Web tools - String conversion';
-  $pass_front          = $_SERVER['DOCUMENT_ROOT'] . '/web-tools-string-conversion';
-  $pass_modules_header = $pass_front . '/modules/header';
-  $pass_modules_footer = $pass_front . '/modules/footer';
+  $page_title = 'String conversion';
+  $page_dir   = '/string-conversion';
+  $pass_front = $_SERVER['DOCUMENT_ROOT'] . $page_dir;
 ?>
 
 <!DOCTYPE html>
@@ -14,26 +13,34 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/web-tools-string-conversion/style.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $page_dir; ?>/style.css" rel="stylesheet" type="text/css">
     <title><?php echo $page_title; ?></title>
   </head>
   <body>
-    <?php include $pass_modules_header . '/_header.php'; ?>
+    <?php include $pass_front . '/modules/header/_header.php'; ?>
+
     <main>
       <h1><?php echo $page_title; ?></h1>
-      <div id="divToolsHash">Hash</div>
-      <div id="divToolsBase64">BASE64</div>
       <section class="string-conversion">
-        <div class="hash-generation" id="divHashGeneration">
-          <?php include './hash-generation/main.php'; ?>
-        </div>
-        <div class="base64-codec" id="divBase64Codec">
-          <?php include './base64-codec/main.php'; ?>
-        </div>
+        <ul>
+          <li>
+            <div id="divCTH">change to Hash</div>
+          </li>
+          <li>
+            <div id="divCTB">change to BASE64</div>
+          </li>
+        </ul>
+        <?php
+          $result_text = NULL;
+          include_once $pass_front . '/functions/hash.php';
+          include_once $pass_front . '/functions/base64.php';
+
+          include_once $pass_front . '/functions/common/textarea.php';
+        ?>
       </section>
     </main>
-    <?php include $pass_modules_footer . '/_footer.php'; ?>
 
-    <script src="/web-tools-string-conversion/modules/javascript/_main.js"></script>
+    <?php include $pass_front . '/modules/footer/_footer.php'; ?>
+    <script src="<?php echo $page_dir; ?>/modules/javascript/_main.js"></script>
   </body>
 </html>

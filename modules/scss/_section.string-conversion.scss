@@ -3,14 +3,11 @@
 /**
  * _section.string-conversion.scss
  */
- section.string-conversion {
+section.string-conversion {
   margin:  0;
   padding: 0;
 
-  @import "./_div.hash-generation.scss";
-  @import "./_div.base64-codec";
-
-  input.submit-button {
+  button.submit {
     background: white;
     border:     none;
     box-shadow: 0 0 2px gray;
@@ -27,4 +24,4 @@
     height: 8.0rem;
     width:  100%;
   }
- }
+}

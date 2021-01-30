@@ -4,7 +4,8 @@
    * 
    */
 
-  $pass_modules = '/web-tools-string-conversion/modules';
+  $page_dir     = '/string-conversion';
+  $pass_modules = $page_dir . '/modules';
 ?>
 
 <header>

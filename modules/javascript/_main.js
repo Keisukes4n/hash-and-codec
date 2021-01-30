@@ -2,18 +2,18 @@
  * _main.js
  */
 
-const elementDivHashGeneration = document.getElementById( 'divHashGeneration' );
-const elementDivBase64Codec    = document.getElementById( 'divBase64Codec' );
+const elementFormHashGeneration = document.getElementById( 'formHashGeneration' );
+const elementFormBase64Codec    = document.getElementById( 'formBase64Codec' );
 
-const elementDivToolsHash = document.getElementById( 'divToolsHash' );
-const elementDivToolsBase64 = document.getElementById( 'divToolsBase64' );
+const elementDivCTH = document.getElementById( 'divCTH' );
+const elementDivCTB = document.getElementById( 'divCTB' );
 
-elementDivToolsHash.addEventListener( 'click', () => {
-  elementDivBase64Codec.style.display = 'none';
-  elementDivHashGeneration.style.display = 'block';
+elementDivCTH.addEventListener( 'click', () => {
+  elementFormBase64Codec.style.display = 'none';
+  elementFormHashGeneration.style.display = 'block';
 }, false );
 
-elementDivToolsBase64.addEventListener( 'click', () => {
-  elementDivBase64Codec.style.display = 'block';
-  elementDivHashGeneration.style.display = 'none';
+elementDivCTB.addEventListener( 'click', () => {
+  elementFormBase64Codec.style.display = 'block';
+  elementFormHashGeneration.style.display = 'none';
 }, false );

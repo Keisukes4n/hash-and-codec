@@ -312,6 +312,7 @@ section.string-conversion textarea {
  * _form.hash-generation.scss
  */
 form.hash-generation {
+  display: block;
   margin: 0;
   padding: 0;
 }
@@ -361,10 +362,12 @@ form.hash-generation > div.algorithm-list > label.tile > span {
  * _form.base64-codec.scss
  */
 form.base64-codec {
-  display: block;
+  display: none;
+  margin: 0;
+  padding: 0;
 }
 
-form.base64-codec > div.conversion-process {
+form.base64-codec > div.coding-process {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -377,7 +380,7 @@ form.base64-codec > div.conversion-process {
           justify-content: space-evenly;
 }
 
-form.base64-codec > div.conversion-process > label.tile {
+form.base64-codec > div.coding-process > label.tile {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -393,14 +396,14 @@ form.base64-codec > div.conversion-process > label.tile {
   margin: 0.2rem;
 }
 
-form.base64-codec > div.conversion-process > label.tile:hover {
+form.base64-codec > div.coding-process > label.tile:hover {
   background: lightgray;
 }
 
-form.base64-codec > div.conversion-process > label.tile > input {
+form.base64-codec > div.coding-process > label.tile > input {
   margin: 0 0.5rem 0 0.5rem;
 }
 
-form.base64-codec > div.conversion-process > label.tile > span {
+form.base64-codec > div.coding-process > label.tile > span {
   font-weight: bold;
 }

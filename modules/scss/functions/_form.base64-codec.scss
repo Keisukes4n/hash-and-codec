@@ -4,9 +4,11 @@
  * _form.base64-codec.scss
  */
 form.base64-codec {
-  display: block;
+  display: none;
+  margin:  0;
+  padding: 0;
 
-  > div.conversion-process {
+  > div.coding-process {
     display:         flex;
     flex-flow:       row wrap;
     justify-content: space-evenly;

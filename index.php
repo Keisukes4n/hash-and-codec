@@ -17,30 +17,63 @@
     <title><?php echo $page_title; ?></title>
   </head>
   <body>
-    <?php include $pass_front . '/modules/header/_header.php'; ?>
-
+    <?php include_once $pass_front . '/modules/header/_header.php'; ?>
     <main>
       <h1><?php echo $page_title; ?></h1>
       <section class="string-conversion">
         <ul>
           <li>
-            <div id="divCTH">change to Hash</div>
+            <div id="divDisplayHash">change to Hash</div>
           </li>
           <li>
-            <div id="divCTB">change to BASE64</div>
+            <div id="divDisplayBase64">change to BASE64</div>
           </li>
         </ul>
+
         <?php
           $result_text = NULL;
           include_once $pass_front . '/functions/hash.php';
           include_once $pass_front . '/functions/base64.php';
-
-          include_once $pass_front . '/functions/common/textarea.php';
         ?>
+
+        <h2>Result</h2>
+        <textarea id="textareaResult" placeholder="Result"><?php echo $result_text; ?></textarea>
       </section>
     </main>
+    <?php include_once $pass_front . '/modules/footer/_footer.php'; ?>
 
-    <?php include $pass_front . '/modules/footer/_footer.php'; ?>
-    <script src="<?php echo $page_dir; ?>/modules/javascript/_main.js"></script>
+    <script>
+      const elementFormBase64Codec    = document.getElementById( 'formBase64Codec' );
+      const elementFormHashGeneration = document.getElementById( 'formHashGeneration' );
+      const elementDivDisplayBase64   = document.getElementById( 'divDisplayBase64' );
+      const elementDivDisplayHash     = document.getElementById( 'divDisplayHash' );
+
+      elementDivDisplayBase64.addEventListener( 'click', () => {
+        elementFormBase64Codec.style.display    = 'block';
+        elementFormHashGeneration.style.display = 'none';
+      }, false );
+
+      elementDivDisplayHash.addEventListener( 'click', () => {
+        elementFormBase64Codec.style.display    = 'none';
+        elementFormHashGeneration.style.display = 'block';
+      }, false );
+
+      <?php if ( isset( $_POST['conversion-method'] ) ): ?>
+        const elementTextareaResult        = document.getElementById( 'textareaResult' );
+        elementTextareaResult.style.border = 'green solid medium';
+        
+        const conversionMethod = '<?php echo $_POST['conversion-method']; ?>';
+        switch ( conversionMethod ) {
+          case 'base64':
+            elementFormBase64Codec.style.display    = 'block';
+            elementFormHashGeneration.style.display = 'none';
+            break;
+          default:
+            elementFormBase64Codec.style.display    = 'none';
+            elementFormHashGeneration.style.display = 'block';
+            break;
+        }
+      <?php endif; ?>
+    </script>
   </body>
 </html>

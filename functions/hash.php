@@ -7,10 +7,9 @@
     $hash_algorithm = $_POST['hash-algorithm'];
 
     if ( isset( $_POST['input-string'] ) ):
-      $input_string   = htmlspecialchars( $_POST['input-string'], ENT_QUOTES, 'UTF-8' );
-
-      $hash_value       = hash( $hash_algorithm, $input_string, false );
-      $result_text = <<< "EOD"
+      $input_string = htmlspecialchars( $_POST['input-string'], ENT_QUOTES, 'UTF-8' );
+      $hash_value   = hash( $hash_algorithm, $input_string, false );
+      $result_text  = <<< "EOD"
       * Hash value
       $hash_value
       * Input string
@@ -22,8 +21,8 @@
   endif;
 ?>
 
-<form action="#result" class="hash-generation" id="formHashGeneration" method="POST">
-  <span>Hash</span>
+<form action="" class="hash-generation" id="formHashGeneration" method="POST">
+  <input type="hidden" name="conversion-method" value="hash">
   <h2>1. Select hash algorithm</h2>
   <div class="algorithm-list">
     <label class="tile">

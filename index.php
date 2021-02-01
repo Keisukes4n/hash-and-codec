@@ -3,9 +3,9 @@
    * 
    * 
    */
-  $page_title = 'String conversion';
-  $page_dir   = '/string-conversion';
-  $pass_front = $_SERVER['DOCUMENT_ROOT'] . $page_dir;
+  $page_title       = 'String conversion';
+  $page_dir         = '/string-conversion';
+  $pass_front       = $_SERVER['DOCUMENT_ROOT'] . $page_dir;
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
           include_once $pass_front . '/functions/base64.php';
         ?>
 
-        <h2>Result</h2>
+        <h2>3. Result</h2>
         <textarea id="textareaResult" placeholder="Result"><?php echo $result_text; ?></textarea>
       </section>
     </main>
@@ -60,7 +60,7 @@
 
       <?php if ( isset( $_POST['conversion-method'] ) ): ?>
         const elementTextareaResult        = document.getElementById( 'textareaResult' );
-        elementTextareaResult.style.border = 'green solid medium';
+        elementTextareaResult.style.border = 'green solid thin';
         
         const conversionMethod = '<?php echo $_POST['conversion-method']; ?>';
         switch ( conversionMethod ) {
@@ -68,9 +68,13 @@
             elementFormBase64Codec.style.display    = 'block';
             elementFormHashGeneration.style.display = 'none';
             break;
-          default:
+          case 'hash':
             elementFormBase64Codec.style.display    = 'none';
             elementFormHashGeneration.style.display = 'block';
+            break;
+          default:
+            elementFormBase64Codec.style.height    = 'none';
+            elementFormHashGeneration.style.height = 'block';
             break;
         }
       <?php endif; ?>

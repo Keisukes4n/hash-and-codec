@@ -33,7 +33,6 @@
 
 <form action="" class="base64-codec" id="formBase64Codec" method="POST">
   <input type="hidden" name="conversion-method" value="base64">
-  <span>BASE64</span>
   <h2>1. Select "Encode" or "Decode"</h2>
   <div class="coding-process">
     <label class="tile">

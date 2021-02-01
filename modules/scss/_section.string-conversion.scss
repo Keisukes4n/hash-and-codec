@@ -13,7 +13,7 @@ section.string-conversion {
     box-shadow: 0 0 2px gray;
     display:    block;
     margin:     1.0rem auto 1.0rem auto;
-    padding:    1.0rem;
+    padding:    1.0rem 2.0rem 1.0rem 2.0rem;
 
     &:hover {
       background: lightgray;
@@ -21,7 +21,8 @@ section.string-conversion {
   }
 
   textarea {
-    height: 8.0rem;
-    width:  100%;
+    box-sizing: border-box;
+    height:     8.0rem;
+    width:      100%;
   }
 }

@@ -128,8 +128,8 @@ footer > section.copyright {
  */
 header {
   background: whitesmoke;
-  -webkit-box-shadow: 0 1px 2px gray;
-          box-shadow: 0 1px 2px gray;
+  -webkit-box-shadow: 0 0 2px gray;
+          box-shadow: 0 0 2px gray;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -296,7 +296,7 @@ section.string-conversion button.submit {
           box-shadow: 0 0 2px gray;
   display: block;
   margin: 1.0rem auto 1.0rem auto;
-  padding: 1.0rem;
+  padding: 1.0rem 2.0rem 1.0rem 2.0rem;
 }
 
 section.string-conversion button.submit:hover {
@@ -304,6 +304,8 @@ section.string-conversion button.submit:hover {
 }
 
 section.string-conversion textarea {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   height: 8.0rem;
   width: 100%;
 }
@@ -313,8 +315,6 @@ section.string-conversion textarea {
  */
 form.hash-generation {
   display: block;
-  margin: 0;
-  padding: 0;
 }
 
 form.hash-generation > div.algorithm-list {
@@ -336,6 +336,8 @@ form.hash-generation > div.algorithm-list > label.tile {
           align-items: center;
   -webkit-box-shadow: 0 0 2px gray;
           box-shadow: 0 0 2px gray;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -363,8 +365,6 @@ form.hash-generation > div.algorithm-list > label.tile > span {
  */
 form.base64-codec {
   display: none;
-  margin: 0;
-  padding: 0;
 }
 
 form.base64-codec > div.coding-process {
@@ -386,6 +386,8 @@ form.base64-codec > div.coding-process > label.tile {
           align-items: center;
   -webkit-box-shadow: 0 0 2px gray;
           box-shadow: 0 0 2px gray;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

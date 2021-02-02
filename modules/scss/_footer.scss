@@ -4,11 +4,11 @@
  * _footer.scss
  */
 footer {
-  background: #4f4f4f;
-  box-shadow: 0 0 2px gray;
-  color:      white;
+  background: rgb(63, 63, 63);
+  box-shadow: 0 0 2px rgb(132, 145, 158);
+  color:      rgb(255, 255, 255);
   padding:    1.0rem;
-  flex:       1 0 auto;
+  flex:       1 1 auto;
 
   > section.timestamp {
     font-size:  small;

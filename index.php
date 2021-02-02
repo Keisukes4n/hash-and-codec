@@ -3,9 +3,9 @@
    * 
    * 
    */
-  $page_title       = 'String conversion';
-  $page_dir         = '/string-conversion';
-  $pass_front       = $_SERVER['DOCUMENT_ROOT'] . $page_dir;
+  $page_title = 'String conversion';
+  $page_dir   = '/string-conversion';
+  $pass_front = $_SERVER['DOCUMENT_ROOT'] . $page_dir;
 ?>
 
 <!DOCTYPE html>
@@ -21,15 +21,11 @@
     <main>
       <h1><?php echo $page_title; ?></h1>
       <section class="string-conversion">
-        <ul>
-          <li>
-            <div id="divDisplayHash">change to Hash</div>
-          </li>
-          <li>
-            <div id="divDisplayBase64">change to BASE64</div>
-          </li>
-        </ul>
+        <select name="method-list" id="selectMethodList">
+          <option value="hash">Hash</option>
+          <option value="base64">Base64</option>
 
+        </select>
         <?php
           $result_text = NULL;
           include_once $pass_front . '/functions/hash.php';
@@ -45,17 +41,19 @@
     <script>
       const elementFormBase64Codec    = document.getElementById( 'formBase64Codec' );
       const elementFormHashGeneration = document.getElementById( 'formHashGeneration' );
-      const elementDivDisplayBase64   = document.getElementById( 'divDisplayBase64' );
-      const elementDivDisplayHash     = document.getElementById( 'divDisplayHash' );
+      const elementSelectMethodList   = document.getElementById( 'selectMethodList' );
 
-      elementDivDisplayBase64.addEventListener( 'click', () => {
-        elementFormBase64Codec.style.display    = 'block';
-        elementFormHashGeneration.style.display = 'none';
-      }, false );
-
-      elementDivDisplayHash.addEventListener( 'click', () => {
-        elementFormBase64Codec.style.display    = 'none';
-        elementFormHashGeneration.style.display = 'block';
+      elementSelectMethodList.addEventListener( 'input', ( input ) => {
+        switch ( input.target.value ) {
+          case 'base64':
+            elementFormBase64Codec.style.display    = 'block';
+            elementFormHashGeneration.style.display = 'none';
+            break;
+          case 'hash':
+            elementFormBase64Codec.style.display    = 'none';
+            elementFormHashGeneration.style.display = 'block';
+            break;
+        }
       }, false );
 
       <?php if ( isset( $_POST['conversion-method'] ) ): ?>

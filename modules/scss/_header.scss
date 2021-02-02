@@ -5,7 +5,7 @@
  */
 header {
   background: whitesmoke;
-  box-shadow: 0 0 2px gray;
+  box-shadow: 0 0 2px rgb(132, 145, 158);
   display:    flex;
   flex-flow:  row wrap;
   height:     5.0rem;
@@ -21,7 +21,7 @@ header {
     width:           100%;
 
     > .website-title {
-      color:       #4f4f4f;
+      color:       rgb(63, 63, 63);
       font-size:   1.6rem;
       font-weight: bold;
       margin:      auto;
@@ -29,8 +29,9 @@ header {
 
     > .operation-button-left {
       align-items:     center;
-      border-right:    gray solid thin;
-      color:           #4f4f4f;
+      border-right:    rgb(132, 145, 158) solid thin;
+      box-sizing:      border-box;
+      color:           rgb(63, 63, 63);
       display:         flex;
       flex-flow:       column;
       height:          5.0rem;
@@ -42,7 +43,7 @@ header {
         width:  3.0rem;
 
         &:hover {
-          background: lightgray;
+          background: rgb(239, 239, 239);
         }
       }
 
@@ -53,8 +54,9 @@ header {
 
     > .operation-button-right {
       align-items:     center;
-      border-left:     gray solid thin;
-      color:           #4f4f4f;
+      border-left:     rgb(132, 145, 158) solid thin;
+      box-sizing:      border-box;
+      color:           rgb(63, 63, 63);
       display:         flex;
       flex-flow:       column;
       height:          5.0rem;

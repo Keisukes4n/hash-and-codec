@@ -1,4 +1,152 @@
 /**
+ * _body.scss
+ */
+body {
+  background: white;
+  color: #1f1f1f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 100vh;
+  margin: 0;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+body a {
+  text-decoration: none;
+}
+
+/**
+ * _footer.scss
+ */
+footer {
+  background: #3f3f3f;
+  -webkit-box-shadow: 0 0 2px #84919e;
+          box-shadow: 0 0 2px #84919e;
+  color: white;
+  padding: 1.0rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+footer > section.timestamp {
+  font-size: small;
+  text-align: center;
+}
+
+footer > section.copyright {
+  font-size: small;
+  text-align: center;
+}
+
+/**
+ * _header.scss
+ */
+header {
+  background: whitesmoke;
+  -webkit-box-shadow: 0 0 2px #84919e;
+          box-shadow: 0 0 2px #84919e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  height: 5.0rem;
+  position: fixed;
+  width: 100%;
+}
+
+header > section.primary {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  height: 5.0rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+header > section.primary > .website-title {
+  color: #3f3f3f;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: auto;
+}
+
+header > section.primary > .operation-button-left {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-right: #84919e solid thin;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #3f3f3f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 5.0rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 25%;
+}
+
+header > section.primary > .operation-button-left > img {
+  height: 3.0rem;
+  width: 3.0rem;
+}
+
+header > section.primary > .operation-button-left > img:hover {
+  background: #efefef;
+}
+
+header > section.primary > .operation-button-left > span {
+  font-weight: bold;
+}
+
+header > section.primary > .operation-button-right {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-left: #84919e solid thin;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #3f3f3f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 5.0rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 25%;
+}
+
+/**
  * _main.scss
  */
 main {
@@ -21,7 +169,7 @@ main h1 {
 }
 
 main h2 {
-  border-bottom: lightgray solid thin;
+  border-bottom: #cfcfcf solid thin;
   font-size: 1.6rem;
   margin: 1.0rem 0 0.5rem 0.5rem;
   padding: 0 0 0.2rem 0rem;
@@ -57,176 +205,14 @@ main pre {
   padding: 0.5rem;
 }
 
-main > .breadcrumbs {
-  color: gray;
-  font-size: small;
-  padding: 1.0rem;
-}
-
-main > .copyright {
-  color: grey;
-  font-size: small;
-  text-align: center;
-}
-
-main > .time-stamp {
-  color: grey;
-  font-size: small;
-  text-align: center;
-}
-
-/**
- * _body.scss
- */
-body {
-  background: white;
-  color: #2f2f2f;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  height: 100vh;
-  margin: 0;
-  overflow-wrap: break-word;
-  overflow-x: hidden;
-  padding: 0;
-}
-
-body a {
-  text-decoration: none;
-}
-
-/**
- * _footer.scss
- */
-footer {
-  background: #4f4f4f;
-  -webkit-box-shadow: 0 0 2px gray;
-          box-shadow: 0 0 2px gray;
-  color: white;
-  padding: 1.0rem;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
-}
-
-footer > section.timestamp {
-  font-size: small;
-  text-align: center;
-}
-
-footer > section.copyright {
-  font-size: small;
-  text-align: center;
-}
-
-/**
- * _header.scss
- */
-header {
-  background: whitesmoke;
-  -webkit-box-shadow: 0 0 2px gray;
-          box-shadow: 0 0 2px gray;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  height: 5.0rem;
-  position: fixed;
-  width: 100%;
-}
-
-header > section.primary {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  height: 5.0rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-}
-
-header > section.primary > .website-title {
-  color: #4f4f4f;
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin: auto;
-}
-
-header > section.primary > .operation-button-left {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-right: gray solid thin;
-  color: #4f4f4f;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  height: 5.0rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 25%;
-}
-
-header > section.primary > .operation-button-left > img {
-  height: 3.0rem;
-  width: 3.0rem;
-}
-
-header > section.primary > .operation-button-left > img:hover {
-  background: lightgray;
-}
-
-header > section.primary > .operation-button-left > span {
-  font-weight: bold;
-}
-
-header > section.primary > .operation-button-right {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-left: gray solid thin;
-  color: #4f4f4f;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  height: 5.0rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 25%;
-}
-
 /**
  * _nav.menu.scss
  */
 nav.menu {
   background: whitesmoke;
   border-right: gray solid thin;
-  -webkit-box-shadow: 0 0 2px gray;
-          box-shadow: 0 0 2px gray;
+  -webkit-box-shadow: 0 0 2px #84919e;
+          box-shadow: 0 0 2px #84919e;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
@@ -262,7 +248,7 @@ nav.menu > ul > .item {
 }
 
 nav.menu > ul > .item:hover {
-  background: lightgray;
+  background: #efefef;
 }
 
 nav.menu > ul > .item > img {
@@ -292,15 +278,19 @@ section.string-conversion {
 section.string-conversion button.submit {
   background: white;
   border: none;
-  -webkit-box-shadow: 0 0 2px gray;
-          box-shadow: 0 0 2px gray;
+  -webkit-box-shadow: 0 0 2px #84919e;
+          box-shadow: 0 0 2px #84919e;
   display: block;
   margin: 1.0rem auto 1.0rem auto;
   padding: 1.0rem 2.0rem 1.0rem 2.0rem;
 }
 
 section.string-conversion button.submit:hover {
-  background: lightgray;
+  background: #efefef;
+}
+
+section.string-conversion select {
+  width: 5.0rem;
 }
 
 section.string-conversion textarea {
@@ -318,6 +308,8 @@ form.hash-generation {
 }
 
 form.hash-generation > div.algorithm-list {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -334,22 +326,22 @@ form.hash-generation > div.algorithm-list > label.tile {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 0 0 2px gray;
-          box-shadow: 0 0 2px gray;
+  -webkit-box-shadow: 0 0 2px #84919e;
+          box-shadow: 0 0 2px #84919e;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 30%;
-          flex: 1 1 30%;
+      -ms-flex: 1 1 calc(33% - 0.4rem);
+          flex: 1 1 calc(33% - 0.4rem);
   height: 3.0rem;
   margin: 0.2rem;
 }
 
 form.hash-generation > div.algorithm-list > label.tile:hover {
-  background: lightgray;
+  background: #e0e0e0;
 }
 
 form.hash-generation > div.algorithm-list > label.tile > input {
@@ -368,6 +360,8 @@ form.base64-codec {
 }
 
 form.base64-codec > div.coding-process {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -384,22 +378,22 @@ form.base64-codec > div.coding-process > label.tile {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 0 0 2px gray;
-          box-shadow: 0 0 2px gray;
+  -webkit-box-shadow: 0 0 2px #84919e;
+          box-shadow: 0 0 2px #84919e;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 30%;
-          flex: 1 1 30%;
+      -ms-flex: 1 1 calc(50% - 0.4rem);
+          flex: 1 1 calc(50% - 0.4rem);
   height: 3.0rem;
   margin: 0.2rem;
 }
 
 form.base64-codec > div.coding-process > label.tile:hover {
-  background: lightgray;
+  background: #efefef;
 }
 
 form.base64-codec > div.coding-process > label.tile > input {

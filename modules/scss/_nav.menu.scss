@@ -5,8 +5,8 @@
  */
 nav.menu {
   background:   whitesmoke;
-  border-right: gray solid thin;
-  box-shadow:   0 0 2px gray;
+  border-right: rgb(132, 145, 158) solid thin;
+  box-shadow:   0 0 2px rgb(132, 145, 158);
   flex-flow:    column wrap;
   max-height:   0;
   overflow-y:   scroll;
@@ -23,14 +23,14 @@ nav.menu {
     padding:         0;
 
     > .item {
-      background:      white;
-      box-shadow:      0 0 2px #2f2f2f;
-      color:           #2f2f2f;
-      display:         flex;
-      padding:         1.0rem 0.5rem 1.0rem 0.5rem;
+      background: rgb(255, 255, 255);
+      box-shadow: 0 0 2px #2f2f2f;
+      color:      #2f2f2f;
+      display:    flex;
+      padding:    1.0rem 0.5rem 1.0rem 0.5rem;
 
       &:hover {
-        background: lightgray;
+        background: rgb(239, 239, 239);
       }
 
       > img {

@@ -4,24 +4,25 @@
  * _form.base64-codec.scss
  */
 form.base64-codec {
-  display: none;
+  display:    none;
 
   > div.coding-process {
+    box-sizing:      border-box;
     display:         flex;
     flex-flow:       row wrap;
     justify-content: space-evenly;
 
     > label.tile {
       align-items: center;
-      box-shadow:  0 0 2px gray;
+      box-shadow:  0 0 2px  rgb(132, 145, 158);
       box-sizing:  border-box;
       display:     flex;
-      flex:        1 1 30%;
+      flex:        1 1 calc(50% - 0.4rem);
       height:      3.0rem;
       margin:      0.2rem;
 
       &:hover {
-        background: lightgray;
+        background: rgb(239, 239, 239);
       }
 
       > input {

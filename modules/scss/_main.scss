@@ -19,7 +19,7 @@ main {
   }
 
   h2 {
-    border-bottom: lightgray solid thin;
+    border-bottom: rgb(207, 207, 207) solid thin;
     font-size:     1.6rem;
     margin:        1.0rem 0 0.5rem 0.5rem;
     padding:       0 0 0.2rem 0rem;
@@ -52,23 +52,5 @@ main {
     box-sizing:  border-box;
     color:       whitesmoke;
     padding:     0.5rem;
-  }
-
-  > .breadcrumbs {
-    color:     gray;
-    font-size: small;
-    padding:   1.0rem;
-  }
-
-  > .copyright {
-    color:      grey;
-    font-size:  small;
-    text-align: center;
-  }
-
-  > .time-stamp {
-    color:      grey;
-    font-size:  small;
-    text-align: center;
   }
 }

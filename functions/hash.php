@@ -23,37 +23,41 @@
 
 <form action="" class="hash-generation" id="formHashGeneration" method="POST">
   <input type="hidden" name="conversion-method" value="hash">
-  <h2>1. Select hash algorithm</h2>
-  <div class="algorithm-list">
-    <label class="tile">
-      <input type="radio" name="hash-algorithm" value="sha256" required><span>sha256</span>
-    </label>
-    <label class="tile">
-      <input type="radio" name="hash-algorithm" value="sha384"><span>sha384</span>
-    </label>
-    <label class="tile">
-      <input type="radio" name="hash-algorithm" value="sha512"><span>sha512</span>
-    </label>
-    <label class="tile">
-      <input type="radio" name="hash-algorithm" value="sha3-256"><span>sha3-256</span>
-    </label>
-    <label class="tile">
-      <input type="radio" name="hash-algorithm" value="sha3-384"><span>sha3-384</span>
-    </label>
-    <label class="tile">
-      <input type="radio" name="hash-algorithm" value="sha3-512"><span>sha3-512</span>
-    </label>
-    <label class="tile">
-      <input type="radio" name="hash-algorithm" value="ripemd160"><span>RIPEMD160</span>
-    </label>
-    <label class="tile">
-      <input type="radio" name="hash-algorithm" value="whirlpool"><span>Whirlpool</span>
-    </label>
-    <label class="tile">
-      <input type="radio" name="hash-algorithm" value="md5"><span>md5</span>
-    </label>
-  </div>
-  <h2>2. Input text</h2>
-  <textarea name="input-string" placeholder="text" required></textarea>
-  <button class="submit" type="submit">Click!</button>
+  <section class="tile">
+    <h2>1. Select hash algorithm</h2>
+    <div class="algorithm-list">
+      <label class="tile">
+        <input type="radio" name="hash-algorithm" value="sha256" required><span>sha256</span>
+      </label>
+      <label class="tile">
+        <input type="radio" name="hash-algorithm" value="sha384"><span>sha384</span>
+      </label>
+      <label class="tile">
+        <input type="radio" name="hash-algorithm" value="sha512"><span>sha512</span>
+      </label>
+      <label class="tile">
+        <input type="radio" name="hash-algorithm" value="sha3-256"><span>sha3-256</span>
+      </label>
+      <label class="tile">
+        <input type="radio" name="hash-algorithm" value="sha3-384"><span>sha3-384</span>
+      </label>
+      <label class="tile">
+        <input type="radio" name="hash-algorithm" value="sha3-512"><span>sha3-512</span>
+      </label>
+      <label class="tile">
+        <input type="radio" name="hash-algorithm" value="ripemd160"><span>RIPEMD160</span>
+      </label>
+      <label class="tile">
+        <input type="radio" name="hash-algorithm" value="whirlpool"><span>Whirlpool</span>
+        </label>
+      <label class="tile">
+        <input type="radio" name="hash-algorithm" value="md5"><span>md5</span>
+        </label>
+    </div>
+  </section>
+  <section class="tile">
+    <h2>2. Input text</h2>
+    <textarea name="input-string" placeholder="text" required></textarea>
+    <button class="submit" type="submit">Click!</button>
+  </section>
 </form>

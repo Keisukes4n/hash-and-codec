@@ -5,8 +5,8 @@
  */
 nav.menu {
   background:   whitesmoke;
-  border-right: rgb(132, 145, 158) solid thin;
-  box-shadow:   0 0 2px rgb(132, 145, 158);
+  border-right: rgb(95, 95, 95) solid thin;
+  box-shadow:   0 0 2px rgb(95, 95, 95);
   flex-flow:    column wrap;
   max-height:   0;
   overflow-y:   scroll;
@@ -45,7 +45,7 @@ nav.menu {
     } // End: .item {}
 
     > .menu-head {
-      display: block;
+      display:     block;
       font-weight: bold;
       padding:     0.5rem 0 0.5rem 1.0rem;
     }

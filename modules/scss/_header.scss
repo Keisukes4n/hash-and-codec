@@ -5,7 +5,7 @@
  */
 header {
   background: whitesmoke;
-  box-shadow: 0 0 2px rgb(132, 145, 158);
+  box-shadow: 0 0 2px rgb(95, 95, 95);
   display:    flex;
   flex-flow:  row wrap;
   height:     5.0rem;
@@ -43,7 +43,7 @@ header {
         width:  3.0rem;
 
         &:hover {
-          background: rgb(239, 239, 239);
+          background: rgb(207, 207, 207);
         }
       }
 

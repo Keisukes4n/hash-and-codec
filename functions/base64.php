@@ -33,16 +33,20 @@
 
 <form action="" class="base64-codec" id="formBase64Codec" method="POST">
   <input type="hidden" name="conversion-method" value="base64">
+  <section class="tile">
   <h2>1. Select "Encode" or "Decode"</h2>
-  <div class="coding-process">
-    <label class="tile">
-      <input type="radio" name="encode-or-decode" value="encode" required><span>Encode</span>
-    </label>
-    <label class="tile">
-      <input type="radio" name="encode-or-decode" value="decode"><span>Decode</span>
-    </label>
-  </div>
-  <h2>2. Input text</h2>
-  <textarea name="input-string" placeholder="text" required></textarea>
-  <button class="submit" type="submit">click!</button>
+    <div class="coding-process">
+      <label class="tile">
+        <input type="radio" name="encode-or-decode" value="encode" required><span>Encode</span>
+      </label>
+      <label class="tile">
+        <input type="radio" name="encode-or-decode" value="decode"><span>Decode</span>
+      </label>
+    </div>
+  </section>
+  <section class="tile">
+    <h2>2. Input text</h2>
+    <textarea name="input-string" placeholder="text" required></textarea>
+    <button class="submit" type="submit">click!</button>
+  </section>
 </form>

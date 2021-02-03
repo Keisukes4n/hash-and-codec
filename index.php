@@ -21,19 +21,22 @@
     <main>
       <h1><?php echo $page_title; ?></h1>
       <section class="string-conversion">
-        <select name="method-list" id="selectMethodList">
-          <option value="hash">Hash</option>
-          <option value="base64">Base64</option>
-
-        </select>
+        <div class="method-selector" id="dicMethodSelector">
+          <button class="method-name" id="buttonMethodBase64" type="button">Base64</button>
+          <button class="method-name" id="buttonMethodHash" type="button">Hash</button>
+        </div>
         <?php
           $result_text = NULL;
           include_once $pass_front . '/functions/hash.php';
           include_once $pass_front . '/functions/base64.php';
         ?>
 
-        <h2>3. Result</h2>
-        <textarea id="textareaResult" placeholder="Result"><?php echo $result_text; ?></textarea>
+        <br><br>
+
+        <section class="result-area" id="sectionResultArea">
+          <h2>3. Result</h2>
+          <textarea placeholder="Result"><?php echo $result_text; ?></textarea>
+        </section>
       </section>
     </main>
     <?php include_once $pass_front . '/modules/footer/_footer.php'; ?>
@@ -41,38 +44,45 @@
     <script>
       const elementFormBase64Codec    = document.getElementById( 'formBase64Codec' );
       const elementFormHashGeneration = document.getElementById( 'formHashGeneration' );
-      const elementSelectMethodList   = document.getElementById( 'selectMethodList' );
+      const elementButtonMethodHash   = document.getElementById( 'buttonMethodHash' );
+      const elementButtonMethodBase64 = document.getElementById( 'buttonMethodBase64' );
 
-      elementSelectMethodList.addEventListener( 'input', ( input ) => {
-        switch ( input.target.value ) {
-          case 'base64':
-            elementFormBase64Codec.style.display    = 'block';
-            elementFormHashGeneration.style.display = 'none';
-            break;
-          case 'hash':
-            elementFormBase64Codec.style.display    = 'none';
-            elementFormHashGeneration.style.display = 'block';
-            break;
-        }
+      function displayBase64() {
+        elementFormBase64Codec.style.display    = 'block';
+        elementFormHashGeneration.style.display = 'none';
+        elementButtonMethodBase64.style.border  = 'rgb(63, 63, 63) solid thin';
+        elementButtonMethodHash.style.border    = 'none';
+      }
+
+      function displayHash() {
+        elementFormBase64Codec.style.display    = 'none';
+        elementFormHashGeneration.style.display = 'block';
+        elementButtonMethodBase64.style.border  = 'none';
+        elementButtonMethodHash.style.border    = 'rgb(63, 63, 63) solid thin';
+      }
+
+      elementButtonMethodBase64.addEventListener( 'click', () => {
+        displayBase64();
+      }, false );
+
+      elementButtonMethodHash.addEventListener( 'click', () => {
+        displayHash();
       }, false );
 
       <?php if ( isset( $_POST['conversion-method'] ) ): ?>
-        const elementTextareaResult        = document.getElementById( 'textareaResult' );
-        elementTextareaResult.style.border = 'green solid thin';
+        const elementSectionResultArea        = document.getElementById( 'sectionResultArea' );
+        elementSectionResultArea.style.border = 'green solid thin';
         
         const conversionMethod = '<?php echo $_POST['conversion-method']; ?>';
         switch ( conversionMethod ) {
           case 'base64':
-            elementFormBase64Codec.style.display    = 'block';
-            elementFormHashGeneration.style.display = 'none';
+            displayBase64();
             break;
           case 'hash':
-            elementFormBase64Codec.style.display    = 'none';
-            elementFormHashGeneration.style.display = 'block';
+            displayHash();
             break;
           default:
-            elementFormBase64Codec.style.height    = 'none';
-            elementFormHashGeneration.style.height = 'block';
+            displayHash();
             break;
         }
       <?php endif; ?>

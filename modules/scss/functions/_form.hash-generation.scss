@@ -6,31 +6,40 @@
 form.hash-generation {
   display: block;
 
-  > div.algorithm-list {
-    box-sizing:      border-box;
-    display:         flex;
-    flex-flow:       row wrap;
-    justify-content: space-evenly;
-  
-    > label.tile {
-      align-items: center;
-      box-shadow:  0 0 2px rgb(132, 145, 158);
-      box-sizing:  border-box;
-      display:     flex;
-      flex:        1 1 calc(33% - 0.4rem);
-      height:      3.0rem;
-      margin:      0.2rem;
-  
-      &:hover {
-        background: rgb(224, 224, 224);
-      }
-  
-      > input {
-        margin: 0 0.5rem 0 0.5rem;
-      }
-  
-      > span {
-        font-weight: bold;
+  > section.tile {
+    box-shadow: 0 0 2px rgb(95, 95, 95);
+    box-sizing: border-box;
+    margin:     1.0rem 0 1.0rem 0;
+    padding:    0.5rem;
+
+    > div.algorithm-list {
+      box-sizing:      border-box;
+      display:         flex;
+      flex-flow:       row wrap;
+      justify-content: space-around;
+
+    
+      > label.tile {
+        align-items:   center;
+        border-radius: 8px;
+        box-shadow:    0 0 2px rgb(95, 95, 95);
+        box-sizing:    border-box;
+        display:       flex;
+        flex:          1 1 calc(33% - 1.0rem);
+        height:        3.0rem;
+        margin:        0.5rem;
+    
+        &:hover {
+          background: rgb(239, 239, 239);
+        }
+    
+        > input {
+          margin: 0 0.5rem 0 0.5rem;
+        }
+    
+        > span {
+          font-weight: bold;
+        }
       }
     }
   }

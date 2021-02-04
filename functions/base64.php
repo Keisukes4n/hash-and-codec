@@ -34,7 +34,7 @@
 <form action="" class="base64-codec" id="formBase64Codec" method="POST">
   <input type="hidden" name="conversion-method" value="base64">
   <section class="tile">
-  <h2>1. Select "Encode" or "Decode"</h2>
+    <h2>1. Select "Encode" or "Decode"</h2>
     <div class="coding-process">
       <label class="tile">
         <input type="radio" name="encode-or-decode" value="encode" required><span>Encode</span>

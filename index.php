@@ -22,8 +22,9 @@
       <h1><?php echo $page_title; ?></h1>
       <section class="string-conversion">
         <div class="method-selector" id="dicMethodSelector">
-          <button class="method-name" id="buttonMethodBase64" type="button">Base64</button>
           <button class="method-name" id="buttonMethodHash" type="button">Hash</button>
+          <button class="method-name" id="buttonMethodBase64" type="button">Base64</button>
+          <button class="method-name" id="buttonMethodUuencode" type="button">Uuencode</button>
         </div>
         <?php
           $result_text = NULL;
@@ -31,7 +32,7 @@
           include_once $pass_front . '/functions/base64.php';
         ?>
 
-        <br><br>
+        <img src="<?php echo $page_dir . '/modules/icon/arrow-down-icon-plane.svg'; ?>" alt="arrow-down-icon-plane.svg" class="arrow-icon">
 
         <section class="result-area" id="sectionResultArea">
           <h2>3. Result</h2>
@@ -39,6 +40,7 @@
         </section>
       </section>
     </main>
+
     <?php include_once $pass_front . '/modules/footer/_footer.php'; ?>
 
     <script>
@@ -81,10 +83,9 @@
           case 'hash':
             displayHash();
             break;
-          default:
-            displayHash();
-            break;
         }
+      <?php else: ?>
+        displayHash();
       <?php endif; ?>
     </script>
   </body>

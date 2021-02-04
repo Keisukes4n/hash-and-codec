@@ -317,6 +317,13 @@ section.string-conversion div.method-selector button.method-name:hover {
   background: #efefef;
 }
 
+section.string-conversion img.arrow-icon {
+  display: block;
+  height: 3.0rem;
+  margin: 0 auto 0 auto;
+  width: 3.0rem;
+}
+
 section.string-conversion section.result-area {
   -webkit-box-shadow: 0 0 2px #5f5f5f;
           box-shadow: 0 0 2px #5f5f5f;
@@ -399,7 +406,7 @@ form.hash-generation > section.tile > div.algorithm-list > label.tile > span {
  * _form.base64-codec.scss
  */
 form.base64-codec {
-  display: none;
+  display: block;
 }
 
 form.base64-codec > section.tile {
@@ -441,8 +448,8 @@ form.base64-codec > section.tile > div.coding-process > label.tile {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 calc(50% - 1.0rem);
           flex: 1 1 calc(50% - 1.0rem);
-  height: 3.0rem;
   margin: 0.5rem;
+  padding: 1.0rem 0 1.0rem 0;
 }
 
 form.base64-codec > section.tile > div.coding-process > label.tile:hover {

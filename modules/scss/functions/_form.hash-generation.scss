@@ -5,6 +5,7 @@
  */
 form.hash-generation {
   display: block;
+  transition: 2s;
 
   > section.tile {
     box-shadow: 0 0 2px rgb(95, 95, 95);
@@ -19,7 +20,7 @@ form.hash-generation {
       justify-content: space-around;
 
     
-      > label.tile {
+      > label {
         align-items:   center;
         border-radius: 8px;
         box-shadow:    0 0 2px rgb(95, 95, 95);

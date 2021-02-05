@@ -58,7 +58,6 @@
     const elementNavMenuArea            = document.getElementById( 'navMenu' );
     let openFlagOfMenu  = 'close';
     let tempSrcProperty = 'temp';
-    console.log(elementdivOperationButtonLeft);
 
     elementdivOperationButtonLeft.addEventListener( 'click', () => {
       switch ( openFlagOfMenu ) {

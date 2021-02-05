@@ -36,10 +36,10 @@
   <section class="tile">
     <h2>1. Select "Encode" or "Decode"</h2>
     <div class="coding-process">
-      <label class="tile">
+      <label>
         <input type="radio" name="encode-or-decode" value="encode" required><span>Encode</span>
       </label>
-      <label class="tile">
+      <label>
         <input type="radio" name="encode-or-decode" value="decode"><span>Decode</span>
       </label>
     </div>

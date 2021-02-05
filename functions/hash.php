@@ -26,31 +26,31 @@
   <section class="tile">
     <h2>1. Select hash algorithm</h2>
     <div class="algorithm-list">
-      <label class="tile">
+      <label>
         <input type="radio" name="hash-algorithm" value="sha256" required><span>sha256</span>
       </label>
-      <label class="tile">
+      <label>
         <input type="radio" name="hash-algorithm" value="sha384"><span>sha384</span>
       </label>
-      <label class="tile">
+      <label>
         <input type="radio" name="hash-algorithm" value="sha512"><span>sha512</span>
       </label>
-      <label class="tile">
+      <label>
         <input type="radio" name="hash-algorithm" value="sha3-256"><span>sha3-256</span>
       </label>
-      <label class="tile">
+      <label>
         <input type="radio" name="hash-algorithm" value="sha3-384"><span>sha3-384</span>
       </label>
-      <label class="tile">
+      <label>
         <input type="radio" name="hash-algorithm" value="sha3-512"><span>sha3-512</span>
       </label>
-      <label class="tile">
+      <label>
         <input type="radio" name="hash-algorithm" value="ripemd160"><span>RIPEMD160</span>
       </label>
-      <label class="tile">
+      <label>
         <input type="radio" name="hash-algorithm" value="whirlpool"><span>Whirlpool</span>
         </label>
-      <label class="tile">
+      <label>
         <input type="radio" name="hash-algorithm" value="md5"><span>md5</span>
         </label>
     </div>

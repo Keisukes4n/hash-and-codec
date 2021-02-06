@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 /**
- * _form.hash-generation.scss
+ * _form.base64-codec.scss
  */
-form.hash-generation {
-  overflow: hidden;
+form.uuencode-codec {
+  overflow-y: hidden;
 
   > section.tile {
     box-shadow: 0 0 2px rgb(95, 95, 95);
@@ -12,31 +12,30 @@ form.hash-generation {
     margin:     1.0rem 0.5rem 1.0rem 0.5rem;
     padding:    0.5rem;
 
-    > div.algorithm-list {
+    > div.coding-process {
       box-sizing:      border-box;
       display:         flex;
       flex-flow:       row wrap;
-      justify-content: space-around;
-
-    
+      justify-content: space-evenly;
+  
       > label {
         align-items:   center;
         border-radius: 8px;
         box-shadow:    0 0 2px rgb(95, 95, 95);
         box-sizing:    border-box;
         display:       flex;
-        flex:          1 1 calc(33% - 1.0rem);
-        height:        3.0rem;
+        flex:          1 1 calc(50% - 1.0rem);
         margin:        0.5rem;
-    
+        padding:       1.0rem 0 1.0rem 0;
+  
         &:hover {
           background: rgb(239, 239, 239);
         }
-    
+  
         > input {
           margin: 0 0.5rem 0 0.5rem;
         }
-    
+  
         > span {
           font-weight: bold;
         }

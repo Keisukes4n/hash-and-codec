@@ -11,7 +11,7 @@ nav.menu {
   max-height:   0;
   overflow-y:   scroll;
   padding:      0 0.5rem 0 0.5rem;
-  transition:   400ms;
+  transition:   max-height 400ms 0s;
   width:        40%;
 
   @media screen and (min-aspect-ratio: 4 / 3) {

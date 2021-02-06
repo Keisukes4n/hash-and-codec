@@ -24,12 +24,13 @@
         <div class="method-selector" id="dicMethodSelector">
           <button class="method-name" id="buttonMethodHash" type="button">Hash</button>
           <button class="method-name" id="buttonMethodBase64" type="button">Base64</button>
-          <button class="method-name" id="buttonMethodUuencode" type="button">Uuencode</button>
+          <button class="method-name" id="buttonMethodUuencode" type="button">UUENCODE</button>
         </div>
         <?php
           $result_text = NULL;
           include_once $pass_front . '/functions/hash.php';
           include_once $pass_front . '/functions/base64.php';
+          include_once $pass_front . '/functions/uuencode.php';
         ?>
 
         <img src="<?php echo $page_dir . '/modules/icon/arrow-down-icon-plane.svg'; ?>" alt="arrow-down-icon-plane.svg" class="arrow-icon">
@@ -44,23 +45,38 @@
     <?php include_once $pass_front . '/modules/footer/_footer.php'; ?>
 
     <script>
-      const elementFormBase64Codec    = document.getElementById( 'formBase64Codec' );
-      const elementFormHashGeneration = document.getElementById( 'formHashGeneration' );
-      const elementButtonMethodHash   = document.getElementById( 'buttonMethodHash' );
-      const elementButtonMethodBase64 = document.getElementById( 'buttonMethodBase64' );
+      const elementFormBase64Codec      = document.getElementById( 'formBase64Codec' );
+      const elementFormHashGeneration   = document.getElementById( 'formHashGeneration' );
+      const elementFormUuencodeCodec      = document.getElementById( 'formUuencodeCodec' );
+      const elementButtonMethodHash     = document.getElementById( 'buttonMethodHash' );
+      const elementButtonMethodBase64   = document.getElementById( 'buttonMethodBase64' );
+      const elementButtonMethodUuencode = document.getElementById( 'buttonMethodUuencode' );
 
       function displayBase64() {
-        elementFormBase64Codec.style.display    = 'block';
-        elementFormHashGeneration.style.display = 'none';
-        elementButtonMethodBase64.style.border  = 'rgb(63, 63, 63) solid thin';
-        elementButtonMethodHash.style.border    = 'none';
+        elementFormBase64Codec.style.height    = 'auto';
+        elementFormHashGeneration.style.height = '0';
+        elementFormUuencodeCodec.style.height = '0';
+        elementButtonMethodBase64.style.border = 'rgb(63, 63, 63) solid thin';
+        elementButtonMethodHash.style.border   = 'none';
+        elementButtonMethodUuencode.style.border = 'none';
       }
 
       function displayHash() {
-        elementFormBase64Codec.style.display    = 'none';
-        elementFormHashGeneration.style.display = 'block';
-        elementButtonMethodBase64.style.border  = 'none';
-        elementButtonMethodHash.style.border    = 'rgb(63, 63, 63) solid thin';
+        elementFormBase64Codec.style.height    = '0';
+        elementFormHashGeneration.style.height = 'auto';
+        elementFormUuencodeCodec.style.height = '0';
+        elementButtonMethodBase64.style.border = 'none';
+        elementButtonMethodHash.style.border   = 'rgb(63, 63, 63) solid thin';
+        elementButtonMethodUuencode.style.border = 'none';
+      }
+
+      function displayUuencode() {
+        elementFormBase64Codec.style.height    = '0';
+        elementFormHashGeneration.style.height = '0';
+        elementFormUuencodeCodec.style.height = 'auto';
+        elementButtonMethodBase64.style.border = 'none';
+        elementButtonMethodHash.style.border   = 'none';
+        elementButtonMethodUuencode.style.border = 'rgb(63, 63, 63) solid thin';
       }
 
       elementButtonMethodBase64.addEventListener( 'click', () => {
@@ -70,7 +86,11 @@
       elementButtonMethodHash.addEventListener( 'click', () => {
         displayHash();
       }, false );
-
+/*
+      elementButtonMethodUuencode.addEventListener( 'click', () => {
+        displayUuencode();
+      }, false );
+*/
       <?php if ( isset( $_POST['conversion-method'] ) ): ?>
         const elementSectionResultArea        = document.getElementById( 'sectionResultArea' );
         elementSectionResultArea.style.border = 'green solid thin';
@@ -82,6 +102,9 @@
             break;
           case 'hash':
             displayHash();
+            break;
+          case 'uuencode':
+            displayUuencode();
             break;
         }
       <?php else: ?>

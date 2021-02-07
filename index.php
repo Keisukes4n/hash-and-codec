@@ -47,7 +47,7 @@
     <script>
       const elementFormBase64Codec      = document.getElementById( 'formBase64Codec' );
       const elementFormHashGeneration   = document.getElementById( 'formHashGeneration' );
-      const elementFormUuencodeCodec      = document.getElementById( 'formUuencodeCodec' );
+      const elementFormUuencodeCodec    = document.getElementById( 'formUuencodeCodec' );
       const elementButtonMethodHash     = document.getElementById( 'buttonMethodHash' );
       const elementButtonMethodBase64   = document.getElementById( 'buttonMethodBase64' );
       const elementButtonMethodUuencode = document.getElementById( 'buttonMethodUuencode' );
@@ -86,11 +86,11 @@
       elementButtonMethodHash.addEventListener( 'click', () => {
         displayHash();
       }, false );
-/*
+
       elementButtonMethodUuencode.addEventListener( 'click', () => {
         displayUuencode();
       }, false );
-*/
+
       <?php if ( isset( $_POST['conversion-method'] ) ): ?>
         const elementSectionResultArea        = document.getElementById( 'sectionResultArea' );
         elementSectionResultArea.style.border = 'green solid thin';

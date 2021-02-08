@@ -1,4 +1,8 @@
 /**
+ * This file is central scss file.
+ * 
+ */
+/**
  * _body.scss
  */
 body {
@@ -30,10 +34,10 @@ footer {
   -webkit-box-shadow: 0 0 2px #5f5f5f;
           box-shadow: 0 0 2px #5f5f5f;
   color: white;
-  padding: 1.0rem;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  padding: 1.0rem;
 }
 
 footer > section.timestamp {
@@ -201,7 +205,7 @@ main pre {
   border-left: royalblue solid thick;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  color: whitesmoke;
+  color: #efefef;
   padding: 0.5rem;
 }
 
@@ -342,6 +346,67 @@ section.string-conversion textarea {
 }
 
 /**
+ * _form.hash-generation.scss
+ */
+form.hash-generation {
+  overflow: hidden;
+}
+
+form.hash-generation > section.tile {
+  -webkit-box-shadow: 0 0 2px #5f5f5f;
+          box-shadow: 0 0 2px #5f5f5f;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 1.0rem 0.5rem 1.0rem 0.5rem;
+  padding: 0.5rem;
+}
+
+form.hash-generation > section.tile > div.algorithm-list {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+form.hash-generation > section.tile > div.algorithm-list > label {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 2px #5f5f5f;
+          box-shadow: 0 0 2px #5f5f5f;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 calc(33% - 1.0rem);
+          flex: 1 1 calc(33% - 1.0rem);
+  height: 3.0rem;
+  margin: 0.5rem;
+}
+
+form.hash-generation > section.tile > div.algorithm-list > label:hover {
+  background: #efefef;
+}
+
+form.hash-generation > section.tile > div.algorithm-list > label > input {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+form.hash-generation > section.tile > div.algorithm-list > label > span {
+  font-weight: bold;
+}
+
+/**
  * _form.base64-codec.scss
  */
 form.base64-codec {
@@ -400,67 +465,6 @@ form.base64-codec > section.tile > div.coding-process > label > input {
 }
 
 form.base64-codec > section.tile > div.coding-process > label > span {
-  font-weight: bold;
-}
-
-/**
- * _form.hash-generation.scss
- */
-form.hash-generation {
-  overflow: hidden;
-}
-
-form.hash-generation > section.tile {
-  -webkit-box-shadow: 0 0 2px #5f5f5f;
-          box-shadow: 0 0 2px #5f5f5f;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 1.0rem 0.5rem 1.0rem 0.5rem;
-  padding: 0.5rem;
-}
-
-form.hash-generation > section.tile > div.algorithm-list {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-form.hash-generation > section.tile > div.algorithm-list > label {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 8px;
-  -webkit-box-shadow: 0 0 2px #5f5f5f;
-          box-shadow: 0 0 2px #5f5f5f;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 calc(33% - 1.0rem);
-          flex: 1 1 calc(33% - 1.0rem);
-  height: 3.0rem;
-  margin: 0.5rem;
-}
-
-form.hash-generation > section.tile > div.algorithm-list > label:hover {
-  background: #efefef;
-}
-
-form.hash-generation > section.tile > div.algorithm-list > label > input {
-  margin: 0 0.5rem 0 0.5rem;
-}
-
-form.hash-generation > section.tile > div.algorithm-list > label > span {
   font-weight: bold;
 }
 

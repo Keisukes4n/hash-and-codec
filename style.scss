@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+/**
+ * This file is central scss file.
+ * 
+ */
+
 @import "modules/scss/_body.scss";
 @import "modules/scss/_footer.scss";
 @import "modules/scss/_header.scss";
@@ -7,6 +12,6 @@
 @import "modules/scss/_nav.menu.scss";
 
 @import "modules/scss/_section.string-conversion.scss";
-@import "modules/scss/functions/_form.base64-codec.scss";
 @import "modules/scss/functions/_form.hash-generation.scss";
+@import "modules/scss/functions/_form.base64-codec.scss";
 @import "modules/scss/functions/_form.uuencode-codec.scss";

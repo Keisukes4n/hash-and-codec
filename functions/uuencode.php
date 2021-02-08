@@ -6,11 +6,11 @@
   $name_process_uuencode  = 'encode-or-decode-uuencode';
   $name_textarea_uuencode = 'input-string-uuencode';
   
-  if ( isset( $_POST["$name_process_uuencode"] ) ):
-    if ( isset( $_POST["$name_textarea_uuencode"] ) ):
-      $coding_process   = $_POST["$name_process_uuencode"];
+  if ( isset( $_POST[ $name_process_uuencode ] ) ):
+    if ( isset( $_POST[ $name_textarea_uuencode ] ) ):
+      $coding_process   = $_POST[ $name_process_uuencode ];
       $converted_string = NULL;
-      $input_string     = $_POST["$name_textarea_uuencode"];
+      $input_string     = $_POST[ $name_textarea_uuencode ];
 
       switch ( $coding_process ) {
         case 'encode':
@@ -55,6 +55,6 @@
   <section class="tile">
     <h2>2. Input text</h2>
     <textarea name="<?php echo $name_textarea_uuencode; ?>" placeholder="text" required></textarea>
-    <button class="submit" type="submit">click!</button>
+    <button class="submit" type="submit">Post!</button>
   </section>
 </form>

@@ -6,18 +6,18 @@
   $name_process_base64  = 'encode-or-decode-base64';
   $name_textarea_base64 = 'input-string-base64';
 
-  if ( isset( $_POST["$name_process_base64"] ) ):
-    if ( isset( $_POST["$name_textarea_base64"] ) ):
-      $coding_process   = $_POST["$name_process_base64"];
+  if ( isset( $_POST[ $name_process_base64 ] ) ):
+    if ( isset( $_POST[ $name_textarea_base64 ] ) ):
+      $coding_process   = $_POST[ $name_process_base64 ];
       $converted_string = NULL;
-      $input_string     = $_POST["$name_textarea_base64"];
+      $input_string     = $_POST[ $name_textarea_base64 ];
 
       switch ( $coding_process ) {
         case 'encode':
-          $converted_string = base64_encode( $_POST["$name_textarea_base64"] );
+          $converted_string = base64_encode( $_POST[ $name_textarea_base64 ] );
           break;
         case 'decode':
-          $converted_string = base64_decode( $_POST["$name_textarea_base64"] );
+          $converted_string = base64_decode( $_POST[ $name_textarea_base64 ] );
           break;
       }
 
@@ -55,6 +55,6 @@
   <section class="tile">
     <h2>2. Input text</h2>
     <textarea name="<?php echo $name_textarea_base64; ?>" placeholder="text" required></textarea>
-    <button class="submit" type="submit">click!</button>
+    <button class="submit" type="submit">Post!</button>
   </section>
 </form>

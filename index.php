@@ -26,6 +26,7 @@
           <button class="method-name" id="buttonMethodBase64" type="button">Base64</button>
           <button class="method-name" id="buttonMethodUuencode" type="button">UUENCODE</button>
         </div>
+
         <?php
           $result_text = NULL;
           include_once $pass_front . '/functions/hash.php';
@@ -41,70 +42,76 @@
         </section>
       </section>
     </main>
-
     <?php include_once $pass_front . '/modules/footer/_footer.php'; ?>
 
     <script>
-      const elementFormBase64Codec      = document.getElementById( 'formBase64Codec' );
+      // HTML elements
       const elementFormHashGeneration   = document.getElementById( 'formHashGeneration' );
+      const elementFormBase64Codec      = document.getElementById( 'formBase64Codec' );
       const elementFormUuencodeCodec    = document.getElementById( 'formUuencodeCodec' );
       const elementButtonMethodHash     = document.getElementById( 'buttonMethodHash' );
       const elementButtonMethodBase64   = document.getElementById( 'buttonMethodBase64' );
       const elementButtonMethodUuencode = document.getElementById( 'buttonMethodUuencode' );
 
-      function displayBase64() {
-        elementFormBase64Codec.style.height    = 'auto';
-        elementFormHashGeneration.style.height = '0';
-        elementFormUuencodeCodec.style.height = '0';
-        elementButtonMethodBase64.style.border = 'rgb(63, 63, 63) solid thin';
-        elementButtonMethodHash.style.border   = 'none';
+      // functions
+      function displayHash() {
+        elementFormHashGeneration.style.height   = 'auto';
+        elementFormBase64Codec.style.height      = '0';
+        elementFormUuencodeCodec.style.height    = '0';
+        elementButtonMethodHash.style.border     = 'rgb(63, 63, 63) solid thin';
+        elementButtonMethodBase64.style.border   = 'none';
         elementButtonMethodUuencode.style.border = 'none';
       }
 
-      function displayHash() {
-        elementFormBase64Codec.style.height    = '0';
-        elementFormHashGeneration.style.height = 'auto';
-        elementFormUuencodeCodec.style.height = '0';
-        elementButtonMethodBase64.style.border = 'none';
-        elementButtonMethodHash.style.border   = 'rgb(63, 63, 63) solid thin';
+      function displayBase64() {
+        elementFormHashGeneration.style.height   = '0';
+        elementFormBase64Codec.style.height      = 'auto';
+        elementFormUuencodeCodec.style.height    = '0';
+        elementButtonMethodHash.style.border     = 'none';
+        elementButtonMethodBase64.style.border   = 'rgb(63, 63, 63) solid thin';
         elementButtonMethodUuencode.style.border = 'none';
       }
 
       function displayUuencode() {
-        elementFormBase64Codec.style.height    = '0';
-        elementFormHashGeneration.style.height = '0';
-        elementFormUuencodeCodec.style.height = 'auto';
-        elementButtonMethodBase64.style.border = 'none';
-        elementButtonMethodHash.style.border   = 'none';
+        elementFormHashGeneration.style.height   = '0';
+        elementFormBase64Codec.style.height      = '0';
+        elementFormUuencodeCodec.style.height    = 'auto';
+        elementButtonMethodHash.style.border     = 'none';
+        elementButtonMethodBase64.style.border   = 'none';
         elementButtonMethodUuencode.style.border = 'rgb(63, 63, 63) solid thin';
       }
 
-      elementButtonMethodBase64.addEventListener( 'click', () => {
-        displayBase64();
-      }, false );
-
+      // Actions when click elements
       elementButtonMethodHash.addEventListener( 'click', () => {
         displayHash();
+      }, false );
+
+      elementButtonMethodBase64.addEventListener( 'click', () => {
+        displayBase64();
       }, false );
 
       elementButtonMethodUuencode.addEventListener( 'click', () => {
         displayUuencode();
       }, false );
 
-      <?php if ( isset( $_POST['conversion-method'] ) ): ?>
+      // For display after string post
+      <?php if ( isset( $_POST[ 'conversion-method' ] ) ): ?>
         const elementSectionResultArea        = document.getElementById( 'sectionResultArea' );
         elementSectionResultArea.style.border = 'green solid thin';
         
-        const conversionMethod = '<?php echo $_POST['conversion-method']; ?>';
+        const conversionMethod = '<?php echo $_POST[ 'conversion-method' ]; ?>';
         switch ( conversionMethod ) {
-          case 'base64':
-            displayBase64();
-            break;
           case 'hash':
             displayHash();
             break;
+          case 'base64':
+            displayBase64();
+            break;
           case 'uuencode':
             displayUuencode();
+            break;
+          default:
+            displayHash();
             break;
         }
       <?php else: ?>

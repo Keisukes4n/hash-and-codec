@@ -3,8 +3,7 @@
    * 
    * 
    */
-  $page_title = 'String conversion';
-  $page_dir   = '/string-conversion';
+  $page_dir   = '/string_conversion';
   $pass_front = $_SERVER['DOCUMENT_ROOT'] . $page_dir;
 ?>
 
@@ -13,13 +12,15 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?php echo $page_dir; ?>/style.css" rel="stylesheet" type="text/css">
-    <title><?php echo $page_title; ?></title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title><?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?></title>
   </head>
   <body>
-    <?php include_once $pass_front . '/modules/header/_header.php'; ?>
+    <?php include_once './modules/header/_header.php'; ?>
     <main>
-      <h1><?php echo $page_title; ?></h1>
+      <h1><?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?></h1>
+      <?php echo dirname( __DIR__ ); ?><br>
+      <?php echo __FILE__; ?><br>
       <section class="string-conversion">
         <div class="method-selector" id="dicMethodSelector">
           <button class="method-name" id="buttonMethodHash" type="button">Hash</button>
@@ -29,12 +30,12 @@
 
         <?php
           $result_text = NULL;
-          include_once $pass_front . '/functions/hash.php';
-          include_once $pass_front . '/functions/base64.php';
-          include_once $pass_front . '/functions/uuencode.php';
+          include_once './functions/hash.php';
+          include_once './functions/base64.php';
+          include_once './functions/uuencode.php';
         ?>
 
-        <img src="<?php echo $page_dir . '/modules/icon/arrow-down-icon-plane.svg'; ?>" alt="arrow-down-icon-plane.svg" class="arrow-icon">
+        <img src="<?php echo './modules/icon/arrow-down-icon-plane.svg'; ?>" alt="arrow-down-icon-plane.svg" class="arrow-icon">
 
         <section class="result-area" id="sectionResultArea">
           <h2>3. Result</h2>
@@ -42,7 +43,7 @@
         </section>
       </section>
     </main>
-    <?php include_once $pass_front . '/modules/footer/_footer.php'; ?>
+    <?php include_once './modules/footer/_footer.php'; ?>
 
     <script>
       // HTML elements

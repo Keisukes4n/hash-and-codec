@@ -2,13 +2,9 @@
   /**
    * module file: _header.php
    * 
-   * Inherited variables form index.php
-   * $page_title = 'String conversion';
-   * $page_dir   = '/string-conversion';
-   * $pass_front = $_SERVER['DOCUMENT_ROOT'] . $page_dir;
+   * This file is called from index.php in front directory.
    */
-
-  $pass_modules_icon = $page_dir . '/modules/icon';
+  $pass_modules_icon = './modules/icon';
 ?>
 
 <header>

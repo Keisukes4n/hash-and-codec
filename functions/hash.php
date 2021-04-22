@@ -2,33 +2,32 @@
   /**
    * Hash generator main process
    * 
+   * This file is called from index.php in front directory.
    */
-  $name_algos          = 'algos-hash';
-  $name_textarea_hash  = 'input-string-hash';
 
-  if ( isset( $_POST[ $name_algos ] ) ):
-    if ( isset( $_POST[ $name_textarea_hash ] ) ):
-      $hash_algorithm = $_POST[ $name_algos ];
-      $input_string   = $_POST[ $name_textarea_hash ];
+  // param
+  $name_algos         = 'algos-hash';
+  $name_textarea_hash = 'input-string-hash';
 
-      $hash_value   = hash( $hash_algorithm, $input_string, false );
+  // func
+  function main_hash( $algo, $input ) {
+    $hash   = hash( $algo, $input, false );
+    $result = <<< "EOD"
+    * Hash value
+    {$hash}
+    * Input string
+    {$input}
+    * Hash algorithm
+    {$algo}
+    EOD;
 
-      $hash_algorithm = htmlentities( $hash_algorithm, ENT_QUOTES, 'UTF-8' );
-      $hash_value     = htmlentities( $hash_value, ENT_QUOTES, 'UTF-8' );
-      $input_string   = htmlentities( $input_string, ENT_QUOTES, 'UTF-8');
+    return $result;
+  }
 
-      $result_text  = <<< "EOD"
-      * Hash value
-      $hash_value
-      * Input string
-      $input_string
-      * Hash algorithm
-      $hash_algorithm
-      EOD;
-    endif;
+  // set a result
+  if ( isset( $_POST[$name_algos] ) && isset( $_POST[$name_textarea_hash] ) ):
+    $result_text = main_hash( $_POST[$name_algos], $_POST[$name_textarea_hash] );
   endif;
-
-  unset( $hash_algorithm, $hash_value, $input_string );
 ?>
 
 <form action="" class="hash-generation" id="formHashGeneration" method="POST">
@@ -40,29 +39,29 @@
         <input type="radio" name="<?php echo $name_algos; ?>" value="sha256" required><span>sha256</span>
       </label>
       <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha384"><span>sha384</span>
+        <input type="radio" name="<?php echo $name_algos; ?>" value="sha384" required><span>sha384</span>
       </label>
       <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha512"><span>sha512</span>
+        <input type="radio" name="<?php echo $name_algos; ?>" value="sha512" required><span>sha512</span>
       </label>
       <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha3-256"><span>sha3-256</span>
+        <input type="radio" name="<?php echo $name_algos; ?>" value="sha3-256" required><span>sha3-256</span>
       </label>
       <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha3-384"><span>sha3-384</span>
+        <input type="radio" name="<?php echo $name_algos; ?>" value="sha3-384" required><span>sha3-384</span>
       </label>
       <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha3-512"><span>sha3-512</span>
+        <input type="radio" name="<?php echo $name_algos; ?>" value="sha3-512" required><span>sha3-512</span>
       </label>
       <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="ripemd160"><span>RIPEMD160</span>
+        <input type="radio" name="<?php echo $name_algos; ?>" value="ripemd160" required><span>RIPEMD160</span>
       </label>
       <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="whirlpool"><span>Whirlpool</span>
-        </label>
+        <input type="radio" name="<?php echo $name_algos; ?>" value="whirlpool" required><span>Whirlpool</span>
+      </label>
       <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="md5"><span>md5</span>
-        </label>
+        <input type="radio" name="<?php echo $name_algos; ?>" value="md5" required><span>md5</span>
+      </label>
     </div>
   </section>
   <section class="tile">

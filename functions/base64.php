@@ -2,6 +2,7 @@
   /**
    * BASE64 Codec main process
    * 
+   * This file is called from index.php in front directory.
    */
   $name_process_base64  = 'encode-or-decode-base64';
   $name_textarea_base64 = 'input-string-base64';

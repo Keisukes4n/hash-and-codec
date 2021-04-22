@@ -2,8 +2,8 @@
   /**
    * page module file: _footer.php
    * 
+   * This file is called from index.php in front directory.
    */
-
   $mod_date    = date( "jS F, Y", getlastmod() );
   $author_name = 'Keisukes4n';
 ?>

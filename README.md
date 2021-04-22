@@ -1,5 +1,5 @@
 # Web tools - String conversion
-Version: 0.0.19dev
+Version: 0.0.20dev
 
 ## License
 CC BY 4.0  

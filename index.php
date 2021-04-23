@@ -22,7 +22,7 @@
       <?php echo dirname( __DIR__ ); ?><br>
       <?php echo __FILE__; ?><br>
       <section class="string-conversion">
-        <div class="method-selector" id="dicMethodSelector">
+        <div class="method-selector" id="divMethodSelector">
           <button class="method-name" id="buttonMethodHash" type="button">Hash</button>
           <button class="method-name" id="buttonMethodBase64" type="button">Base64</button>
           <button class="method-name" id="buttonMethodUuencode" type="button">UUENCODE</button>
@@ -39,7 +39,7 @@
 
         <section class="result-area" id="sectionResultArea">
           <h2>3. Result</h2>
-          <textarea placeholder="Result"><?php echo $result_text; ?></textarea>
+          <textarea placeholder="Result"><?php echo htmlentities( $result_text ); ?></textarea>
         </section>
       </section>
     </main>

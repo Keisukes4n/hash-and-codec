@@ -4,40 +4,50 @@
    * 
    * This file is called from index.php in front directory.
    */
+
+   // parameters
   $name_process_base64  = 'encode-or-decode-base64';
   $name_textarea_base64 = 'input-string-base64';
 
-  if ( isset( $_POST[ $name_process_base64 ] ) ):
-    if ( isset( $_POST[ $name_textarea_base64 ] ) ):
-      $coding_process   = $_POST[ $name_process_base64 ];
-      $converted_string = NULL;
-      $input_string     = $_POST[ $name_textarea_base64 ];
+  // functions
+  function process_string_base64( $process, $input ) {
+    $converted_string = null;
+    switch ( $process ) {
+      case 'encode':
+        $converted_string = base64_encode( $input );
+        break;
+      case 'decode':
+        $converted_string = base64_decode( $input );
+        break;
+    }
 
-      switch ( $coding_process ) {
-        case 'encode':
-          $converted_string = base64_encode( $_POST[ $name_textarea_base64 ] );
-          break;
-        case 'decode':
-          $converted_string = base64_decode( $_POST[ $name_textarea_base64 ] );
-          break;
-      }
+    $result = [
+      'converted' => $converted_string,
+      'input'     => $input,
+      'process'   => $process,
+    ];
 
-      $coding_process   = htmlentities( $coding_process, ENT_QUOTES, 'UTF-8' );
-      $converted_string = htmlentities( $converted_string, ENT_QUOTES, 'UTF-8' );
-      $input_string     = htmlentities( $input_string, ENT_QUOTES, 'UTF-8' );
+    return $result;
+  }
 
-      $result_text = <<< "EOD"
-      * Result
-      $converted_string
-      * Input string
-      $input_string
-      * Coding process
-      Base64 $coding_process
-      EOD;
-    endif;
+  function construct_result_base64( $str_array ) {
+    $result = <<< "EOD"
+    * Result
+    {$str_array['converted']}
+    * Input string
+    {$str_array['input']}
+    * Coding process
+    {$str_array['process']} Base64 
+    EOD;
+
+    return $result;
+  }
+
+  // set a result
+  if ( isset( $_POST[$name_process_base64] ) && isset( $_POST[$name_textarea_base64] ) ):
+    $str_array   = process_string_base64( $_POST[$name_process_base64], $_POST[$name_textarea_base64] );
+    $result_text = construct_result_base64( $str_array );
   endif;
-
-  unset( $coding_process, $converted_string, $input_string );
 ?>
 
 <form action="" class="base64-codec" id="formBase64Codec" method="POST">

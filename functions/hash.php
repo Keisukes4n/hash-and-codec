@@ -5,11 +5,23 @@
    * This file is called from index.php in front directory.
    */
 
-  // param
+  // parameters
   $name_algos         = 'algos-hash';
   $name_textarea_hash = 'input-string-hash';
 
-  // func
+  $algo_list = [
+    'sha256',
+    'sha384',
+    'sha512',
+    'sha3-256',
+    'sha3-384',
+    'sha3-512',
+    'RIPEMD160',
+    'Whirlpool',
+    'md5'
+  ];
+
+  // functions
   function main_hash( $algo, $input ) {
     $hash   = hash( $algo, $input, false );
     $result = <<< "EOD"
@@ -35,33 +47,13 @@
   <section class="tile">
     <h2>1. Select hash algorithm</h2>
     <div class="algorithm-list">
-      <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha256" required><span>sha256</span>
-      </label>
-      <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha384" required><span>sha384</span>
-      </label>
-      <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha512" required><span>sha512</span>
-      </label>
-      <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha3-256" required><span>sha3-256</span>
-      </label>
-      <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha3-384" required><span>sha3-384</span>
-      </label>
-      <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="sha3-512" required><span>sha3-512</span>
-      </label>
-      <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="ripemd160" required><span>RIPEMD160</span>
-      </label>
-      <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="whirlpool" required><span>Whirlpool</span>
-      </label>
-      <label>
-        <input type="radio" name="<?php echo $name_algos; ?>" value="md5" required><span>md5</span>
-      </label>
+      <?php foreach ( $algo_list as $value ): ?>
+        <label>
+          <input type="radio" name="<?php echo $name_algos; ?>" value="<?php echo mb_strtolower( $value ); ?>" required>
+          <span><?php echo $value; ?></span>
+        </label>
+      <?php endforeach; ?>
+      <?PHP unset( $value ); ?>
     </div>
   </section>
   <section class="tile">

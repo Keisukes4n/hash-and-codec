@@ -22,23 +22,29 @@
   ];
 
   // functions
-  function main_hash( $algo, $input ) {
-    $hash   = hash( $algo, $input, false );
-    $result = <<< "EOD"
-    * Hash value
-    {$hash}
-    * Input string
-    {$input}
-    * Hash algorithm
-    {$algo}
-    EOD;
-
+  function hash_construct_result( $algo, $input ) {
+    $hash_value = hash( $algo, $input, false );
+    $result     = hash_form_text( $hash_value, $algo, $input );
     return $result;
   }
 
-  // set a result
-  if ( isset( $_POST[$name_algos] ) && isset( $_POST[$name_textarea_hash] ) ):
-    $result_text = main_hash( $_POST[$name_algos], $_POST[$name_textarea_hash] );
+  function hash_form_text( $hash_value, $algo, $input ) {
+    $result = <<< "EOD"
+    * Hash value
+    {$hash_value}
+    * Hash algorithm
+    {$algo}
+    * Input string
+    {$input}
+    EOD;
+    return $result;
+  }
+
+  // generate a result
+  if ( isset( $_POST[$name_algos] ) ):
+    if ( isset( $_POST[$name_textarea_hash] ) ):
+      $result_text = hash_construct_result( $_POST[$name_algos], $_POST[$name_textarea_hash] );
+    endif;
   endif;
 ?>
 

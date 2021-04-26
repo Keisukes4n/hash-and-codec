@@ -7,20 +7,6 @@ section.string-conversion {
   margin:  0;
   padding: 0;
 
-  button.submit {
-    background:    rgb(255, 255, 255);
-    border:        none;
-    border-radius: 8px;
-    box-shadow:    0 0 2px rgb(95, 95, 95);
-    display:       block;
-    margin:        1.0rem auto 1.0rem auto;
-    padding:       1.0rem 2.0rem 1.0rem 2.0rem;
-
-    &:hover {
-      background: rgb(239, 239, 239);
-    }
-  }
-
   div.method-selector {
     display:         flex;
     justify-content: center;
@@ -28,12 +14,14 @@ section.string-conversion {
     button.method-name {
       background:    rgb(255, 255, 255);
       border:        none;
-      border-radius: 8px;
-      box-shadow:    0 0 2px rgb(95, 95, 95);
-      display:       block;
-      flex:          0 1 calc(25% - 1.0rem);
+      border-radius: 4px;
+      box-shadow:    0 0 2px rgb(127, 127, 127);
+      box-sizing:    border-box;
+      flex:          0 0 20%;
+      font-size:     medium;
       margin:        0.5rem;
-      padding:       0.5rem;
+      padding:       1.0rem;
+      transition:    background 0.1s 0s ease-out;
 
       &:hover {
         background: rgb(239, 239, 239);
@@ -49,7 +37,7 @@ section.string-conversion {
   }
 
   section.result-area {
-    box-shadow: 0 0 2px rgb(95, 95, 95);
+    box-shadow: 0 0 2px rgb(63, 63, 63);
     box-sizing: border-box;
     margin:     1.0rem 0.5rem 1.0rem 0.5rem;
     padding:    0.5rem;
@@ -60,5 +48,22 @@ section.string-conversion {
     box-sizing: border-box;
     height:     8.0rem;
     width:      100%;
+  }
+
+  button.post {
+    background:    rgb(255, 255, 255);
+    border:        none;
+    border-radius: 4px;
+    box-shadow:    0 0 2px rgb(127, 127, 127);
+    box-sizing:    border-box;
+    display:       block;
+    font-size:     medium;
+    margin:        0.5rem auto 0.5rem auto;
+    padding:       1.0rem;
+    transition:    background 0.1s 0s ease-out;
+  
+    &:hover {
+      background:      rgb(239, 239, 239);
+    }
   }
 }

@@ -7,7 +7,7 @@ form.uuencode-codec {
   overflow-y: hidden;
 
   > section.tile {
-    box-shadow: 0 0 2px rgb(95, 95, 95);
+    box-shadow: 0 0 2px rgb(63, 63, 63);
     box-sizing: border-box;
     margin:     1.0rem 0.5rem 1.0rem 0.5rem;
     padding:    0.5rem;
@@ -20,13 +20,15 @@ form.uuencode-codec {
   
       > label {
         align-items:   center;
-        border-radius: 8px;
-        box-shadow:    0 0 2px rgb(95, 95, 95);
+        background:    rgb(255, 255, 255);
+        border-radius: 4px;
+        box-shadow:    0 0 2px rgb(127, 127, 127);
         box-sizing:    border-box;
         display:       flex;
-        flex:          1 1 calc(50% - 1.0rem);
+        flex:          0 0 calc(50% - 1.0rem);
+        height:        3.0rem;
         margin:        0.5rem;
-        padding:       1.0rem 0 1.0rem 0;
+        transition:    background 0.1s 0s ease-out;
   
         &:hover {
           background: rgb(239, 239, 239);

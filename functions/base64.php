@@ -11,15 +11,15 @@
 
   // functions
   function base64_construct_result( $process, $input ) {
-    $cnv_str = base64_process_string( $process, $input );
-    $result  = base64_form_text( $cnv_str, $process, $input );
+    $cnvrt_str = base64_process_string( $process, $input );
+    $result  = base64_form_text( $cnvrt_str, $process, $input );
     return $result;
   }
 
-  function base64_form_text( $cnv_str, $process, $input ) {
+  function base64_form_text( $cnvrt_str, $process, $input ) {
     $result = <<< "EOD"
     * Result
-    {$cnv_str}
+    {$cnvrt_str}
     * Coding process
     {$process} (Base64)
     * Input string
@@ -52,7 +52,7 @@
 <form action="" class="base64-codec" id="formBase64Codec" method="POST">
   <input type="hidden" name="conversion-method" value="base64">
   <section class="tile">
-    <h2>1. Select "Encode" or "Decode"</h2>
+    <h2>1. Select "Encode" or "Decode" (base64)</h2>
     <div class="coding-process">
       <label>
         <input type="radio" name="<?php echo $name_process_base64; ?>" value="encode" required><span>Encode</span>
@@ -65,6 +65,6 @@
   <section class="tile">
     <h2>2. Input text</h2>
     <textarea name="<?php echo $name_textarea_base64; ?>" placeholder="text" required></textarea>
-    <button class="submit" type="submit">Post!</button>
+    <button class="post" type="submit">Post!</button>
   </section>
 </form>

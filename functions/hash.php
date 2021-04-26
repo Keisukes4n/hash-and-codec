@@ -51,7 +51,7 @@
 <form action="" class="hash-generation" id="formHashGeneration" method="POST">
   <input type="hidden" name="conversion-method" value="hash">
   <section class="tile">
-    <h2>1. Select hash algorithm</h2>
+    <h2>1. Select the hash algorithm</h2>
     <div class="algorithm-list">
       <?php foreach ( $algo_list as $value ): ?>
         <label>
@@ -65,6 +65,6 @@
   <section class="tile">
     <h2>2. Input text</h2>
     <textarea name="<?php echo $name_textarea_hash; ?>" placeholder="text" required></textarea>
-    <button class="submit" type="submit">Post!</button>
+    <button class="post" type="submit">Post!</button>
   </section>
 </form>

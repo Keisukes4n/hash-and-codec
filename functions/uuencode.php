@@ -2,47 +2,58 @@
   /**
    * BASE64 Codec main process
    * 
+   * This file is called from index.php in front directory.
    */
+
+  // parameters
   $name_process_uuencode  = 'encode-or-decode-uuencode';
   $name_textarea_uuencode = 'input-string-uuencode';
   
-  if ( isset( $_POST[ $name_process_uuencode ] ) ):
-    if ( isset( $_POST[ $name_textarea_uuencode ] ) ):
-      $coding_process   = $_POST[ $name_process_uuencode ];
-      $converted_string = NULL;
-      $input_string     = $_POST[ $name_textarea_uuencode ];
+  // functions
+  function uuencode_construct_result( $process, $input ) {
+    $cnvrt_str = uuencode_process_string( $process, $input );
+    $result    = uuencode_form_text( $cnvrt_str, $process, $input );
+    return $result;
+  }
 
-      switch ( $coding_process ) {
-        case 'encode':
-          $converted_string = convert_uuencode( $input_string );
-          break;
-        case 'decode':
-          $converted_string = convert_uudecode( $input_string );
-          break;
-      }
+  function uuencode_form_text( $cnvrt_str, $process, $input ) {
+    $result = <<< "EOD"
+    * Result
+    {$cnvrt_str}
+    * Input string
+    {$input}
+    * Coding process
+    {$process} (UUENCODE)
+    EOD;
 
-      $coding_process   = htmlentities( $coding_process, ENT_QUOTES, 'UTF-8' );
-      $converted_string = htmlentities( $converted_string, ENT_QUOTES, 'UTF-8' );
-      $input_string     = htmlentities( $input_string, ENT_QUOTES, 'UTF-8' );
+    return $result;
+  }
 
-      $result_text = <<< "EOD"
-      * Result
-      $converted_string
-      * Input string
-      $input_string
-      * Coding process
-      UUENCODE $coding_process
-      EOD;
+  function uuencode_process_string( $process, $input ) {
+    $result = null;
+    switch ( $process ) {
+      case 'encode':
+        $result = convert_uuencode( $input );
+        break;
+      case 'decode':
+        $result = convert_uudecode( $input );
+        break;
+    }
+    return $result;
+  }
+  
+
+  if ( isset( $_POST[$name_process_uuencode] ) ):
+    if ( isset( $_POST[$name_textarea_uuencode] ) ):
+      $result_text = uuencode_construct_result( $_POST[$name_process_uuencode] ,$_POST[$name_textarea_uuencode] );
     endif;
   endif;
-
-  unset( $coding_process, $converted_string, $input_string );
 ?>
 
 <form action="" class="uuencode-codec" id="formUuencodeCodec" method="POST">
   <input type="hidden" name="conversion-method" value="uuencode">
   <section class="tile">
-    <h2>1. Select "Encode" or "Decode"</h2>
+    <h2>1. Select "Encode" or "Decode" (UUENODE)</h2>
     <div class="coding-process">
       <label>
         <input type="radio" name="<?php echo $name_process_uuencode; ?>" value="encode" required><span>Encode</span>
@@ -55,6 +66,6 @@
   <section class="tile">
     <h2>2. Input text</h2>
     <textarea name="<?php echo $name_textarea_uuencode; ?>" placeholder="text" required></textarea>
-    <button class="submit" type="submit">Post!</button>
+    <button class="post" type="submit">Post!</button>
   </section>
 </form>

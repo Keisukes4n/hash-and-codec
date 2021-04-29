@@ -10,7 +10,7 @@
   $name_textarea_uuencode = 'input-string-uuencode';
   
   // functions
-  function uuencode_construct_result( $process, $input ) {
+  function uuencode_build_date( $process, $input ) {
     $cnvrt_str = uuencode_process_string( $process, $input );
     $result    = uuencode_form_text( $cnvrt_str, $process, $input );
     return $result;
@@ -41,14 +41,17 @@
     }
     return $result;
   }
-  
-
-  if ( isset( $_POST[$name_process_uuencode] ) ):
-    if ( isset( $_POST[$name_textarea_uuencode] ) ):
-      $result_text = uuencode_construct_result( $_POST[$name_process_uuencode] ,$_POST[$name_textarea_uuencode] );
-    endif;
-  endif;
 ?>
+
+<?php if ( isset( $_POST[$name_process_uuencode] ) ): ?>
+  <?php if ( isset( $_POST[$name_textarea_uuencode] ) ): ?>
+    <?php $uuencode_result = uuencode_build_date( $_POST[$name_process_uuencode] ,$_POST[$name_textarea_uuencode] ); ?>
+    <section class="result-area" id="sectionResultArea">
+      <h2>Result</h2>
+      <textarea><?php echo htmlentities( $uuencode_result ); ?></textarea>
+    </section>
+  <?php endif; ?>
+<?php endif; ?>
 
 <form action="" class="uuencode-codec" id="formUuencodeCodec" method="POST">
   <input type="hidden" name="conversion-method" value="uuencode">

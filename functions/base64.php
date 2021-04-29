@@ -10,9 +10,9 @@
   $name_textarea_base64 = 'input-string-base64';
 
   // functions
-  function base64_construct_result( $process, $input ) {
+  function base64_build_date( $process, $input ) {
     $cnvrt_str = base64_process_string( $process, $input );
-    $result  = base64_form_text( $cnvrt_str, $process, $input );
+    $result    = base64_form_text( $cnvrt_str, $process, $input );
     return $result;
   }
 
@@ -40,14 +40,17 @@
     }
     return $result;
   }
-
-  // generate a result
-  if ( isset( $_POST[$name_process_base64] ) ):
-    if ( isset( $_POST[$name_textarea_base64] ) ):
-      $result_text = base64_construct_result( $_POST[$name_process_base64],$_POST[$name_textarea_base64] );
-    endif;
-  endif;
 ?>
+
+<?php if ( isset( $_POST[$name_process_base64] ) ): ?>
+  <?php if ( isset( $_POST[$name_textarea_base64] ) ): ?>
+    <?php $base64_result = base64_build_date( $_POST[$name_process_base64], $_POST[$name_textarea_base64] ); ?>
+    <section class="result-area" id="sectionResultArea">
+      <h2>Result</h2>
+      <textarea><?php echo htmlentities( $base64_result ); ?></textarea>
+    </section>
+  <?php endif; ?>
+<?php endif; ?>
 
 <form action="" class="base64-codec" id="formBase64Codec" method="POST">
   <input type="hidden" name="conversion-method" value="base64">

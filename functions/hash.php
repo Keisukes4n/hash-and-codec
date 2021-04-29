@@ -22,7 +22,7 @@
   ];
 
   // functions
-  function hash_construct_result( $algo, $input ) {
+  function hash_build_date( $algo, $input ) {
     $hash_value = hash( $algo, $input, false );
     $result     = hash_form_text( $hash_value, $algo, $input );
     return $result;
@@ -39,14 +39,17 @@
     EOD;
     return $result;
   }
-
-  // generate a result
-  if ( isset( $_POST[$name_algos] ) ):
-    if ( isset( $_POST[$name_textarea_hash] ) ):
-      $result_text = hash_construct_result( $_POST[$name_algos], $_POST[$name_textarea_hash] );
-    endif;
-  endif;
 ?>
+
+<?php if ( isset( $_POST[$name_algos] ) ): ?>
+  <?php if ( isset( $_POST[$name_textarea_hash] ) ): ?>
+    <?php $hash_result = hash_build_date( $_POST[$name_algos], $_POST[$name_textarea_hash] ); ?>
+    <section class="result-area" id="sectionResultArea">
+      <h2>Result</h2>
+      <textarea><?php echo htmlentities( $hash_result ); ?></textarea>
+    </section>
+  <?php endif; ?>
+<?php endif; ?>
 
 <form action="" class="hash-generation" id="formHashGeneration" method="POST">
   <input type="hidden" name="conversion-method" value="hash">

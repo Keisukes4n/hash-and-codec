@@ -16,11 +16,10 @@
     <title><?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?></title>
   </head>
   <body>
-    <?php include_once './modules/header/_header.php'; ?>
+    <?php include_once './modules/_header.php'; ?>
+
     <main>
       <h1><?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?></h1>
-      <?php echo dirname( __DIR__ ); ?><br>
-      <?php echo __FILE__; ?><br>
       <section class="string-conversion">
         <div class="method-selector" id="divMethodSelector">
           <button class="method-name" id="buttonMethodHash" type="button">Hash</button>
@@ -29,21 +28,17 @@
         </div>
 
         <?php
-          $result_text = NULL;
+          $result_text = null;
           include_once './functions/hash.php';
           include_once './functions/base64.php';
           include_once './functions/uuencode.php';
         ?>
 
         <img src="<?php echo './modules/icon/arrow-down-icon-plane.svg'; ?>" alt="arrow-down-icon-plane.svg" class="arrow-icon">
-
-        <section class="result-area" id="sectionResultArea">
-          <h2>3. Result</h2>
-          <textarea placeholder="Result"><?php echo htmlentities( $result_text ); ?></textarea>
-        </section>
       </section>
     </main>
-    <?php include_once './modules/footer/_footer.php'; ?>
+
+    <?php include_once './modules/_footer.php'; ?>
 
     <script>
       // HTML elements
@@ -59,27 +54,27 @@
         elementFormHashGeneration.style.height   = 'auto';
         elementFormBase64Codec.style.height      = '0';
         elementFormUuencodeCodec.style.height    = '0';
-        elementButtonMethodHash.style.border     = 'rgb(63, 63, 63) solid thin';
-        elementButtonMethodBase64.style.border   = 'none';
-        elementButtonMethodUuencode.style.border = 'none';
+        elementButtonMethodHash.style.border     = 'rgb(127, 127, 127) solid thin';
+        elementButtonMethodBase64.style.border   = 'hidden';
+        elementButtonMethodUuencode.style.border = 'hidden';
       }
 
       function displayBase64() {
         elementFormHashGeneration.style.height   = '0';
         elementFormBase64Codec.style.height      = 'auto';
         elementFormUuencodeCodec.style.height    = '0';
-        elementButtonMethodHash.style.border     = 'none';
-        elementButtonMethodBase64.style.border   = 'rgb(63, 63, 63) solid thin';
-        elementButtonMethodUuencode.style.border = 'none';
+        elementButtonMethodHash.style.border     = 'hidden';
+        elementButtonMethodBase64.style.border   = 'rgb(127, 127, 127) solid thin';
+        elementButtonMethodUuencode.style.border = 'hidden';
       }
 
       function displayUuencode() {
         elementFormHashGeneration.style.height   = '0';
         elementFormBase64Codec.style.height      = '0';
         elementFormUuencodeCodec.style.height    = 'auto';
-        elementButtonMethodHash.style.border     = 'none';
-        elementButtonMethodBase64.style.border   = 'none';
-        elementButtonMethodUuencode.style.border = 'rgb(63, 63, 63) solid thin';
+        elementButtonMethodHash.style.border     = 'hidden';
+        elementButtonMethodBase64.style.border   = 'hidden';
+        elementButtonMethodUuencode.style.border = 'rgb(127, 127, 127) solid thin';
       }
 
       // Actions when click elements
@@ -98,7 +93,7 @@
       // For display after string post
       <?php if ( isset( $_POST[ 'conversion-method' ] ) ): ?>
         const elementSectionResultArea        = document.getElementById( 'sectionResultArea' );
-        elementSectionResultArea.style.border = 'green solid thin';
+        elementSectionResultArea.style.border = 'green solid medium';
         
         const conversionMethod = '<?php echo $_POST[ 'conversion-method' ]; ?>';
         switch ( conversionMethod ) {

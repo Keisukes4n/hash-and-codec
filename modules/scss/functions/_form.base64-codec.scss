@@ -28,10 +28,10 @@ form.base64-codec {
         flex:          0 0 calc(50% - 1.0rem);
         height:        3.0rem;
         margin:        0.5rem;
-        transition:    background 0.1s 0s ease-out;
+        transition:    background 200ms ease-out 0ms;
   
         &:hover {
-          background: rgb(239, 239, 239);
+          background: rgb(223, 223, 223);
         }
   
         > input {

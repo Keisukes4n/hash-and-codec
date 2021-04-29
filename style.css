@@ -22,7 +22,7 @@ body a {
  */
 footer {
   background: #3f3f3f;
-  box-shadow: 0 0 2px #5f5f5f;
+  box-shadow: 0 0 2px #3f3f3f;
   color: white;
   flex: 1 1 auto;
   padding: 1.0rem;
@@ -109,7 +109,7 @@ header > section.primary > .operation-button-right {
  */
 main {
   box-sizing: border-box;
-  padding: 5.0rem 4% 5.0rem 4%;
+  padding: 5.0rem 5% 5.0rem 5%;
 }
 
 @media screen and (min-aspect-ratio: 4 / 3) {
@@ -238,11 +238,11 @@ section.string-conversion div.method-selector button.method-name {
   font-size: medium;
   margin: 0.5rem;
   padding: 1.0rem;
-  transition: background 0.1s 0s ease-out;
+  transition: background 200ms ease-out 0ms;
 }
 
 section.string-conversion div.method-selector button.method-name:hover {
-  background: #efefef;
+  background: #dfdfdf;
 }
 
 section.string-conversion img.arrow-icon {
@@ -276,11 +276,11 @@ section.string-conversion button.post {
   font-size: medium;
   margin: 0.5rem auto 0.5rem auto;
   padding: 1.0rem;
-  transition: background 0.1s 0s ease-out;
+  transition: background 200ms ease-out 0ms;
 }
 
 section.string-conversion button.post:hover {
-  background: #efefef;
+  background: #dfdfdf;
 }
 
 /**
@@ -313,11 +313,11 @@ form.hash-generation > section.tile > div.algorithm-list > label {
   flex: 0 0 calc(33% - 1.0rem);
   height: 3.0rem;
   margin: 0.5rem;
-  transition: background 0.1s 0s ease-out;
+  transition: background 100ms ease-out 0ms;
 }
 
 form.hash-generation > section.tile > div.algorithm-list > label:hover {
-  background: #efefef;
+  background: #dfdfdf;
 }
 
 form.hash-generation > section.tile > div.algorithm-list > label > input {
@@ -359,11 +359,11 @@ form.base64-codec > section.tile > div.coding-process > label {
   flex: 0 0 calc(50% - 1.0rem);
   height: 3.0rem;
   margin: 0.5rem;
-  transition: background 0.1s 0s ease-out;
+  transition: background 200ms ease-out 0ms;
 }
 
 form.base64-codec > section.tile > div.coding-process > label:hover {
-  background: #efefef;
+  background: #dfdfdf;
 }
 
 form.base64-codec > section.tile > div.coding-process > label > input {
@@ -405,11 +405,11 @@ form.uuencode-codec > section.tile > div.coding-process > label {
   flex: 0 0 calc(50% - 1.0rem);
   height: 3.0rem;
   margin: 0.5rem;
-  transition: background 0.1s 0s ease-out;
+  transition: background 100ms ease-out 0ms;
 }
 
 form.uuencode-codec > section.tile > div.coding-process > label:hover {
-  background: #efefef;
+  background: #dfdfdf;
 }
 
 form.uuencode-codec > section.tile > div.coding-process > label > input {

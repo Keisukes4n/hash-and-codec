@@ -253,6 +253,7 @@ section.string-conversion img.arrow-icon {
 }
 
 section.string-conversion section.result-area {
+  border: green solid medium;
   box-shadow: 0 0 2px #3f3f3f;
   box-sizing: border-box;
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
@@ -328,6 +329,15 @@ form.hash-generation > section.tile > div.algorithm-list > label > span {
   font-weight: bold;
 }
 
+form.hash-generation hr {
+  border: #7f7f7f dotted thin;
+  width: 90%;
+}
+
+form.hash-generation p {
+  text-align: center;
+}
+
 /**
  * _form.base64-codec.scss
  */
@@ -374,6 +384,15 @@ form.base64-codec > section.tile > div.coding-process > label > span {
   font-weight: bold;
 }
 
+form.base64-codec hr {
+  border: #7f7f7f dotted thin;
+  width: 90%;
+}
+
+form.base64-codec p {
+  text-align: center;
+}
+
 /**
  * _form.base64-codec.scss
  */
@@ -418,4 +437,13 @@ form.uuencode-codec > section.tile > div.coding-process > label > input {
 
 form.uuencode-codec > section.tile > div.coding-process > label > span {
   font-weight: bold;
+}
+
+form.uuencode-codec hr {
+  border: #7f7f7f dotted thin;
+  width: 90%;
+}
+
+form.uuencode-codec p {
+  text-align: center;
 }

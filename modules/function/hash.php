@@ -5,7 +5,7 @@
    * This file is called from index.php in front directory.
    */
 
-  // parameters
+  /** parameters */
   $name_algos         = 'algos-hash';
   $name_textarea_hash = 'input-string-hash';
 
@@ -21,7 +21,7 @@
     'md5'
   ];
 
-  // functions
+  /** functions */
   function hash_build_date( $algo, $input ) {
     $hash_value = hash( $algo, $input, false );
     $result     = hash_form_text( $hash_value, $algo, $input );
@@ -41,18 +41,18 @@
   }
 ?>
 
-<?php if ( isset( $_POST[$name_algos] ) ): ?>
-  <?php if ( isset( $_POST[$name_textarea_hash] ) ): ?>
+<form action="" class="hash-generation" id="formHashGeneration" method="POST">
+  <input type="hidden" name="conversion-method" value="hash">
+
+  <?php if ( isset( $_POST[$name_algos] ) && isset( $_POST[$name_textarea_hash] ) ): ?>
     <?php $hash_result = hash_build_date( $_POST[$name_algos], $_POST[$name_textarea_hash] ); ?>
-    <section class="result-area" id="sectionResultArea">
+    <section class="result-area">
       <h2>Result</h2>
       <textarea><?php echo htmlentities( $hash_result ); ?></textarea>
     </section>
+    <hr>
   <?php endif; ?>
-<?php endif; ?>
 
-<form action="" class="hash-generation" id="formHashGeneration" method="POST">
-  <input type="hidden" name="conversion-method" value="hash">
   <section class="tile">
     <h2>1. Select the hash algorithm</h2>
     <div class="algorithm-list">
@@ -65,9 +65,12 @@
       <?PHP unset( $value ); ?>
     </div>
   </section>
+
   <section class="tile">
     <h2>2. Input text</h2>
     <textarea name="<?php echo $name_textarea_hash; ?>" placeholder="text" required></textarea>
     <button class="post" type="submit">Post!</button>
   </section>
+
+  <p>The result wiil be displayed after post.</p>
 </form>

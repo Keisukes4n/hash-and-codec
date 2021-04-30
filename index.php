@@ -3,6 +3,8 @@
    * main file of string conversion
    * 
    */
+
+  /** parameters */
   $page_dir   = '/string_conversion';
   $pass_front = $_SERVER['DOCUMENT_ROOT'] . $page_dir;
 ?>
@@ -27,21 +29,16 @@
           <button class="method-name" id="buttonMethodUuencode" type="button">UUENCODE</button>
         </div>
 
-        <?php
-          $result_text = null;
-          include_once './functions/hash.php';
-          include_once './functions/base64.php';
-          include_once './functions/uuencode.php';
-        ?>
-
-        <img src="<?php echo './modules/icon/arrow-down-icon-plane.svg'; ?>" alt="arrow-down-icon-plane.svg" class="arrow-icon">
+        <?php include_once './modules/function/hash.php'; ?>
+        <?php include_once './modules/function/base64.php'; ?>
+        <?php include_once './modules/function/uuencode.php'; ?>
       </section>
     </main>
 
     <?php include_once './modules/_footer.php'; ?>
 
     <script>
-      // HTML elements
+      /** HTML elements */
       const elementFormHashGeneration   = document.getElementById( 'formHashGeneration' );
       const elementFormBase64Codec      = document.getElementById( 'formBase64Codec' );
       const elementFormUuencodeCodec    = document.getElementById( 'formUuencodeCodec' );
@@ -49,7 +46,7 @@
       const elementButtonMethodBase64   = document.getElementById( 'buttonMethodBase64' );
       const elementButtonMethodUuencode = document.getElementById( 'buttonMethodUuencode' );
 
-      // functions
+      /** functions */
       function displayHash() {
         elementFormHashGeneration.style.height   = 'auto';
         elementFormBase64Codec.style.height      = '0';
@@ -77,7 +74,7 @@
         elementButtonMethodUuencode.style.border = 'rgb(127, 127, 127) solid thin';
       }
 
-      // Actions when click elements
+      /** Actions when click elements */
       elementButtonMethodHash.addEventListener( 'click', () => {
         displayHash();
       }, false );
@@ -90,11 +87,8 @@
         displayUuencode();
       }, false );
 
-      // For display after string post
+      /** For display after string post */
       <?php if ( isset( $_POST[ 'conversion-method' ] ) ): ?>
-        const elementSectionResultArea        = document.getElementById( 'sectionResultArea' );
-        elementSectionResultArea.style.border = 'green solid medium';
-        
         const conversionMethod = '<?php echo $_POST[ 'conversion-method' ]; ?>';
         switch ( conversionMethod ) {
           case 'hash':

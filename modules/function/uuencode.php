@@ -5,11 +5,11 @@
    * This file is called from index.php in front directory.
    */
 
-  // parameters
+  /** parameters */
   $name_process_uuencode  = 'encode-or-decode-uuencode';
   $name_textarea_uuencode = 'input-string-uuencode';
   
-  // functions
+  /** functions */
   function uuencode_build_date( $process, $input ) {
     $cnvrt_str = uuencode_process_string( $process, $input );
     $result    = uuencode_form_text( $cnvrt_str, $process, $input );
@@ -43,18 +43,18 @@
   }
 ?>
 
-<?php if ( isset( $_POST[$name_process_uuencode] ) ): ?>
-  <?php if ( isset( $_POST[$name_textarea_uuencode] ) ): ?>
+<form action="" class="uuencode-codec" id="formUuencodeCodec" method="POST">
+  <input type="hidden" name="conversion-method" value="uuencode">
+
+  <?php if ( isset( $_POST[$name_process_uuencode] ) && isset( $_POST[$name_textarea_uuencode] ) ): ?>
     <?php $uuencode_result = uuencode_build_date( $_POST[$name_process_uuencode] ,$_POST[$name_textarea_uuencode] ); ?>
-    <section class="result-area" id="sectionResultArea">
+    <section class="result-area">
       <h2>Result</h2>
       <textarea><?php echo htmlentities( $uuencode_result ); ?></textarea>
     </section>
+    <hr>
   <?php endif; ?>
-<?php endif; ?>
 
-<form action="" class="uuencode-codec" id="formUuencodeCodec" method="POST">
-  <input type="hidden" name="conversion-method" value="uuencode">
   <section class="tile">
     <h2>1. Select "Encode" or "Decode" (UUENODE)</h2>
     <div class="coding-process">
@@ -66,9 +66,12 @@
       </label>
     </div>
   </section>
+
   <section class="tile">
     <h2>2. Input text</h2>
     <textarea name="<?php echo $name_textarea_uuencode; ?>" placeholder="text" required></textarea>
     <button class="post" type="submit">Post!</button>
   </section>
+
+  <p>The result wiil be displayed after post.</p>
 </form>

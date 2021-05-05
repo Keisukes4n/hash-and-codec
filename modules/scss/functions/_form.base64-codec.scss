@@ -4,11 +4,15 @@
  * _form.base64-codec.scss
  */
 form.base64-codec {
-  overflow-y: hidden;
+  display:         flex;
+  flex:            1 1 auto;
+  flex-flow:       row wrap;
+  justify-content: center;
 
   > section.tile {
     box-shadow: 0 0 2px rgb(63, 63, 63);
     box-sizing: border-box;
+    flex:       1 1 100%;
     margin:     1.0rem 0.5rem 1.0rem 0.5rem;
     padding:    0.5rem;
 

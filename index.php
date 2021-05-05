@@ -24,9 +24,9 @@
       <h1><?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?></h1>
       <section class="string-conversion">
         <div class="method-selector" id="divMethodSelector">
-          <button class="method-name" id="buttonMethodHash" type="button">Hash</button>
-          <button class="method-name" id="buttonMethodBase64" type="button">Base64</button>
-          <button class="method-name" id="buttonMethodUuencode" type="button">UUENCODE</button>
+          <button id="buttonMethodBase64" type="button">Base64</button>
+          <button id="buttonMethodHash" type="button">Hash</button>
+          <button id="buttonMethodUuencode" type="button">UUENCODE</button>
         </div>
 
         <?php include_once './modules/function/hash.php'; ?>
@@ -39,36 +39,36 @@
 
     <script>
       /** HTML elements */
-      const elementFormHashGeneration   = document.getElementById( 'formHashGeneration' );
       const elementFormBase64Codec      = document.getElementById( 'formBase64Codec' );
+      const elementFormHashGeneration   = document.getElementById( 'formHashGeneration' );
       const elementFormUuencodeCodec    = document.getElementById( 'formUuencodeCodec' );
-      const elementButtonMethodHash     = document.getElementById( 'buttonMethodHash' );
       const elementButtonMethodBase64   = document.getElementById( 'buttonMethodBase64' );
+      const elementButtonMethodHash     = document.getElementById( 'buttonMethodHash' );
       const elementButtonMethodUuencode = document.getElementById( 'buttonMethodUuencode' );
 
       /** functions */
-      function displayHash() {
-        elementFormHashGeneration.style.height   = 'auto';
-        elementFormBase64Codec.style.height      = '0';
-        elementFormUuencodeCodec.style.height    = '0';
-        elementButtonMethodHash.style.border     = 'rgb(127, 127, 127) solid thin';
-        elementButtonMethodBase64.style.border   = 'hidden';
-        elementButtonMethodUuencode.style.border = 'hidden';
-      }
-
       function displayBase64() {
-        elementFormHashGeneration.style.height   = '0';
-        elementFormBase64Codec.style.height      = 'auto';
-        elementFormUuencodeCodec.style.height    = '0';
+        elementFormBase64Codec.style.display      = 'flex';
+        elementFormHashGeneration.style.display   = 'none';
+        elementFormUuencodeCodec.style.display    = 'none';
         elementButtonMethodHash.style.border     = 'hidden';
         elementButtonMethodBase64.style.border   = 'rgb(127, 127, 127) solid thin';
         elementButtonMethodUuencode.style.border = 'hidden';
       }
 
+      function displayHash() {
+        elementFormBase64Codec.style.display      = 'none';
+        elementFormHashGeneration.style.display   = 'flex';
+        elementFormUuencodeCodec.style.display    = 'none';
+        elementButtonMethodHash.style.border     = 'rgb(127, 127, 127) solid thin';
+        elementButtonMethodBase64.style.border   = 'hidden';
+        elementButtonMethodUuencode.style.border = 'hidden';
+      }
+
       function displayUuencode() {
-        elementFormHashGeneration.style.height   = '0';
-        elementFormBase64Codec.style.height      = '0';
-        elementFormUuencodeCodec.style.height    = 'auto';
+        elementFormBase64Codec.style.display      = 'none';
+        elementFormHashGeneration.style.display   = 'none';
+        elementFormUuencodeCodec.style.display    = 'flex';
         elementButtonMethodHash.style.border     = 'hidden';
         elementButtonMethodBase64.style.border   = 'hidden';
         elementButtonMethodUuencode.style.border = 'rgb(127, 127, 127) solid thin';
@@ -91,11 +91,11 @@
       <?php if ( isset( $_POST[ 'conversion-method' ] ) ): ?>
         const conversionMethod = '<?php echo $_POST[ 'conversion-method' ]; ?>';
         switch ( conversionMethod ) {
-          case 'hash':
-            displayHash();
-            break;
           case 'base64':
             displayBase64();
+            break;
+          case 'hash':
+            displayHash();
             break;
           case 'uuencode':
             displayUuencode();

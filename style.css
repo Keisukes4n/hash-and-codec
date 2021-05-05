@@ -28,12 +28,7 @@ footer {
   padding: 1.0rem;
 }
 
-footer > section.timestamp {
-  font-size: small;
-  text-align: center;
-}
-
-footer > section.copyright {
+footer > div.item {
   font-size: small;
   text-align: center;
 }
@@ -46,7 +41,7 @@ header {
   box-shadow: 0 0 2px #5f5f5f;
   display: flex;
   flex-flow: row wrap;
-  height: 5.0rem;
+  height: 4.0rem;
   position: fixed;
   width: 100%;
 }
@@ -55,7 +50,7 @@ header > section.primary {
   box-sizing: border-box;
   display: flex;
   flex-flow: row nowrap;
-  height: 5.0rem;
+  height: 4.0rem;
   justify-content: space-between;
   width: 100%;
 }
@@ -74,7 +69,6 @@ header > section.primary > .operation-button-left {
   color: #3f3f3f;
   display: flex;
   flex-flow: column;
-  height: 5.0rem;
   justify-content: center;
   width: 25%;
 }
@@ -99,7 +93,6 @@ header > section.primary > .operation-button-right {
   color: #3f3f3f;
   display: flex;
   flex-flow: column;
-  height: 5.0rem;
   justify-content: center;
   width: 25%;
 }
@@ -109,7 +102,7 @@ header > section.primary > .operation-button-right {
  */
 main {
   box-sizing: border-box;
-  padding: 5.0rem 5% 5.0rem 5%;
+  padding: 4.0rem 5% 4.0rem 5%;
 }
 
 @media screen and (min-aspect-ratio: 4 / 3) {
@@ -223,12 +216,28 @@ section.string-conversion {
   padding: 0;
 }
 
+@media screen and (min-aspect-ratio: 4 / 3) {
+  section.string-conversion {
+    display: flex;
+    flex-flow: row;
+  }
+}
+
 section.string-conversion div.method-selector {
   display: flex;
   justify-content: center;
 }
 
-section.string-conversion div.method-selector button.method-name {
+@media screen and (min-aspect-ratio: 4 / 3) {
+  section.string-conversion div.method-selector {
+    flex: 0 0 20%;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    margin: 0.5rem 0 0.5rem 0;
+  }
+}
+
+section.string-conversion div.method-selector button {
   background: white;
   border: none;
   border-radius: 4px;
@@ -241,8 +250,14 @@ section.string-conversion div.method-selector button.method-name {
   transition: background 200ms ease-out 0ms;
 }
 
-section.string-conversion div.method-selector button.method-name:hover {
+section.string-conversion div.method-selector button:hover {
   background: #dfdfdf;
+}
+
+@media screen and (min-aspect-ratio: 4 / 3) {
+  section.string-conversion div.method-selector button {
+    flex: 0 0 auto;
+  }
 }
 
 section.string-conversion img.arrow-icon {
@@ -258,6 +273,7 @@ section.string-conversion section.result-area {
   box-sizing: border-box;
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
   padding: 0.5rem;
+  flex: 1 1 100%;
 }
 
 section.string-conversion textarea {
@@ -288,12 +304,16 @@ section.string-conversion button.post:hover {
  * _form.hash-generation.scss
  */
 form.hash-generation {
-  overflow: hidden;
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 form.hash-generation > section.tile {
   box-shadow: 0 0 2px 0px #3f3f3f;
   box-sizing: border-box;
+  flex: 1 1 100%;
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
   padding: 0.5rem;
 }
@@ -342,12 +362,16 @@ form.hash-generation p {
  * _form.base64-codec.scss
  */
 form.base64-codec {
-  overflow-y: hidden;
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 form.base64-codec > section.tile {
   box-shadow: 0 0 2px #3f3f3f;
   box-sizing: border-box;
+  flex: 1 1 100%;
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
   padding: 0.5rem;
 }
@@ -397,12 +421,16 @@ form.base64-codec p {
  * _form.base64-codec.scss
  */
 form.uuencode-codec {
-  overflow-y: hidden;
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 form.uuencode-codec > section.tile {
   box-shadow: 0 0 2px #3f3f3f;
   box-sizing: border-box;
+  flex: 1 1 100%;
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
   padding: 0.5rem;
 }

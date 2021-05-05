@@ -10,13 +10,8 @@ footer {
   flex:       1 1 auto;
   padding:    1.0rem;
 
-  > section.timestamp {
+  > div.item {
     font-size:  small;
     text-align: center;
-  }
-
-  > section.copyright {
-    font-size:  small;
-		text-align: center;
   }
 }

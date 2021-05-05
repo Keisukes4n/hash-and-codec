@@ -72,5 +72,5 @@
     <button class="post" type="submit">Post!</button>
   </section>
 
-  <p>The result wiil be displayed after post.</p>
+  <p>The result wiil be displayed after posted.</p>
 </form>

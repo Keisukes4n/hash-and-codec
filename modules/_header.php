@@ -4,15 +4,19 @@
    * 
    * This file is called from index.php in front directory.
    */
+
+  /** parameters */
   $pass_modules_icon = './modules/icon';
 ?>
 
 <header>
   <section class="primary">
     <div class="operation-button-left" id="divOperationButtonLeft">
+    <!--
       <img src="<?php echo $pass_modules_icon; ?>/menu-icon-plain.svg" alt="menu-icon-plain.svg" id="imgMenuIcon">
+    -->
     </div>
-    <span class="website-title" id="spanWebsiteTitle">Tools</span>
+    <span class="website-title" id="spanWebsiteTitle">Web tools</span>
     <div class="operation-button-right ">
     </div>
   </section>
@@ -48,6 +52,7 @@
     </ul>
   </nav>
 
+  <?php /* ?>
   <script>
     const elementdivOperationButtonLeft = document.getElementById( 'divOperationButtonLeft' );
     const elementImgMenuIcon            = document.getElementById( 'imgMenuIcon' );
@@ -81,6 +86,7 @@
       }
     }, false );
   </script>
+  <?php */ ?>
 </header>
 
 <?php unset( $pass_modules_icon ); ?>

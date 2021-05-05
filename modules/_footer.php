@@ -4,15 +4,20 @@
    * 
    * This file is called from index.php in front directory.
    */
+
+  /** parameters */
   $mod_date    = date( "jS F, Y", getlastmod() );
   $author_name = 'Keisukes4n';
 ?>
 
 <footer>
-  <section class="timestamp">
-    <p>Modified date: <?php echo $mod_date; ?></p>
-  </section>
-  <section class="copyright">
-    <p>Copyright 2021 <?php echo $author_name; ?></p>
-  </section>
+  <div class="item">
+    <p>Modified date: <?php echo htmlentities( $mod_date ); ?></p>
+  </div>
+  <div class="item">
+    <p>License: Apache License Version 2.0, CC BY 4.0</p>
+  </div>
+  <div class="item">
+    <p>Copyright 2021 <?php echo htmlentities( $author_name ); ?></p>
+  </div>
 </footer>

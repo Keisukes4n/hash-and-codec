@@ -5,18 +5,13 @@
  */
 footer {
   background: rgb(63, 63, 63);
-  box-shadow: 0 0 2px rgb(95, 95, 95);
+  box-shadow: 0 0 2px rgb(63, 63, 63);
   color:      rgb(255, 255, 255);
   flex:       1 1 auto;
   padding:    1.0rem;
 
-  > section.timestamp {
+  > div.item {
     font-size:  small;
     text-align: center;
-  }
-
-  > section.copyright {
-    font-size:  small;
-		text-align: center;
   }
 }

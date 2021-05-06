@@ -7,36 +7,53 @@ section.string-conversion {
   margin:  0;
   padding: 0;
 
-  button.submit {
-    background:    rgb(255, 255, 255);
-    border:        none;
-    border-radius: 8px;
-    box-shadow:    0 0 2px rgb(95, 95, 95);
-    display:       block;
-    margin:        1.0rem auto 1.0rem auto;
-    padding:       1.0rem 2.0rem 1.0rem 2.0rem;
-
-    &:hover {
-      background: rgb(239, 239, 239);
-    }
+  @media screen and (min-aspect-ratio: 4 / 3) {
+    display:   flex;
+    flex-flow: row;
   }
 
-  div.method-selector {
+  div.process-selector {
     display:         flex;
     justify-content: center;
+
+    @media screen and (min-aspect-ratio: 4 / 3) {
+      box-shadow:      0 0 2px rgb(63, 63, 63);
+      flex:            0 0 20%;
+      flex-flow:       column;
+      justify-content: flex-start;
+      margin:          1.0rem 1.0rem 1.0rem 0;
+    }
     
-    button.method-name {
+    button {
       background:    rgb(255, 255, 255);
       border:        none;
-      border-radius: 8px;
-      box-shadow:    0 0 2px rgb(95, 95, 95);
-      display:       block;
-      flex:          0 1 calc(25% - 1.0rem);
+      border-radius: 4px;
+      box-shadow:    0 0 2px rgb(127, 127, 127);
+      box-sizing:    border-box;
+      flex:          0 0 20%;
+      font-size:     medium;
       margin:        0.5rem;
-      padding:       0.5rem;
+      padding:       1.0rem;
+      transition:    background 200ms ease-out 0ms;
 
       &:hover {
-        background: rgb(239, 239, 239);
+        background: rgb(223, 223, 223);
+      }
+
+      @media screen and (min-aspect-ratio: 4 / 3) {
+        flex:   0 0 auto;
+        margin: 0.5rem 1.0rem 0.5rem 1.0rem;
+      }
+    }
+
+    p {
+      display:     none;
+      font-size:   large;
+      font-weight: bold;
+      text-align:  center;
+
+      @media screen and (min-aspect-ratio: 4 / 3) {
+        display: block;
       }
     }
   }
@@ -49,10 +66,12 @@ section.string-conversion {
   }
 
   section.result-area {
-    box-shadow: 0 0 2px rgb(95, 95, 95);
+    border: green solid medium;
+    box-shadow: 0 0 2px rgb(63, 63, 63);
     box-sizing: border-box;
     margin:     1.0rem 0.5rem 1.0rem 0.5rem;
     padding:    0.5rem;
+    flex: 1 1 100%;
   }
 
   textarea {
@@ -60,5 +79,22 @@ section.string-conversion {
     box-sizing: border-box;
     height:     8.0rem;
     width:      100%;
+  }
+
+  button.post {
+    background:    rgb(255, 255, 255);
+    border:        none;
+    border-radius: 4px;
+    box-shadow:    0 0 2px rgb(127, 127, 127);
+    box-sizing:    border-box;
+    display:       block;
+    font-size:     medium;
+    margin:        0.5rem auto 0.5rem auto;
+    padding:       1.0rem;
+    transition:    background 200ms ease-out 0ms;
+  
+    &:hover {
+      background: rgb(223, 223, 223);
+    }
   }
 }

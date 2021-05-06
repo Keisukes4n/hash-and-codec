@@ -2,21 +2,21 @@
   /**
    * module file: _header.php
    * 
-   * Inherited variables form index.php
-   * $page_title = 'String conversion';
-   * $page_dir   = '/string-conversion';
-   * $pass_front = $_SERVER['DOCUMENT_ROOT'] . $page_dir;
+   * This file is called from index.php in front directory.
    */
 
-  $pass_modules_icon = $page_dir . '/modules/icon';
+  /** parameters */
+  $pass_modules_icon = './modules/icon';
 ?>
 
 <header>
   <section class="primary">
     <div class="operation-button-left" id="divOperationButtonLeft">
+    <!--
       <img src="<?php echo $pass_modules_icon; ?>/menu-icon-plain.svg" alt="menu-icon-plain.svg" id="imgMenuIcon">
+    -->
     </div>
-    <span class="website-title" id="spanWebsiteTitle">Tools</span>
+    <span class="website-title" id="spanWebsiteTitle">Web tools</span>
     <div class="operation-button-right ">
     </div>
   </section>
@@ -52,6 +52,7 @@
     </ul>
   </nav>
 
+  <?php /* ?>
   <script>
     const elementdivOperationButtonLeft = document.getElementById( 'divOperationButtonLeft' );
     const elementImgMenuIcon            = document.getElementById( 'imgMenuIcon' );
@@ -85,6 +86,7 @@
       }
     }, false );
   </script>
+  <?php */ ?>
 </header>
 
 <?php unset( $pass_modules_icon ); ?>

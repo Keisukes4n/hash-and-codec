@@ -1,10 +1,11 @@
 <?php
   /**
-   * 
+   * main file of string conversion
    * 
    */
-  $page_title = 'String conversion';
-  $page_dir   = '/string-conversion';
+
+  /** parameters */
+  $page_dir   = '/string_conversion';
   $pass_front = $_SERVER['DOCUMENT_ROOT'] . $page_dir;
 ?>
 
@@ -13,99 +14,89 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?php echo $page_dir; ?>/style.css" rel="stylesheet" type="text/css">
-    <title><?php echo $page_title; ?></title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title><?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?></title>
   </head>
   <body>
-    <?php include_once $pass_front . '/modules/header/_header.php'; ?>
+    <?php include_once './modules/_header.php'; ?>
+
     <main>
-      <h1><?php echo $page_title; ?></h1>
+      <h1><?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?></h1>
       <section class="string-conversion">
-        <div class="method-selector" id="dicMethodSelector">
-          <button class="method-name" id="buttonMethodHash" type="button">Hash</button>
-          <button class="method-name" id="buttonMethodBase64" type="button">Base64</button>
-          <button class="method-name" id="buttonMethodUuencode" type="button">UUENCODE</button>
+        <div class="process-selector" id="divMethodSelector">
+          <p>Process</p>
+          <button id="buttonProcessBase64" type="button">Base64</button>
+          <button id="buttonProcessHash" type="button">Hash</button>
+          <button id="buttonProcessUuencode" type="button">UUENCODE</button>
         </div>
 
-        <?php
-          $result_text = NULL;
-          include_once $pass_front . '/functions/hash.php';
-          include_once $pass_front . '/functions/base64.php';
-          include_once $pass_front . '/functions/uuencode.php';
-        ?>
-
-        <img src="<?php echo $page_dir . '/modules/icon/arrow-down-icon-plane.svg'; ?>" alt="arrow-down-icon-plane.svg" class="arrow-icon">
-
-        <section class="result-area" id="sectionResultArea">
-          <h2>3. Result</h2>
-          <textarea placeholder="Result"><?php echo $result_text; ?></textarea>
-        </section>
+        <?php include_once './modules/function/hash.php'; ?>
+        <?php include_once './modules/function/base64.php'; ?>
+        <?php include_once './modules/function/uuencode.php'; ?>
       </section>
     </main>
-    <?php include_once $pass_front . '/modules/footer/_footer.php'; ?>
+
+    <?php include_once './modules/_footer.php'; ?>
 
     <script>
-      // HTML elements
-      const elementFormHashGeneration   = document.getElementById( 'formHashGeneration' );
-      const elementFormBase64Codec      = document.getElementById( 'formBase64Codec' );
-      const elementFormUuencodeCodec    = document.getElementById( 'formUuencodeCodec' );
-      const elementButtonMethodHash     = document.getElementById( 'buttonMethodHash' );
-      const elementButtonMethodBase64   = document.getElementById( 'buttonMethodBase64' );
-      const elementButtonMethodUuencode = document.getElementById( 'buttonMethodUuencode' );
+      /** HTML elements */
+      const elementFormBase64Codec       = document.getElementById( 'formBase64Codec' );
+      const elementFormHashGeneration    = document.getElementById( 'formHashGeneration' );
+      const elementFormUuencodeCodec     = document.getElementById( 'formUuencodeCodec' );
+      const elementbuttonProcessBase64   = document.getElementById( 'buttonProcessBase64' );
+      const elementbuttonProcessHash     = document.getElementById( 'buttonProcessHash' );
+      const elementbuttonProcessUuencode = document.getElementById( 'buttonProcessUuencode' );
 
-      // functions
-      function displayHash() {
-        elementFormHashGeneration.style.height   = 'auto';
-        elementFormBase64Codec.style.height      = '0';
-        elementFormUuencodeCodec.style.height    = '0';
-        elementButtonMethodHash.style.border     = 'rgb(63, 63, 63) solid thin';
-        elementButtonMethodBase64.style.border   = 'none';
-        elementButtonMethodUuencode.style.border = 'none';
+      /** functions */
+      function displayBase64() {
+        elementFormBase64Codec.style.display      = 'flex';
+        elementFormHashGeneration.style.display   = 'none';
+        elementFormUuencodeCodec.style.display    = 'none';
+        elementbuttonProcessHash.style.border     = 'hidden';
+        elementbuttonProcessBase64.style.border   = 'rgb(127, 127, 127) solid thin';
+        elementbuttonProcessUuencode.style.border = 'hidden';
       }
 
-      function displayBase64() {
-        elementFormHashGeneration.style.height   = '0';
-        elementFormBase64Codec.style.height      = 'auto';
-        elementFormUuencodeCodec.style.height    = '0';
-        elementButtonMethodHash.style.border     = 'none';
-        elementButtonMethodBase64.style.border   = 'rgb(63, 63, 63) solid thin';
-        elementButtonMethodUuencode.style.border = 'none';
+      function displayHash() {
+        elementFormBase64Codec.style.display      = 'none';
+        elementFormHashGeneration.style.display   = 'flex';
+        elementFormUuencodeCodec.style.display    = 'none';
+        elementbuttonProcessHash.style.border     = 'rgb(127, 127, 127) solid thin';
+        elementbuttonProcessBase64.style.border   = 'hidden';
+        elementbuttonProcessUuencode.style.border = 'hidden';
       }
 
       function displayUuencode() {
-        elementFormHashGeneration.style.height   = '0';
-        elementFormBase64Codec.style.height      = '0';
-        elementFormUuencodeCodec.style.height    = 'auto';
-        elementButtonMethodHash.style.border     = 'none';
-        elementButtonMethodBase64.style.border   = 'none';
-        elementButtonMethodUuencode.style.border = 'rgb(63, 63, 63) solid thin';
+        elementFormBase64Codec.style.display      = 'none';
+        elementFormHashGeneration.style.display   = 'none';
+        elementFormUuencodeCodec.style.display    = 'flex';
+        elementbuttonProcessHash.style.border     = 'hidden';
+        elementbuttonProcessBase64.style.border   = 'hidden';
+        elementbuttonProcessUuencode.style.border = 'rgb(127, 127, 127) solid thin';
       }
 
-      // Actions when click elements
-      elementButtonMethodHash.addEventListener( 'click', () => {
+      /** Actions when click elements */
+      elementbuttonProcessHash.addEventListener( 'click', () => {
         displayHash();
       }, false );
 
-      elementButtonMethodBase64.addEventListener( 'click', () => {
+      elementbuttonProcessBase64.addEventListener( 'click', () => {
         displayBase64();
       }, false );
 
-      elementButtonMethodUuencode.addEventListener( 'click', () => {
+      elementbuttonProcessUuencode.addEventListener( 'click', () => {
         displayUuencode();
       }, false );
 
-      // For display after string post
+      /** For display after string post */
       <?php if ( isset( $_POST[ 'conversion-method' ] ) ): ?>
-        const elementSectionResultArea        = document.getElementById( 'sectionResultArea' );
-        elementSectionResultArea.style.border = 'green solid thin';
-        
         const conversionMethod = '<?php echo $_POST[ 'conversion-method' ]; ?>';
         switch ( conversionMethod ) {
-          case 'hash':
-            displayHash();
-            break;
           case 'base64':
             displayBase64();
+            break;
+          case 'hash':
+            displayHash();
             break;
           case 'uuencode':
             displayUuencode();

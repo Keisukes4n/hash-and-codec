@@ -223,21 +223,22 @@ section.string-conversion {
   }
 }
 
-section.string-conversion div.method-selector {
+section.string-conversion div.process-selector {
   display: flex;
   justify-content: center;
 }
 
 @media screen and (min-aspect-ratio: 4 / 3) {
-  section.string-conversion div.method-selector {
+  section.string-conversion div.process-selector {
+    box-shadow: 0 0 2px #3f3f3f;
     flex: 0 0 20%;
-    flex-flow: column wrap;
+    flex-flow: column;
     justify-content: flex-start;
-    margin: 0.5rem 0 0.5rem 0;
+    margin: 1.0rem 1.0rem 1.0rem 0;
   }
 }
 
-section.string-conversion div.method-selector button {
+section.string-conversion div.process-selector button {
   background: white;
   border: none;
   border-radius: 4px;
@@ -250,13 +251,27 @@ section.string-conversion div.method-selector button {
   transition: background 200ms ease-out 0ms;
 }
 
-section.string-conversion div.method-selector button:hover {
+section.string-conversion div.process-selector button:hover {
   background: #dfdfdf;
 }
 
 @media screen and (min-aspect-ratio: 4 / 3) {
-  section.string-conversion div.method-selector button {
+  section.string-conversion div.process-selector button {
     flex: 0 0 auto;
+    margin: 0.5rem 1.0rem 0.5rem 1.0rem;
+  }
+}
+
+section.string-conversion div.process-selector p {
+  display: none;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media screen and (min-aspect-ratio: 4 / 3) {
+  section.string-conversion div.process-selector p {
+    display: block;
   }
 }
 

@@ -23,10 +23,11 @@
     <main>
       <h1><?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?></h1>
       <section class="string-conversion">
-        <div class="method-selector" id="divMethodSelector">
-          <button id="buttonMethodBase64" type="button">Base64</button>
-          <button id="buttonMethodHash" type="button">Hash</button>
-          <button id="buttonMethodUuencode" type="button">UUENCODE</button>
+        <div class="process-selector" id="divMethodSelector">
+          <p>Process</p>
+          <button id="buttonProcessBase64" type="button">Base64</button>
+          <button id="buttonProcessHash" type="button">Hash</button>
+          <button id="buttonProcessUuencode" type="button">UUENCODE</button>
         </div>
 
         <?php include_once './modules/function/hash.php'; ?>
@@ -39,51 +40,51 @@
 
     <script>
       /** HTML elements */
-      const elementFormBase64Codec      = document.getElementById( 'formBase64Codec' );
-      const elementFormHashGeneration   = document.getElementById( 'formHashGeneration' );
-      const elementFormUuencodeCodec    = document.getElementById( 'formUuencodeCodec' );
-      const elementButtonMethodBase64   = document.getElementById( 'buttonMethodBase64' );
-      const elementButtonMethodHash     = document.getElementById( 'buttonMethodHash' );
-      const elementButtonMethodUuencode = document.getElementById( 'buttonMethodUuencode' );
+      const elementFormBase64Codec       = document.getElementById( 'formBase64Codec' );
+      const elementFormHashGeneration    = document.getElementById( 'formHashGeneration' );
+      const elementFormUuencodeCodec     = document.getElementById( 'formUuencodeCodec' );
+      const elementbuttonProcessBase64   = document.getElementById( 'buttonProcessBase64' );
+      const elementbuttonProcessHash     = document.getElementById( 'buttonProcessHash' );
+      const elementbuttonProcessUuencode = document.getElementById( 'buttonProcessUuencode' );
 
       /** functions */
       function displayBase64() {
         elementFormBase64Codec.style.display      = 'flex';
         elementFormHashGeneration.style.display   = 'none';
         elementFormUuencodeCodec.style.display    = 'none';
-        elementButtonMethodHash.style.border     = 'hidden';
-        elementButtonMethodBase64.style.border   = 'rgb(127, 127, 127) solid thin';
-        elementButtonMethodUuencode.style.border = 'hidden';
+        elementbuttonProcessHash.style.border     = 'hidden';
+        elementbuttonProcessBase64.style.border   = 'rgb(127, 127, 127) solid thin';
+        elementbuttonProcessUuencode.style.border = 'hidden';
       }
 
       function displayHash() {
         elementFormBase64Codec.style.display      = 'none';
         elementFormHashGeneration.style.display   = 'flex';
         elementFormUuencodeCodec.style.display    = 'none';
-        elementButtonMethodHash.style.border     = 'rgb(127, 127, 127) solid thin';
-        elementButtonMethodBase64.style.border   = 'hidden';
-        elementButtonMethodUuencode.style.border = 'hidden';
+        elementbuttonProcessHash.style.border     = 'rgb(127, 127, 127) solid thin';
+        elementbuttonProcessBase64.style.border   = 'hidden';
+        elementbuttonProcessUuencode.style.border = 'hidden';
       }
 
       function displayUuencode() {
         elementFormBase64Codec.style.display      = 'none';
         elementFormHashGeneration.style.display   = 'none';
         elementFormUuencodeCodec.style.display    = 'flex';
-        elementButtonMethodHash.style.border     = 'hidden';
-        elementButtonMethodBase64.style.border   = 'hidden';
-        elementButtonMethodUuencode.style.border = 'rgb(127, 127, 127) solid thin';
+        elementbuttonProcessHash.style.border     = 'hidden';
+        elementbuttonProcessBase64.style.border   = 'hidden';
+        elementbuttonProcessUuencode.style.border = 'rgb(127, 127, 127) solid thin';
       }
 
       /** Actions when click elements */
-      elementButtonMethodHash.addEventListener( 'click', () => {
+      elementbuttonProcessHash.addEventListener( 'click', () => {
         displayHash();
       }, false );
 
-      elementButtonMethodBase64.addEventListener( 'click', () => {
+      elementbuttonProcessBase64.addEventListener( 'click', () => {
         displayBase64();
       }, false );
 
-      elementButtonMethodUuencode.addEventListener( 'click', () => {
+      elementbuttonProcessUuencode.addEventListener( 'click', () => {
         displayUuencode();
       }, false );
 

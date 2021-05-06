@@ -71,7 +71,6 @@
     <h2>2. Input text</h2>
     <textarea name="<?php echo $name_textarea_uuencode; ?>" placeholder="text" required></textarea>
     <button class="post" type="submit">Post!</button>
+    <p>The result wiil be displayed after posted.</p>
   </section>
-
-  <p>The result wiil be displayed after posted.</p>
 </form>

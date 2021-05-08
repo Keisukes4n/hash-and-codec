@@ -43,7 +43,7 @@
 ?>
 
 <form action="" class="base64-codec" id="formBase64Codec" method="POST">
-  <input type="hidden" name="conversion-method" value="base64">
+  <input type="hidden" name="conversion-process" value="base64">
 
   <?php if ( isset( $_POST[$name_process_base64] ) && isset( $_POST[$name_textarea_base64] ) ): ?>
     <?php $base64_result = base64_build_date( $_POST[$name_process_base64], $_POST[$name_textarea_base64] ); ?>

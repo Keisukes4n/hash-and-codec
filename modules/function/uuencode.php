@@ -44,7 +44,7 @@
 ?>
 
 <form action="" class="uuencode-codec" id="formUuencodeCodec" method="POST">
-  <input type="hidden" name="conversion-method" value="uuencode">
+  <input type="hidden" name="conversion-process" value="uuencode">
 
   <?php if ( isset( $_POST[$name_process_uuencode] ) && isset( $_POST[$name_textarea_uuencode] ) ): ?>
     <?php $uuencode_result = uuencode_build_date( $_POST[$name_process_uuencode] ,$_POST[$name_textarea_uuencode] ); ?>

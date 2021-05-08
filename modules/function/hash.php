@@ -42,7 +42,7 @@
 ?>
 
 <form action="" class="hash-generation" id="formHashGeneration" method="POST">
-  <input type="hidden" name="conversion-method" value="hash">
+  <input type="hidden" name="conversion-process" value="hash">
 
   <?php if ( isset( $_POST[$name_algos] ) && isset( $_POST[$name_textarea_hash] ) ): ?>
     <?php $hash_result = hash_build_date( $_POST[$name_algos], $_POST[$name_textarea_hash] ); ?>

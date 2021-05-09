@@ -26,9 +26,9 @@
           <button id="buttonProcessUuencode" type="button">UUENCODE</button>
         </div>
 
-        <?php include_once './modules/function/base64.php'; ?>
-        <?php include_once './modules/function/hash.php'; ?>
-        <?php include_once './modules/function/uuencode.php'; ?>
+        <?php include_once './modules/function/_base64.php'; ?>
+        <?php include_once './modules/function/_hash.php'; ?>
+        <?php include_once './modules/function/_uuencode.php'; ?>
       </section>
     </main>
     <?php include_once './modules/_footer.php'; ?>

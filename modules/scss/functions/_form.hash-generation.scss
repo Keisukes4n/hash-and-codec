@@ -17,9 +17,9 @@ form.hash-generation {
     padding:    0.5rem;
 
     > div.algorithm-list {
-      box-sizing:      border-box;
-      display:         flex;
-      flex-flow:       row wrap;
+      box-sizing: border-box;
+      display:    grid;
+      grid:       auto-flow auto / repeat( auto-fill, minmax( 240px, auto ) );
     
       > label {
         align-items:   center;
@@ -28,7 +28,6 @@ form.hash-generation {
         box-shadow:    0 0 2px rgb(127, 127, 127);
         box-sizing:    border-box;
         display:       flex;
-        flex:          0 0 calc(33% - 1.0rem);
         height:        3.0rem;
         margin:        0.5rem;
         transition:    background 100ms ease-out 0ms;

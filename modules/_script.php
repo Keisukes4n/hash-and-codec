@@ -75,6 +75,11 @@
         displayBase64();
         break;
     }
+
+    /** For css transition of result area */
+    const elementSectionResultArea = document.getElementById( 'sectionResultArea' );
+    elementSectionResultArea.style.height  = '14.0rem';
+
   <?php else: ?>
     displayBase64();
   <?php endif; ?>

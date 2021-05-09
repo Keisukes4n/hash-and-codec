@@ -286,9 +286,12 @@ section.string-conversion section.result-area {
   border: green solid medium;
   box-shadow: 0 0 2px #3f3f3f;
   box-sizing: border-box;
+  flex: 1 1 100%;
+  height: 0;
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
   padding: 0.5rem;
-  flex: 1 1 100%;
+  overflow-y: hidden;
+  transition: height 200ms ease-out 100ms;
 }
 
 section.string-conversion textarea {
@@ -335,8 +338,8 @@ form.hash-generation > section.tile {
 
 form.hash-generation > section.tile > div.algorithm-list {
   box-sizing: border-box;
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid: auto-flow auto/repeat(auto-fill, minmax(240px, auto));
 }
 
 form.hash-generation > section.tile > div.algorithm-list > label {
@@ -346,7 +349,6 @@ form.hash-generation > section.tile > div.algorithm-list > label {
   box-shadow: 0 0 2px #7f7f7f;
   box-sizing: border-box;
   display: flex;
-  flex: 0 0 calc(33% - 1.0rem);
   height: 3.0rem;
   margin: 0.5rem;
   transition: background 100ms ease-out 0ms;

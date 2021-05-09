@@ -47,7 +47,7 @@
 
   <?php if ( isset( $_POST[$name_process_base64] ) && isset( $_POST[$name_textarea_base64] ) ): ?>
     <?php $base64_result = base64_build_date( $_POST[$name_process_base64], $_POST[$name_textarea_base64] ); ?>
-    <section class="result-area">
+    <section class="result-area" id="sectionResultArea">
       <h2>Result</h2>
       <textarea><?php echo htmlentities( $base64_result ); ?></textarea>
     </section>
@@ -73,3 +73,7 @@
     <p>The result wiil be displayed after posted.</p>
   </section>
 </form>
+
+<?php
+  /** A module file is end up here. : _base64.php */
+?>

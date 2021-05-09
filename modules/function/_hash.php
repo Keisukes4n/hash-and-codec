@@ -46,7 +46,7 @@
 
   <?php if ( isset( $_POST[$name_algos] ) && isset( $_POST[$name_textarea_hash] ) ): ?>
     <?php $hash_result = hash_build_date( $_POST[$name_algos], $_POST[$name_textarea_hash] ); ?>
-    <section class="result-area">
+    <section class="result-area" id="sectionResultArea">
       <h2>Result</h2>
       <textarea><?php echo htmlentities( $hash_result ); ?></textarea>
     </section>
@@ -73,3 +73,7 @@
     <p>The result wiil be displayed after posted.</p>
   </section>
 </form>
+
+<?php
+  /** A module file is end up here. : _hash.php */
+?>

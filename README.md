@@ -1,5 +1,5 @@
 # Web tools - String conversion
-Version: 0.0.29dev
+Version: 0.0.30dev
 
 ## License
 This adopt next two license depending on contents.

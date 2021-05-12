@@ -4,12 +4,11 @@
  * _header.scss
  */
 header {
-  background: whitesmoke;
+  background: rgb(239, 239, 239);
   box-shadow: 0 0 2px rgb(95, 95, 95);
   display:    flex;
   flex-flow:  row wrap;
   height:     4.0rem;
-  position:   fixed;
   width:      100%;
 
   > section.primary {

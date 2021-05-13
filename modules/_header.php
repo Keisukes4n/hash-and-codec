@@ -89,37 +89,4 @@
   <?php */ ?>
 </header>
 
-<script>
-/**
-    let scrlCurrentY = window.scrollY;
-    window.addEventListener( 'scroll', () => {
-      const scrlBefore = scrlCurrentY
-      scrlCurrentY     = window.scrollY;
-      const scrlFlc    = scrlCurrentY - scrlBefore;
-      let direction = null;
-      if ( scrlFlc > 0) {
-        direction = 'down';
-      } else if ( scrlFlc < 0) {
-        direction = 'up';
-      }
-      return direction;
-    }, false );
-*/
-
-  const scrollObject = { beforeY: 0, currentY: window.scrollY, directionY: null };
-  window.addEventListener( 'scroll', () => {
-    scrollObject.currentY = window.scrollY;
-    const scrollFlc = scrollObject.currentY - scrollObject.beforeY;
-    if ( scrollFlc > 0) {
-      scrollObject.directionY = 'down';
-    } else if ( scrollFlc < 0) {
-      scrollObject.directionY = 'up';
-    }
-    scrollObject.beforeY = scrollObject.currentY;
-    console.log( scrollObject.directionY );
-  }, false );
-
-</script>
-
 <?php unset( $pass_modules_icon ); ?>
-<?php /** A module file is end up here. : _base64.php */ ?>

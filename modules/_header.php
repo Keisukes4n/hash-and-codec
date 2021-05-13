@@ -9,7 +9,7 @@
   $pass_modules_icon = './modules/icon';
 ?>
 
-<header>
+<header id="header">
   <section class="primary">
     <div class="operation-button-left" id="divOperationButtonLeft">
     <!--
@@ -106,17 +106,40 @@
     }, false );
 */
 
+  function setHeaderPositionFixed() {
+    const elementHeader = document.getElementById( 'header' );
+    elementHeader.style.position = 'fixed';
+  }
+
+  function setHeaderPositionStatic() {
+    const elementHeader = document.getElementById( 'header' );
+    elementHeader.style.position = 'static';
+  }
+
+  function judgeScrollDirection( beforeY, currentY ) {
+    let result      = null;
+    let fluctuation = currentY - beforeY;
+    if ( fluctuation > 0) {
+      result = 'down';
+      setHeaderPositionStatic();
+    } else {
+      result = 'up';
+      setHeaderPositionFixed();
+    }
+    return result;
+  }
+
   const scrollObject = { beforeY: 0, currentY: window.scrollY, directionY: null };
   window.addEventListener( 'scroll', () => {
-    scrollObject.currentY = window.scrollY;
-    const scrollFlc = scrollObject.currentY - scrollObject.beforeY;
-    if ( scrollFlc > 0) {
-      scrollObject.directionY = 'down';
-    } else if ( scrollFlc < 0) {
-      scrollObject.directionY = 'up';
+    scrollObject.currentY   = window.scrollY;    
+    scrollObject.directionY = judgeScrollDirection( scrollObject.beforeY, scrollObject.currentY );
+    scrollObject.beforeY    = scrollObject.currentY;
+
+    if ( scrollObject.currentY == 0 ) {
+      setHeaderPositionStatic();
     }
-    scrollObject.beforeY = scrollObject.currentY;
     console.log( scrollObject.directionY );
+
   }, false );
 
 </script>

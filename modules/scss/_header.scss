@@ -9,6 +9,7 @@ header {
   display:    flex;
   flex-flow:  row wrap;
   height:     4.0rem;
+  position:   static;
   width:      100%;
 
   > section.primary {

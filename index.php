@@ -15,7 +15,7 @@
     <title><?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?></title>
   </head>
   <body>
-    <?php include_once './modules/_header.php'; ?>
+    <?php include_once './modules/header/_central.php'; ?>
     <main>
       <h1><?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?></h1>
       <section class="string-conversion">

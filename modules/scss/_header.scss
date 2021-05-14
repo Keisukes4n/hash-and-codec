@@ -9,7 +9,9 @@ header {
   display:    flex;
   flex-flow:  row wrap;
   height:     4.0rem;
-  position:   static;
+  overflow-y: visible;
+  position:   fixed;
+  transition: height 200ms ease-out 0ms;
   width:      100%;
 
   > section.primary {

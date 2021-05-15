@@ -11,7 +11,9 @@
 <header id="header">
   <section class="primary">
     <div class="operation-button-left" id="divOperationButtonLeft">
+    <?php /* ?>
       <img src="<?php echo $pass_modules_icon; ?>/menu-icon-plain.svg" alt="menu-icon-plain.svg" id="imgMenuIcon">
+    <?php */ ?>
     </div>
     <span class="website-title" id="spanWebsiteTitle">Web tools</span>
     <div class="operation-button-right ">
@@ -53,4 +55,5 @@
 </header>
 
 <?php unset( $pass_modules_icon ); ?>
-<?php /** A module file is end up here. : _central.php */ ?>
+
+<?php /** a module file is end up here. : header/_central.php */ ?>

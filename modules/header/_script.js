@@ -3,37 +3,38 @@
  * description: 
  */
 
+/** get HTML elements */
 const elementdivOperationButtonLeft = document.getElementById( 'divOperationButtonLeft' );
 const elementImgMenuIcon            = document.getElementById( 'imgMenuIcon' );
 const elementNavMenuArea            = document.getElementById( 'navMenu' );
-let openFlagOfMenu  = 'close';
-let tempSrcProperty = 'temp';
 
-elementdivOperationButtonLeft.addEventListener( 'click', () => {
-  switch ( openFlagOfMenu ) {
-  case 'close':
-    openFlagOfMenu  = 'open';
-    tempSrcProperty = elementImgMenuIcon.src;
-    elementImgMenuIcon.src = tempSrcProperty.replace('menu-icon', 'close-icon');
-    elementNavMenuArea.style.maxHeight = '80vw';
-  break;
-    case 'open':
-      openFlagOfMenu = 'close';
-      tempSrcProperty = elementImgMenuIcon.src;
-      elementImgMenuIcon.src = tempSrcProperty.replace('close-icon', 'menu-icon');
-      elementNavMenuArea.style.maxHeight = '0vw';
-      break;
-    }
-  }, false );
+/** functions */
+function clickCloseMenu( flag, eleMenuIcon, eleMenuArea ) {
+  flag = 'N';
+  eleMenuIcon.src = eleMenuIcon.src.replace( 'close-icon', 'menu-icon' );
+  eleMenuArea.style.maxHeight = '0vw';
+  return flag;
+}
 
-document.addEventListener( 'scroll', () => {
-  if ( openFlagOfMenu == 'open' ) {
-    openFlagOfMenu  = 'close';
-    tempSrcProperty = elementImgMenuIcon.src;
-    elementImgMenuIcon.src = tempSrcProperty.replace('close-icon', 'menu-icon');
-    elementNavMenuArea.style.maxHeight = '0vw';
+function clickOpenMenu( flag, eleMenuIcon, eleMenuArea ) {
+  flag = 'Y';
+  eleMenuIcon.src = eleMenuIcon.src.replace( 'menu-icon', 'close-icon' );
+  eleMenuArea.style.maxHeight = '80vw';
+  return flag;
+}
+
+function judgeScrollDirection( beforeY, currentY ) {
+  let result      = null;
+  let fluctuation = currentY - beforeY;
+  if ( fluctuation > 0) {
+    result = 'down';
+    scrollHideHeader();
+  } else {
+    result = 'up';
+    scrollShowHeader();
   }
-}, false );
+  return result;
+}
 
 function scrollShowHeader() {
   const elementHeader = document.getElementById( 'header' );
@@ -43,35 +44,43 @@ function scrollShowHeader() {
   }, 200)
 }
     
-function scrollHiddenHeader() {
+function scrollHideHeader() {
   const elementHeader = document.getElementById( 'header' );
   elementHeader.style.height    = '0';
   elementHeader.style.overflowY = 'hidden';
 }
-    
-function judgeScrollDirection( beforeY, currentY ) {
-  let result      = null;
-  let fluctuation = currentY - beforeY;
-  if ( fluctuation > 0) {
-    result = 'down';
-    scrollHiddenHeader();
-  } else {
-    result = 'up';
+
+/** open and close the menu */
+/*
+let flagOpeningMenu = 'N';
+elementdivOperationButtonLeft.addEventListener( 'click', () => {
+  switch ( flagOpeningMenu ) {
+    case 'N':
+      flagOpeningMenu = clickOpenMenu( flagOpeningMenu, elementImgMenuIcon, elementNavMenuArea );
+    break;
+    case 'Y':
+      flagOpeningMenu = clickCloseMenu( flagOpeningMenu, elementImgMenuIcon, elementNavMenuArea );
+      break;
+    }
+  }, false );
+
+window.addEventListener( 'scroll', () => {
+  if ( flagOpeningMenu == 'Y' ) {
+    flagOpeningMenu = clickCloseMenu( flagOpeningMenu, elementImgMenuIcon, elementNavMenuArea );
+  }
+}, false );
+*/
+
+/** show and hide the header */
+const scrollObject = { beforeY: 0, currentY: window.scrollY, directionY: null };
+window.addEventListener( 'scroll', () => {
+  scrollObject.currentY   = window.scrollY;    
+  scrollObject.directionY = judgeScrollDirection( scrollObject.beforeY, scrollObject.currentY );
+  scrollObject.beforeY    = scrollObject.currentY;
+
+  if ( scrollObject.currentY == 0 ) {
     scrollShowHeader();
   }
-  return result;
-}
-    
-const scrollObject = { beforeY: 0, currentY: window.scrollY, directionY: null };
-  window.addEventListener( 'scroll', () => {
-    scrollObject.currentY   = window.scrollY;    
-    scrollObject.directionY = judgeScrollDirection( scrollObject.beforeY, scrollObject.currentY );
-    scrollObject.beforeY    = scrollObject.currentY;
-
-    if ( scrollObject.currentY == 0 ) {
-      scrollShowHeader();
-    }
-    // console.log( scrollObject.directionY );
 }, false );
 
 /** A module file is end up here. : _script.js */

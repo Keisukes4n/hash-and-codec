@@ -1,8 +1,7 @@
 <?php
   /**
-   * Hash generator main process
-   * 
-   * This file is called from index.php in front directory.
+   * Hash generator main process file
+   * description: This file is called from index.php in front directory.
    */
 
   /** parameters */
@@ -74,6 +73,6 @@
   </section>
 </form>
 
-<?php
-  /** A module file is end up here. : _hash.php */
-?>
+<?php unset( $name_algos, $name_textarea_hash, $algo_list ) ?>
+
+<?php /** a module file is end up here. : _hash.php */ ?>

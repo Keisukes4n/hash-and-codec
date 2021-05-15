@@ -1,9 +1,7 @@
 <?php
   /**
-   * main file of string conversion
+   * description: Main file of string conversion
    */
-
-  /** parameters */
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +29,7 @@
         <?php include_once './modules/function/_uuencode.php'; ?>
       </section>
     </main>
-    <?php include_once './modules/_footer.php'; ?>
+    <?php include_once './modules/footer/_central.php'; ?>
 
     <?php include_once './modules/_script.php'; ?>
   </body>

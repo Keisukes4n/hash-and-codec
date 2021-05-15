@@ -1,8 +1,7 @@
 <?php
   /**
-   * BASE64 Codec main process
-   * 
-   * This file is called from index.php in front directory.
+   * BASE64 Codec main process file
+   * description: This file is called from index.php in front directory.
    */
 
   /** parameters */
@@ -75,6 +74,6 @@
   </section>
 </form>
 
-<?php
-  /** A module file is end up here. : _uuencode.php */
-?>
+<?php unset( $name_process_uuencode, $name_textarea_uuencode ) ?>
+
+<?php /** a module file is end up here. : _uuencode.php */ ?>

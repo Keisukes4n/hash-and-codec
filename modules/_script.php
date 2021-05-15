@@ -1,15 +1,12 @@
 <?php
   /**
    * module file: _script.php
-   * 
-   * This file is called from index.php in front directory.
+   * description: Javascript for index.php.
    */
-
-  /** parameters */
 ?>
 
 <script>
-  /** HTML elements */
+  /** get HTML elements */
   const elementFormBase64Codec       = document.getElementById( 'formBase64Codec' );
   const elementFormHashGeneration    = document.getElementById( 'formHashGeneration' );
   const elementFormUuencodeCodec     = document.getElementById( 'formUuencodeCodec' );
@@ -45,7 +42,7 @@
     elementbuttonProcessUuencode.style.border = 'rgb(127, 127, 127) solid thin';
   }
 
-  /** Actions when click elements */
+  /** actions when click elements */
   elementbuttonProcessHash.addEventListener( 'click', () => {
     displayHash();
   }, false );
@@ -58,7 +55,7 @@
     displayUuencode();
   }, false );
 
-  /** For display after string post */
+  /** for display after string post */
   <?php if ( isset( $_POST[ 'conversion-process' ] ) ): ?>
     const conversionProcess = '<?php echo $_POST[ 'conversion-process' ]; ?>';
     switch ( conversionProcess ) {
@@ -76,7 +73,7 @@
         break;
     }
 
-    /** For css transition of result area */
+    /** for css transition of result area */
     const elementSectionResultArea = document.getElementById( 'sectionResultArea' );
     elementSectionResultArea.style.height  = '14.0rem';
 
@@ -85,6 +82,4 @@
   <?php endif; ?>
 </script>
 
-<?php
-  /** A module file is end up here. : _script.php */
-?>
+<?php /** A module file is end up here. : _script.php */ ?>

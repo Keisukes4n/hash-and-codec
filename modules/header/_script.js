@@ -3,11 +3,6 @@
  * description: 
  */
 
-/** get HTML elements */
-const elementdivOperationButtonLeft = document.getElementById( 'divOperationButtonLeft' );
-const elementImgMenuIcon            = document.getElementById( 'imgMenuIcon' );
-const elementNavMenuArea            = document.getElementById( 'navMenu' );
-
 /** functions */
 function clickCloseMenu( flag, eleMenuIcon, eleMenuArea ) {
   flag = 'N';
@@ -52,6 +47,9 @@ function scrollHideHeader() {
 
 /** open and close the menu */
 /*
+const elementdivOperationButtonLeft = document.getElementById( 'divOperationButtonLeft' );
+const elementImgMenuIcon            = document.getElementById( 'imgMenuIcon' );
+const elementNavMenuArea            = document.getElementById( 'navMenu' );
 let flagOpeningMenu = 'N';
 elementdivOperationButtonLeft.addEventListener( 'click', () => {
   switch ( flagOpeningMenu ) {

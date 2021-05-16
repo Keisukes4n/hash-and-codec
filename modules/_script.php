@@ -6,54 +6,51 @@
 ?>
 
 <script>
-  /** get HTML elements */
-  const elementFormBase64Codec       = document.getElementById( 'formBase64Codec' );
-  const elementFormHashGeneration    = document.getElementById( 'formHashGeneration' );
-  const elementFormUuencodeCodec     = document.getElementById( 'formUuencodeCodec' );
-  const elementbuttonProcessBase64   = document.getElementById( 'buttonProcessBase64' );
-  const elementbuttonProcessHash     = document.getElementById( 'buttonProcessHash' );
-  const elementbuttonProcessUuencode = document.getElementById( 'buttonProcessUuencode' );
-
   /** functions */
   function displayBase64() {
     elementFormBase64Codec.style.display      = 'flex';
     elementFormHashGeneration.style.display   = 'none';
     elementFormUuencodeCodec.style.display    = 'none';
-    elementbuttonProcessHash.style.border     = 'hidden';
-    elementbuttonProcessBase64.style.border   = 'rgb(127, 127, 127) solid thin';
-    elementbuttonProcessUuencode.style.border = 'hidden';
+    elementButtonProcessHash.style.border     = 'hidden';
+    elementButtonProcessBase64.style.border   = 'rgb(127, 127, 127) solid thin';
+    elementButtonProcessUuencode.style.border = 'hidden';
   }
 
   function displayHash() {
     elementFormBase64Codec.style.display      = 'none';
     elementFormHashGeneration.style.display   = 'flex';
     elementFormUuencodeCodec.style.display    = 'none';
-    elementbuttonProcessHash.style.border     = 'rgb(127, 127, 127) solid thin';
-    elementbuttonProcessBase64.style.border   = 'hidden';
-    elementbuttonProcessUuencode.style.border = 'hidden';
+    elementButtonProcessHash.style.border     = 'rgb(127, 127, 127) solid thin';
+    elementButtonProcessBase64.style.border   = 'hidden';
+    elementButtonProcessUuencode.style.border = 'hidden';
   }
 
   function displayUuencode() {
     elementFormBase64Codec.style.display      = 'none';
     elementFormHashGeneration.style.display   = 'none';
     elementFormUuencodeCodec.style.display    = 'flex';
-    elementbuttonProcessHash.style.border     = 'hidden';
-    elementbuttonProcessBase64.style.border   = 'hidden';
-    elementbuttonProcessUuencode.style.border = 'rgb(127, 127, 127) solid thin';
+    elementButtonProcessHash.style.border     = 'hidden';
+    elementButtonProcessBase64.style.border   = 'hidden';
+    elementButtonProcessUuencode.style.border = 'rgb(127, 127, 127) solid thin';
   }
 
   /** actions when click elements */
-  elementbuttonProcessHash.addEventListener( 'click', () => {
+  const elementButtonProcessBase64   = document.getElementById( 'buttonProcessBase64' );
+  const elementButtonProcessHash     = document.getElementById( 'buttonProcessHash' );
+  const elementButtonProcessUuencode = document.getElementById( 'buttonProcessUuencode' );
+  const elementFormBase64Codec       = document.getElementById( 'formBase64Codec' );
+  const elementFormHashGeneration    = document.getElementById( 'formHashGeneration' );
+  const elementFormUuencodeCodec     = document.getElementById( 'formUuencodeCodec' );
+  
+  elementButtonProcessHash.addEventListener( 'click', () => {
     displayHash();
-  }, false );
-
-  elementbuttonProcessBase64.addEventListener( 'click', () => {
+  });
+  elementButtonProcessBase64.addEventListener( 'click', () => {
     displayBase64();
-  }, false );
-
-  elementbuttonProcessUuencode.addEventListener( 'click', () => {
+  });
+  elementButtonProcessUuencode.addEventListener( 'click', () => {
     displayUuencode();
-  }, false );
+  });
 
   /** for display after string post */
   <?php if ( isset( $_POST[ 'conversion-process' ] ) ): ?>
@@ -75,7 +72,9 @@
 
     /** for css transition of result area */
     const elementSectionResultArea = document.getElementById( 'sectionResultArea' );
-    elementSectionResultArea.style.height  = '14.0rem';
+    window.addEventListener( 'load', () => {
+      elementSectionResultArea.style.height = '14.0rem';
+    });
 
   <?php else: ?>
     displayBase64();

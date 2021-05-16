@@ -1,25 +1,25 @@
 <?php 
   /**
    * module file: _header.php
-   * 
-   * This file is called from index.php in front directory.
+   * description: This file is called from index.php in front directory.
    */
 
   /** parameters */
   $pass_modules_icon = './modules/icon';
 ?>
 
-<header>
+<header id="header">
   <section class="primary">
     <div class="operation-button-left" id="divOperationButtonLeft">
-    <!--
+    <?php /* ?>
       <img src="<?php echo $pass_modules_icon; ?>/menu-icon-plain.svg" alt="menu-icon-plain.svg" id="imgMenuIcon">
-    -->
+    <?php */ ?>
     </div>
     <span class="website-title" id="spanWebsiteTitle">Web tools</span>
     <div class="operation-button-right ">
     </div>
   </section>
+  
   <nav class="menu" id="navMenu">
     <ul>
       <span class="menu-head">list1</span>
@@ -51,42 +51,9 @@
       </a>
     </ul>
   </nav>
-
-  <?php /* ?>
-  <script>
-    const elementdivOperationButtonLeft = document.getElementById( 'divOperationButtonLeft' );
-    const elementImgMenuIcon            = document.getElementById( 'imgMenuIcon' );
-    const elementNavMenuArea            = document.getElementById( 'navMenu' );
-    let openFlagOfMenu  = 'close';
-    let tempSrcProperty = 'temp';
-
-    elementdivOperationButtonLeft.addEventListener( 'click', () => {
-      switch ( openFlagOfMenu ) {
-        case 'close':
-          openFlagOfMenu  = 'open';
-          tempSrcProperty = elementImgMenuIcon.src;
-          elementImgMenuIcon.src = tempSrcProperty.replace('menu-icon', 'close-icon');
-          elementNavMenuArea.style.maxHeight = '80vw';
-          break;
-        case 'open':
-          openFlagOfMenu = 'close';
-          tempSrcProperty = elementImgMenuIcon.src;
-          elementImgMenuIcon.src = tempSrcProperty.replace('close-icon', 'menu-icon');
-          elementNavMenuArea.style.maxHeight = '0vw';
-          break;
-      }
-    }, false );
-
-    document.addEventListener( 'scroll', () => {
-      if ( openFlagOfMenu == 'open' ) {
-        openFlagOfMenu  = 'close';
-        tempSrcProperty = elementImgMenuIcon.src;
-        elementImgMenuIcon.src = tempSrcProperty.replace('close-icon', 'menu-icon');
-        elementNavMenuArea.style.maxHeight = '0vw';
-      }
-    }, false );
-  </script>
-  <?php */ ?>
+  <script src="./modules/header/_script.js"></script>
 </header>
 
 <?php unset( $pass_modules_icon ); ?>
+
+<?php /** a module file is end up here. : header/_central.php */ ?>

@@ -1,8 +1,7 @@
 <?php 
   /**
-   * page module file: _footer.php
-   * 
-   * This file is called from index.php in front directory.
+   * module file: _central.php
+   * description: This file is called from index.php in front directory.
    */
 
   /** parameters */
@@ -21,3 +20,7 @@
     <p>Copyright 2021 <?php echo htmlentities( $author_name ); ?></p>
   </div>
 </footer>
+
+<?php unset( $mod_date, $author_name ) ?>
+
+<?php /** a module file is end up here. : footer/_central.php */ ?>

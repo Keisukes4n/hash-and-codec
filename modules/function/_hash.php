@@ -1,8 +1,7 @@
 <?php
   /**
-   * Hash generator main process
-   * 
-   * This file is called from index.php in front directory.
+   * Hash generator main process file
+   * description: This file is called from index.php in front directory.
    */
 
   /** parameters */
@@ -42,11 +41,11 @@
 ?>
 
 <form action="" class="hash-generation" id="formHashGeneration" method="POST">
-  <input type="hidden" name="conversion-method" value="hash">
+  <input type="hidden" name="conversion-process" value="hash">
 
   <?php if ( isset( $_POST[$name_algos] ) && isset( $_POST[$name_textarea_hash] ) ): ?>
     <?php $hash_result = hash_build_date( $_POST[$name_algos], $_POST[$name_textarea_hash] ); ?>
-    <section class="result-area">
+    <section class="result-area" id="sectionResultArea">
       <h2>Result</h2>
       <textarea><?php echo htmlentities( $hash_result ); ?></textarea>
     </section>
@@ -73,3 +72,7 @@
     <p>The result wiil be displayed after posted.</p>
   </section>
 </form>
+
+<?php unset( $name_algos, $name_textarea_hash, $algo_list ) ?>
+
+<?php /** a module file is end up here. : _hash.php */ ?>

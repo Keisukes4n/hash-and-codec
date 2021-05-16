@@ -1,8 +1,7 @@
 <?php
   /**
-   * BASE64 Codec main process
-   * 
-   * This file is called from index.php in front directory.
+   * BASE64 Codec main process file
+   * description: This file is called from index.php in front directory.
    */
 
   /** parameters */
@@ -44,11 +43,11 @@
 ?>
 
 <form action="" class="uuencode-codec" id="formUuencodeCodec" method="POST">
-  <input type="hidden" name="conversion-method" value="uuencode">
+  <input type="hidden" name="conversion-process" value="uuencode">
 
   <?php if ( isset( $_POST[$name_process_uuencode] ) && isset( $_POST[$name_textarea_uuencode] ) ): ?>
     <?php $uuencode_result = uuencode_build_date( $_POST[$name_process_uuencode] ,$_POST[$name_textarea_uuencode] ); ?>
-    <section class="result-area">
+    <section class="result-area" id="sectionResultArea">
       <h2>Result</h2>
       <textarea><?php echo htmlentities( $uuencode_result ); ?></textarea>
     </section>
@@ -74,3 +73,7 @@
     <p>The result wiil be displayed after posted.</p>
   </section>
 </form>
+
+<?php unset( $name_process_uuencode, $name_textarea_uuencode ) ?>
+
+<?php /** a module file is end up here. : _uuencode.php */ ?>

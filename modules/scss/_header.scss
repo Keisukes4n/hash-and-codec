@@ -4,12 +4,14 @@
  * _header.scss
  */
 header {
-  background: whitesmoke;
-  box-shadow: 0 0 2px rgb(95, 95, 95);
+  background: rgb(239, 239, 239);
+  box-shadow: 0 0 2px rgb(63, 63, 63);
   display:    flex;
   flex-flow:  row wrap;
   height:     4.0rem;
+  overflow-y: visible;
   position:   fixed;
+  transition: height 200ms ease-out 0ms;
   width:      100%;
 
   > section.primary {
@@ -29,7 +31,7 @@ header {
 
     > .operation-button-left {
       align-items:     center;
-      border-right:    rgb(132, 145, 158) solid thin;
+      border-right:    rgb(127, 127, 127) solid thin;
       box-sizing:      border-box;
       color:           rgb(63, 63, 63);
       display:         flex;
@@ -53,7 +55,7 @@ header {
 
     > .operation-button-right {
       align-items:     center;
-      border-left:     rgb(132, 145, 158) solid thin;
+      border-left:     rgb(127, 127, 127) solid thin;
       box-sizing:      border-box;
       color:           rgb(63, 63, 63);
       display:         flex;

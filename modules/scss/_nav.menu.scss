@@ -4,14 +4,14 @@
  * _nav.menu.scss
  */
 nav.menu {
-  background:   whitesmoke;
-  border-right: rgb(95, 95, 95) solid thin;
-  box-shadow:   0 0 2px rgb(95, 95, 95);
+  background:   rgb(239, 239, 239);
+  border-right: rgb(63, 63, 63) solid thin;
+  box-shadow:   0 0 2px rgb(63, 63, 63);
   flex-flow:    column wrap;
   max-height:   0;
   overflow-y:   scroll;
   padding:      0 0.5rem 0 0.5rem;
-  transition:   max-height 400ms 0s;
+  transition:   max-height 200ms ease-out 0ms;
   width:        40%;
 
   @media screen and (min-aspect-ratio: 4 / 3) {

@@ -1,5 +1,15 @@
 # Web tools - String conversion
-Version: 0.0.35dev
+Version: 0.0.36
+
+## Overview
+This repository is web tools about bsse64, UUENCODE ... and etc codec. And it have been using for design and skill experiment personally.
+
+### Process to use this tools
+1. Prepare an environment that can use PHP.
+2. Put this repository on its environment (or directory).
+3. Access above location.
+
+By this process, `index.php` will be opened.
 
 ## License
 This adopt next two license depending on contents.

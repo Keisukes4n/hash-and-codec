@@ -48,7 +48,7 @@
     <?php $base64_result = base64_build_date( $_POST[$name_process_base64], $_POST[$name_textarea_base64] ); ?>
     <section class="result-area" id="sectionResultArea">
       <h2>Result</h2>
-      <textarea><?php echo htmlentities( $base64_result ); ?></textarea>
+      <textarea><?=htmlspecialchars( $base64_result, ENT_QUOTES );?></textarea>
     </section>
     <hr>
   <?php endif; ?>
@@ -57,17 +57,17 @@
     <h2>1. Select "Encode" or "Decode" (base64)</h2>
     <div class="coding-process">
       <label>
-        <input type="radio" name="<?php echo $name_process_base64; ?>" value="encode" required><span>Encode</span>
+        <input type="radio" name="<?=htmlspecialchars( $name_process_base64, ENT_QUOTES );?>" value="encode" required><span>Encode</span>
       </label>
       <label>
-        <input type="radio" name="<?php echo $name_process_base64; ?>" value="decode"><span>Decode</span>
+        <input type="radio" name="<?=htmlspecialchars( $name_process_base64, ENT_QUOTES );?>" value="decode"><span>Decode</span>
       </label>
     </div>
   </section>
 
   <section class="tile">
     <h2>2. Input text</h2>
-    <textarea name="<?php echo $name_textarea_base64; ?>" placeholder="text" required></textarea>
+    <textarea name="<?=htmlspecialchars( $name_textarea_base64, ENT_QUOTES );?>" placeholder="text" required></textarea>
     <button class="post" type="submit">Post!</button>
     <p>The result wiil be displayed after posted.</p>
   </section>

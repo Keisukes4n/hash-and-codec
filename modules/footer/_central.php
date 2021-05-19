@@ -11,13 +11,13 @@
 
 <footer>
   <div class="item">
-    <p>Modified date: <?php echo htmlentities( $mod_date ); ?></p>
+    <p>Modified date: <?=htmlspecialchars( $mod_date, ENT_QUOTES );?></p>
   </div>
   <div class="item">
     <p>License: Apache License Version 2.0, CC BY 4.0</p>
   </div>
   <div class="item">
-    <p>Copyright 2021 <?php echo htmlentities( $author_name ); ?></p>
+    <p>Copyright 2021 <?=htmlspecialchars( $author_name, ENT_QUOTES );?></p>
   </div>
 </footer>
 

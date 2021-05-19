@@ -47,7 +47,7 @@
     <?php $hash_result = hash_build_date( $_POST[$name_algos], $_POST[$name_textarea_hash] ); ?>
     <section class="result-area" id="sectionResultArea">
       <h2>Result</h2>
-      <textarea><?php echo htmlentities( $hash_result ); ?></textarea>
+      <textarea><?=htmlspecialchars( $hash_result, ENT_QUOTES );?></textarea>
     </section>
     <hr>
   <?php endif; ?>
@@ -58,7 +58,7 @@
       <?php foreach ( $algo_list as $value ): ?>
         <label>
           <input type="radio" name="<?php echo $name_algos; ?>" value="<?php echo mb_strtolower( $value ); ?>" required>
-          <span><?php echo $value; ?></span>
+          <span><?=htmlspecialchars( $value, ENT_QUOTES );?></span>
         </label>
       <?php endforeach; ?>
       <?PHP unset( $value ); ?>
@@ -67,7 +67,7 @@
 
   <section class="tile">
     <h2>2. Input text</h2>
-    <textarea name="<?php echo $name_textarea_hash; ?>" placeholder="text" required></textarea>
+    <textarea name="<?=htmlspecialchars( $name_textarea_hash, ENT_QUOTES );?>" placeholder="text" required></textarea>
     <button class="post" type="submit">Post!</button>
     <p>The result wiil be displayed after posted.</p>
   </section>

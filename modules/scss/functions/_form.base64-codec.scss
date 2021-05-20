@@ -45,9 +45,16 @@ form.base64-codec {
         > span {
           font-weight: bold;
         }
-      } // End: lable {}
+      }
+    } /** end: div.coding-process {} */
+
+    > textarea {
+      border:     none;
+      box-sizing: border-box;
+      height:     8.0rem;
+      width:      100%;
     }
-  } // End: section.tile {}
+  } /** end: section.tile {} */
 
   hr {
     border: rgb(127, 127, 127) dotted thin;

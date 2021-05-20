@@ -46,6 +46,7 @@ header {
   position: fixed;
   transition: height 200ms ease-out 0ms;
   width: 100%;
+  /** end: section.primary {} */
 }
 
 header > section.primary {
@@ -55,6 +56,7 @@ header > section.primary {
   height: 4.0rem;
   justify-content: space-between;
   width: 100%;
+  /** end: .operation-button-left {} */
 }
 
 header > section.primary > .website-title {
@@ -104,7 +106,7 @@ header > section.primary > .operation-button-right {
  */
 main {
   box-sizing: border-box;
-  padding: 4.0rem 5% 4.0rem 5%;
+  padding: 4.0rem 2.0rem 4.0rem 2.0rem;
 }
 
 @media screen and (min-aspect-ratio: 4 / 3) {
@@ -156,154 +158,49 @@ main pre {
   padding: 0.5rem;
 }
 
-/**
- * _nav.menu.scss
- */
-nav.menu {
-  background: #efefef;
-  border-right: #3f3f3f solid thin;
-  box-shadow: 0 0 2px #3f3f3f;
-  flex-flow: column wrap;
-  max-height: 0;
-  overflow-y: scroll;
-  padding: 0 0.5rem 0 0.5rem;
-  transition: max-height 200ms ease-out 0ms;
-  width: 40%;
-}
-
-@media screen and (min-aspect-ratio: 4 / 3) {
-  nav.menu {
-    width: 30%;
-  }
-}
-
-nav.menu > ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-nav.menu > ul > .item {
-  background: white;
-  box-shadow: 0 0 2px #2f2f2f;
-  color: #2f2f2f;
-  display: flex;
-  padding: 1.0rem 0.5rem 1.0rem 0.5rem;
-}
-
-nav.menu > ul > .item:hover {
-  background: #efefef;
-}
-
-nav.menu > ul > .item > img {
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-nav.menu > ul > .item > li {
-  font-size: 1.2rem;
-  padding: 0 0 0 0.5rem;
-}
-
-nav.menu > ul > .menu-head {
-  display: block;
-  font-weight: bold;
-  padding: 0.5rem 0 0.5rem 1.0rem;
-}
-
-/**
- * _section.string-conversion.scss
- */
-section.string-conversion {
-  margin: 0;
-  padding: 0;
-}
-
-@media screen and (min-aspect-ratio: 4 / 3) {
-  section.string-conversion {
-    display: flex;
-    flex-flow: row;
-  }
-}
-
-section.string-conversion div.process-selector {
+main div.process-selector {
   display: flex;
   justify-content: center;
 }
 
-@media screen and (min-aspect-ratio: 4 / 3) {
-  section.string-conversion div.process-selector {
-    box-shadow: 0 0 2px #3f3f3f;
-    flex: 0 0 20%;
-    flex-flow: column;
-    justify-content: flex-start;
-    margin: 1.0rem 1.0rem 1.0rem 0;
-  }
-}
-
-section.string-conversion div.process-selector button {
+main div.process-selector button {
   background: white;
   border: none;
   border-radius: 4px;
   box-shadow: 0 0 2px #7f7f7f;
   box-sizing: border-box;
   flex: 0 0 20%;
-  font-size: medium;
+  font-size: large;
   margin: 0.5rem;
   padding: 1.0rem;
   transition: background 200ms ease-out 0ms;
 }
 
-section.string-conversion div.process-selector button:hover {
+main div.process-selector button:hover {
   background: #dfdfdf;
 }
 
-@media screen and (min-aspect-ratio: 4 / 3) {
-  section.string-conversion div.process-selector button {
-    flex: 0 0 auto;
-    margin: 0.5rem 1.0rem 0.5rem 1.0rem;
-  }
-}
-
-section.string-conversion div.process-selector p {
-  display: none;
-  font-size: large;
-  font-weight: bold;
-  text-align: center;
-}
-
-@media screen and (min-aspect-ratio: 4 / 3) {
-  section.string-conversion div.process-selector p {
-    display: block;
-  }
-}
-
-section.string-conversion img.arrow-icon {
-  display: block;
-  height: 3.0rem;
-  margin: 0 auto 0 auto;
-  width: 3.0rem;
-}
-
-section.string-conversion section.result-area {
+main section.result-area {
   border: #007f00 solid medium;
   box-shadow: 0 0 2px #3f3f3f;
   box-sizing: border-box;
   flex: 1 1 100%;
   height: 0;
+  /** change to 14.0rem by JavaScript. */
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
   padding: 0.5rem;
   overflow-y: hidden;
   transition: height 200ms ease-out 200ms;
 }
 
-section.string-conversion textarea {
+main section.result-area > textarea {
   border: none;
   box-sizing: border-box;
   height: 8.0rem;
   width: 100%;
 }
 
-section.string-conversion button.post {
+main button.post {
   background: white;
   border: none;
   border-radius: 4px;
@@ -316,8 +213,70 @@ section.string-conversion button.post {
   transition: background 200ms ease-out 0ms;
 }
 
-section.string-conversion button.post:hover {
+main button.post:hover {
   background: #dfdfdf;
+}
+
+/**
+ * _nav.menu.scss
+ */
+nav.menu {
+  background: #efefef;
+  box-shadow: 0 0 2px #3f3f3f;
+  margin: 0.5rem 0 0 2.0rem;
+  max-height: 0;
+  overflow-y: scroll;
+  transition: max-height 200ms ease-out 0ms;
+  width: 80%;
+}
+
+@media screen and (min-aspect-ratio: 4 / 3) {
+  nav.menu {
+    max-width: 0.5rem 0 0 4.0rem;
+    width: 60%;
+  }
+}
+
+nav.menu > div.grid {
+  display: grid;
+  gap: 0 2.0rem;
+  grid: auto-flow auto/repeat(auto-fill, minmax(320px, auto));
+  padding: 0 1.0rem 0 1.0rem;
+  /** end: ul {} */
+}
+
+nav.menu > div.grid > ul {
+  box-sizing: border-box;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav.menu > div.grid > ul > a.item {
+  background: white;
+  box-shadow: 0 0 2px #3f3f3f;
+  color: #1f1f1f;
+  display: flex;
+  margin: 0.5rem 0 0.5rem 0;
+  padding: 1.0rem 0.5rem 1.0rem 0.5rem;
+}
+
+nav.menu > div.grid > ul > a.item:hover {
+  background: #dfdfdf;
+}
+
+nav.menu > div.grid > ul > a.item > img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+nav.menu > div.grid > ul > a.item > li {
+  font-size: 1.2rem;
+  padding: 0 0 0 0.5rem;
+}
+
+nav.menu > p {
+  text-align: center;
 }
 
 /**
@@ -328,6 +287,7 @@ form.hash-generation {
   flex: 1 1 auto;
   flex-flow: row wrap;
   justify-content: center;
+  /** end: section.tile {} */
 }
 
 form.hash-generation > section.tile {
@@ -336,6 +296,7 @@ form.hash-generation > section.tile {
   flex: 1 1 100%;
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
   padding: 0.5rem;
+  /** end: div.algorithm-list {} */
 }
 
 form.hash-generation > section.tile > div.algorithm-list {
@@ -368,6 +329,13 @@ form.hash-generation > section.tile > div.algorithm-list > label > span {
   font-weight: bold;
 }
 
+form.hash-generation > section.tile > textarea {
+  border: none;
+  box-sizing: border-box;
+  height: 8.0rem;
+  width: 100%;
+}
+
 form.hash-generation hr {
   border: #7f7f7f dotted thin;
   width: 90%;
@@ -385,6 +353,7 @@ form.base64-codec {
   flex: 1 1 auto;
   flex-flow: row wrap;
   justify-content: center;
+  /** end: section.tile {} */
 }
 
 form.base64-codec > section.tile {
@@ -393,6 +362,7 @@ form.base64-codec > section.tile {
   flex: 1 1 100%;
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
   padding: 0.5rem;
+  /** end: div.coding-process {} */
 }
 
 form.base64-codec > section.tile > div.coding-process {
@@ -427,6 +397,13 @@ form.base64-codec > section.tile > div.coding-process > label > span {
   font-weight: bold;
 }
 
+form.base64-codec > section.tile > textarea {
+  border: none;
+  box-sizing: border-box;
+  height: 8.0rem;
+  width: 100%;
+}
+
 form.base64-codec hr {
   border: #7f7f7f dotted thin;
   width: 90%;
@@ -444,6 +421,7 @@ form.uuencode-codec {
   flex: 1 1 auto;
   flex-flow: row wrap;
   justify-content: center;
+  /** end: section.tile {} */
 }
 
 form.uuencode-codec > section.tile {
@@ -452,6 +430,7 @@ form.uuencode-codec > section.tile {
   flex: 1 1 100%;
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
   padding: 0.5rem;
+  /** end: div.coding-process {} */
 }
 
 form.uuencode-codec > section.tile > div.coding-process {
@@ -484,6 +463,13 @@ form.uuencode-codec > section.tile > div.coding-process > label > input {
 
 form.uuencode-codec > section.tile > div.coding-process > label > span {
   font-weight: bold;
+}
+
+form.uuencode-codec > section.tile > textarea {
+  border: none;
+  box-sizing: border-box;
+  height: 8.0rem;
+  width: 100%;
 }
 
 form.uuencode-codec hr {

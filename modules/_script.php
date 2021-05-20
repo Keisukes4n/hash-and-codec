@@ -8,30 +8,30 @@
 <script>
   /** functions */
   function displayBase64() {
+    elementButtonProcessBase64.style.border   = 'rgb(127, 127, 127) solid thin';
+    elementButtonProcessHash.style.border     = 'hidden';
+    elementButtonProcessUuencode.style.border = 'hidden';
     elementFormBase64Codec.style.display      = 'flex';
     elementFormHashGeneration.style.display   = 'none';
     elementFormUuencodeCodec.style.display    = 'none';
-    elementButtonProcessHash.style.border     = 'hidden';
-    elementButtonProcessBase64.style.border   = 'rgb(127, 127, 127) solid thin';
-    elementButtonProcessUuencode.style.border = 'hidden';
   }
 
   function displayHash() {
+    elementButtonProcessBase64.style.border   = 'hidden';
+    elementButtonProcessHash.style.border     = 'rgb(127, 127, 127) solid thin';
+    elementButtonProcessUuencode.style.border = 'hidden';
     elementFormBase64Codec.style.display      = 'none';
     elementFormHashGeneration.style.display   = 'flex';
     elementFormUuencodeCodec.style.display    = 'none';
-    elementButtonProcessHash.style.border     = 'rgb(127, 127, 127) solid thin';
-    elementButtonProcessBase64.style.border   = 'hidden';
-    elementButtonProcessUuencode.style.border = 'hidden';
   }
 
   function displayUuencode() {
+    elementButtonProcessBase64.style.border   = 'hidden';
+    elementButtonProcessHash.style.border     = 'hidden';
+    elementButtonProcessUuencode.style.border = 'rgb(127, 127, 127) solid thin';
     elementFormBase64Codec.style.display      = 'none';
     elementFormHashGeneration.style.display   = 'none';
     elementFormUuencodeCodec.style.display    = 'flex';
-    elementButtonProcessHash.style.border     = 'hidden';
-    elementButtonProcessBase64.style.border   = 'hidden';
-    elementButtonProcessUuencode.style.border = 'rgb(127, 127, 127) solid thin';
   }
 
   /** actions when click elements */

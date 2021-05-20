@@ -6,15 +6,15 @@
 /** functions */
 function clickCloseMenu( flag, eleMenuIcon, eleMenuArea ) {
   flag = 'N';
-  eleMenuIcon.src = eleMenuIcon.src.replace( 'close-icon', 'menu-icon' );
+  eleMenuIcon.style.transform = 'rotate(0.0turn)';
   eleMenuArea.style.maxHeight = '0vw';
   return flag;
 }
 
 function clickOpenMenu( flag, eleMenuIcon, eleMenuArea ) {
   flag = 'Y';
-  eleMenuIcon.src = eleMenuIcon.src.replace( 'menu-icon', 'close-icon' );
-  eleMenuArea.style.maxHeight = '80vw';
+  eleMenuIcon.style.transform = 'rotate(0.5turn)';
+  eleMenuArea.style.maxHeight = '60vw';
   return flag;
 }
 
@@ -46,7 +46,7 @@ function scrollHideHeader() {
 }
 
 /** open and close the menu */
-/*
+
 const elementdivOperationButtonLeft = document.getElementById( 'divOperationButtonLeft' );
 const elementImgMenuIcon            = document.getElementById( 'imgMenuIcon' );
 const elementNavMenuArea            = document.getElementById( 'navMenu' );
@@ -67,7 +67,7 @@ window.addEventListener( 'scroll', () => {
     flagOpeningMenu = clickCloseMenu( flagOpeningMenu, elementImgMenuIcon, elementNavMenuArea );
   }
 }, false );
-*/
+
 
 /** show and hide the header */
 const scrollObject = { beforeY: 0, currentY: window.scrollY, directionY: null };

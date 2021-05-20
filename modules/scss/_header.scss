@@ -51,7 +51,7 @@ header {
       > span {
         font-weight: bold;
       }
-    } // End: .operation-button-left
+    } /** end: .operation-button-left {} */
 
     > .operation-button-right {
       align-items:     center;
@@ -63,5 +63,5 @@ header {
       justify-content: center;
       width:           25%;
     }
-  } // End: section
+  } /** end: section.primary {} */
 }

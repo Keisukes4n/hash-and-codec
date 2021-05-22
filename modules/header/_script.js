@@ -70,6 +70,7 @@ window.addEventListener( 'scroll', () => {
 
 
 /** show and hide the header */
+/*
 const scrollObject = { beforeY: 0, currentY: window.scrollY, directionY: null };
 window.addEventListener( 'scroll', () => {
   scrollObject.currentY   = window.scrollY;    
@@ -79,6 +80,16 @@ window.addEventListener( 'scroll', () => {
   if ( scrollObject.currentY == 0 ) {
     scrollShowHeader();
   }
+}, false );
+*/
+
+window.addEventListener( 'resize', () => {
+  const aspectRatio = Number( window.outerWidth / window.outerHeight );
+  console.log( aspectRatio );
+
+  const elementHeader = document.getElementById( 'header' );
+  elementHeader.style.position = 'static';
+
 }, false );
 
 /** A module file is end up here. : _script.js */

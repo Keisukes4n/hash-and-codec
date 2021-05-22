@@ -8,9 +8,8 @@ main {
   padding:    4.0rem 2.0rem 4.0rem 2.0rem;
 
   @media screen and (min-aspect-ratio: 4 / 3) {
-    margin:  0 auto 0 auto;
-    padding: 4.0rem 0 4.0rem 0;
-    width:   60%;
+    padding: 0 2.0rem 0 2.0rem;
+    width: 60%;
   }
 
   h1 {
@@ -81,7 +80,7 @@ main {
     box-shadow: 0 0 2px rgb(63, 63, 63);
     box-sizing: border-box;
     flex:       1 1 100%;
-    height:     0; /** change to 14.0rem by JavaScript. */
+    height:     14.0rem; /** change to 14.0rem by JavaScript. */
     margin:     1.0rem 0.5rem 1.0rem 0.5rem;
     padding:    0.5rem;
     overflow-y: hidden;

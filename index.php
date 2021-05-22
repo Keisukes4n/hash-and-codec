@@ -24,8 +24,8 @@
       <?php include_once './modules/function/_base64.php'; ?>
       <?php include_once './modules/function/_hash.php'; ?>
       <?php include_once './modules/function/_uuencode.php'; ?>
+      <?php include_once './modules/footer/_central.php'; ?>
     </main>
-    <?php include_once './modules/footer/_central.php'; ?>
 
     <?php include_once './modules/_script.php'; ?>
   </body>

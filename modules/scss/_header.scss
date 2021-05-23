@@ -15,12 +15,12 @@ header {
   width:      100%;
 
   @media screen and (min-aspect-ratio: 4 / 3) {
-    flex-flow: column;
-    position: static;
-    height: 100%;
-    padding: 0 0 0 10%;
-    width: 20%;
-    overflow-y: visible;
+    flex-flow:  column;
+    height:     100vh;
+    overflow-y: scroll;
+    padding:    0 0 0 10%;
+    position:   fixed;
+    width:      20%;
   }
 
   > section.primary {
@@ -48,6 +48,10 @@ header {
       justify-content: center;
       width:           25%;
 
+      @media screen and (min-aspect-ratio: 4 / 3) {
+        display: none;
+      }
+
       > img {
         height: 3.0rem;
         width:  3.0rem;
@@ -71,6 +75,10 @@ header {
       flex-flow:       column;
       justify-content: center;
       width:           25%;
+
+      @media screen and (min-aspect-ratio: 4 / 3) {
+        display: none;
+      }
     }
   } /** end: section.primary {} */
 }

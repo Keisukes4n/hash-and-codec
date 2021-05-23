@@ -4,14 +4,24 @@
  * _footer.scss
  */
 footer {
-  background: rgb(63, 63, 63);
-  box-shadow: 0 0 2px rgb(63, 63, 63);
-  color:      rgb(255, 255, 255);
-  flex:       1 1 auto;
-  padding:    1.0rem;
+  background:  rgb(63, 63, 63);
+  box-sizing:  border-box;
+  box-shadow:  0 0 2px rgb(63, 63, 63);
+  color:       rgb(255, 255, 255);
+  display:     flex;
+  align-items: center;
+  flex-flow:   column;
+  padding:     1.0rem;
+
+  @media screen and (min-aspect-ratio: 4 / 3) {
+    background: rgb(255, 255, 255);
+    box-shadow: none;
+    color:      rgb(31, 31, 31);
+    margin:     0 0 0 30%;
+    width:      60%;
+  }
 
   > div.item {
     font-size:  small;
-    text-align: center;
   }
 }

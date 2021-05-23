@@ -14,10 +14,6 @@ body {
   overflow-x:    hidden;
   padding:       0;
 
-  @media screen and (min-aspect-ratio: 4 / 3) {
-    flex-flow: row;
-  }
-
 	a {
 		text-decoration: none;
   }

@@ -5,16 +5,22 @@
 
 /** functions */
 function clickCloseMenu( flag, eleMenuIcon, eleMenuArea ) {
-  flag = 'N';
-  eleMenuIcon.style.transform = 'rotate(0.0turn)';
-  eleMenuArea.style.maxHeight = '0vw';
+  const aspectRatio = Number( window.outerWidth / window.outerHeight );
+  if ( aspectRatio < 4/3) {
+    flag = 'N';
+    eleMenuIcon.style.transform = 'rotate(0.0turn)';
+    eleMenuArea.style.maxHeight = '0vw';
+  }
   return flag;
 }
 
 function clickOpenMenu( flag, eleMenuIcon, eleMenuArea ) {
-  flag = 'Y';
-  eleMenuIcon.style.transform = 'rotate(0.5turn)';
-  eleMenuArea.style.maxHeight = '60vw';
+  const aspectRatio = Number( window.outerWidth / window.outerHeight );
+  if ( aspectRatio < 4/3) {
+    flag = 'Y';
+    eleMenuIcon.style.transform = 'rotate(0.5turn)';
+    eleMenuArea.style.maxHeight = '60vw';
+  }
   return flag;
 }
 
@@ -46,7 +52,6 @@ function scrollHideHeader() {
 }
 
 /** open and close the menu */
-
 const elementdivOperationButtonLeft = document.getElementById( 'divOperationButtonLeft' );
 const elementImgMenuIcon            = document.getElementById( 'imgMenuIcon' );
 const elementNavMenuArea            = document.getElementById( 'navMenu' );
@@ -62,7 +67,7 @@ elementdivOperationButtonLeft.addEventListener( 'click', () => {
     }
   }, false );
 
-window.addEventListener( 'scroll', () => {
+  window.addEventListener( 'scroll', () => {
   if ( flagOpeningMenu == 'Y' ) {
     flagOpeningMenu = clickCloseMenu( flagOpeningMenu, elementImgMenuIcon, elementNavMenuArea );
   }
@@ -70,25 +75,35 @@ window.addEventListener( 'scroll', () => {
 
 
 /** show and hide the header */
-/*
 const scrollObject = { beforeY: 0, currentY: window.scrollY, directionY: null };
 window.addEventListener( 'scroll', () => {
-  scrollObject.currentY   = window.scrollY;    
-  scrollObject.directionY = judgeScrollDirection( scrollObject.beforeY, scrollObject.currentY );
-  scrollObject.beforeY    = scrollObject.currentY;
+  const aspectRatio = Number( window.outerWidth / window.outerHeight );
+  if ( aspectRatio < 4/3) {
+    scrollObject.currentY   = window.scrollY;    
+    scrollObject.directionY = judgeScrollDirection( scrollObject.beforeY, scrollObject.currentY );
+    scrollObject.beforeY    = scrollObject.currentY;
 
-  if ( scrollObject.currentY == 0 ) {
-    scrollShowHeader();
+    if ( scrollObject.currentY == 0 ) {
+      scrollShowHeader();
+    }
   }
 }, false );
-*/
+
 
 window.addEventListener( 'resize', () => {
   const aspectRatio = Number( window.outerWidth / window.outerHeight );
   console.log( aspectRatio );
 
-  const elementHeader = document.getElementById( 'header' );
-  elementHeader.style.position = 'static';
+  if ( aspectRatio < 4/3 ) {
+    scrollShowHeader();
+    elementNavMenuArea.style.maxHeight = '0';
+  } else {
+    const elementHeader = document.getElementById( 'header' );
+    elementHeader.style.position = 'fixed';
+    elementHeader.style.height   = '100vh';  
+    elementHeader.style.overflowY = 'scroll';
+    elementNavMenuArea.style.maxHeight = '100%';
+  }
 
 }, false );
 

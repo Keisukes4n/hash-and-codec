@@ -71,12 +71,10 @@
     }
 
     /** for css transition of result area */
-    /*
     const elementSectionResultArea = document.getElementById( 'sectionResultArea' );
     window.addEventListener( 'load', () => {
       elementSectionResultArea.style.height = '14.0rem';
     });
-    */
 
   <?php else: ?>
     displayBase64();

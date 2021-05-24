@@ -11,12 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css">
     <title><?=htmlspecialchars( $_SERVER['PHP_SELF'], ENT_QUOTES );?></title>
+    <script defer src="./modules/index/_script.js"></script>
+    <script defer src="./modules/header/_script.js"></script>
   </head>
   <body>
     <?php include_once './modules/header/_central.php'; ?>
     <main>
       <h1><?=htmlspecialchars( $_SERVER['PHP_SELF'], ENT_QUOTES );?></h1>
-      <div class="process-selector" id="divMethodSelector">
+      <div class="process-selector" id="divProcessSelector">
         <button id="buttonProcessBase64" type="button">Base64</button>
         <button id="buttonProcessHash" type="button">Hash</button>
         <button id="buttonProcessUuencode" type="button">UUENCODE</button>
@@ -26,7 +28,5 @@
       <?php include_once './modules/function/_uuencode.php'; ?>
     </main>
     <?php include_once './modules/footer/_central.php'; ?>
-
-    <?php include_once './modules/_script.php'; ?>
   </body>
 </html>

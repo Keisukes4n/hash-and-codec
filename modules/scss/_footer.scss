@@ -13,7 +13,7 @@ footer {
   flex-flow:   column;
   padding:     1.0rem;
 
-  @media screen and (min-aspect-ratio: 4 / 3) {
+  @media screen and ( min-aspect-ratio: 4/3 ) {
     background: rgb(255, 255, 255);
     box-shadow: none;
     color:      rgb(31, 31, 31);

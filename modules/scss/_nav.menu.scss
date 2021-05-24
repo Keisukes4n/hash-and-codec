@@ -7,27 +7,28 @@ nav.menu {
   background:   rgb(239, 239, 239);
   box-shadow:   0 0 2px rgb(63, 63, 63);
   margin:       0.5rem 0 0 2.0rem;
-  max-height:   0;
+  height:       0;
   overflow-y:   scroll;
-  transition:   max-height 200ms ease-out 0ms;
-  width:        80%;
+  transition:   height 200ms ease-out 0ms;
+  width:        60%;
 
-  @media screen and (min-aspect-ratio: 4 / 3) {
-    max-height: 100%;
-    overflow-y: auto;
-    width: auto;
-    margin: 0;
+  @media screen and ( min-aspect-ratio: 4/3 ) {
     box-shadow: none;
+    max-height: 100%;
+    overflow-y: visible;
+    margin: 0;
+    transition: none;
+    width: auto;
   }
 
-  > div.grid {
-    display: grid;
-    gap:     0 2.0rem;
-    grid:    auto-flow auto / repeat( auto-fill, minmax( 320px, auto ) );
-    padding: 0 1.0rem 0 1.0rem;
+  > div.categories {
+    display:   flex;
+    flex-flow: column;
+    padding:   0 1.0rem 0 1.0rem;
 
     > ul {
       box-sizing:      border-box;
+      flex:            0 1 100%;
       list-style-type: none;
       margin:          0;
       padding:         0;

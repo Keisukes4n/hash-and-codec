@@ -5,23 +5,28 @@
 
 /** functions */
 function clickCloseMenu( flag, eleMenuIcon, eleMenuArea ) {
-  const aspectRatio = Number( window.outerWidth / window.outerHeight );
-  if ( aspectRatio < 4/3) {
+  const aspectRatio = get_aspectRatio();
+  if ( aspectRatio < 4/3 ) {
     flag = 'N';
     eleMenuIcon.style.transform = 'rotate(0.0turn)';
-    eleMenuArea.style.maxHeight = '0vw';
+    eleMenuArea.style.height = '0';
   }
   return flag;
 }
 
 function clickOpenMenu( flag, eleMenuIcon, eleMenuArea ) {
-  const aspectRatio = Number( window.outerWidth / window.outerHeight );
-  if ( aspectRatio < 4/3) {
+  const aspectRatio = get_aspectRatio();
+  if ( aspectRatio < 4/3 ) {
     flag = 'Y';
     eleMenuIcon.style.transform = 'rotate(0.5turn)';
-    eleMenuArea.style.maxHeight = '60vw';
+    eleMenuArea.style.height = '60vw';
   }
   return flag;
+}
+
+function get_aspectRatio() {
+  const result = Number( window.innerWidth / window.innerHeight );
+  return result;
 }
 
 function judgeScrollDirection( beforeY, currentY ) {
@@ -77,7 +82,7 @@ elementdivOperationButtonLeft.addEventListener( 'click', () => {
 /** show and hide the header */
 const scrollObject = { beforeY: 0, currentY: window.scrollY, directionY: null };
 window.addEventListener( 'scroll', () => {
-  const aspectRatio = Number( window.outerWidth / window.outerHeight );
+  const aspectRatio = get_aspectRatio();
   if ( aspectRatio < 4/3) {
     scrollObject.currentY   = window.scrollY;    
     scrollObject.directionY = judgeScrollDirection( scrollObject.beforeY, scrollObject.currentY );
@@ -91,20 +96,19 @@ window.addEventListener( 'scroll', () => {
 
 
 window.addEventListener( 'resize', () => {
-  const aspectRatio = Number( window.outerWidth / window.outerHeight );
+  const aspectRatio = get_aspectRatio();
   console.log( aspectRatio );
-
   if ( aspectRatio < 4/3 ) {
     scrollShowHeader();
-    elementNavMenuArea.style.maxHeight = '0';
+    elementNavMenuArea.style.height = '0';
   } else {
-    const elementHeader = document.getElementById( 'header' );
-    elementHeader.style.position = 'fixed';
-    elementHeader.style.height   = '100vh';  
-    elementHeader.style.overflowY = 'scroll';
-    elementNavMenuArea.style.maxHeight = '100%';
+    const elementHeader      = document.getElementById( 'header' );
+    elementHeader.style.position       = 'fixed';
+    elementHeader.style.height         = '100vh';  
+    elementHeader.style.overflowY      = 'scroll';
+    elementImgMenuIcon.style.transform = 'rotate(0.0turn)';
+    elementNavMenuArea.style.height    = '100vw';
   }
-
 }, false );
 
 /** A module file is end up here. : _script.js */

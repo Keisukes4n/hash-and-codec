@@ -68,6 +68,7 @@ header {
     overflow-y: scroll;
     padding: 0 0 0 10%;
     position: fixed;
+    transition: none;
     width: 20%;
   }
 }
@@ -82,7 +83,13 @@ header > section.primary {
   /** end: .operation-button-left {} */
 }
 
-header > section.primary > .website-title {
+@media screen and (min-aspect-ratio: 4 / 3) {
+  header > section.primary {
+    padding: 1.0rem;
+  }
+}
+
+header > section.primary > span.website-title {
   color: #3f3f3f;
   font-size: 1.6rem;
   font-weight: bold;
@@ -259,38 +266,39 @@ nav.menu {
   background: #efefef;
   box-shadow: 0 0 2px #3f3f3f;
   margin: 0.5rem 0 0 2.0rem;
-  max-height: 0;
+  height: 0;
   overflow-y: scroll;
-  transition: max-height 200ms ease-out 0ms;
-  width: 80%;
+  transition: height 200ms ease-out 0ms;
+  width: 60%;
 }
 
 @media screen and (min-aspect-ratio: 4 / 3) {
   nav.menu {
-    max-height: 100%;
-    overflow-y: auto;
-    width: auto;
-    margin: 0;
     box-shadow: none;
+    max-height: 100%;
+    overflow-y: visible;
+    margin: 0;
+    transition: none;
+    width: auto;
   }
 }
 
-nav.menu > div.grid {
-  display: grid;
-  gap: 0 2.0rem;
-  grid: auto-flow auto/repeat(auto-fill, minmax(320px, auto));
+nav.menu > div.categories {
+  display: flex;
+  flex-flow: column;
   padding: 0 1.0rem 0 1.0rem;
   /** end: ul {} */
 }
 
-nav.menu > div.grid > ul {
+nav.menu > div.categories > ul {
   box-sizing: border-box;
+  flex: 0 1 100%;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-nav.menu > div.grid > ul > a.item {
+nav.menu > div.categories > ul > a.item {
   background: white;
   box-shadow: 0 0 2px #3f3f3f;
   color: #1f1f1f;
@@ -299,16 +307,16 @@ nav.menu > div.grid > ul > a.item {
   padding: 1.0rem 0.5rem 1.0rem 0.5rem;
 }
 
-nav.menu > div.grid > ul > a.item:hover {
+nav.menu > div.categories > ul > a.item:hover {
   background: #dfdfdf;
 }
 
-nav.menu > div.grid > ul > a.item > img {
+nav.menu > div.categories > ul > a.item > img {
   height: 1.5rem;
   width: 1.5rem;
 }
 
-nav.menu > div.grid > ul > a.item > li {
+nav.menu > div.categories > ul > a.item > li {
   font-size: 1.2rem;
   padding: 0 0 0 0.5rem;
 }

@@ -14,12 +14,13 @@ header {
   transition: height 200ms ease-out 0ms;
   width:      100%;
 
-  @media screen and (min-aspect-ratio: 4 / 3) {
+  @media screen and ( min-aspect-ratio: 4/3 ) {
     flex-flow:  column;
     height:     100vh;
     overflow-y: scroll;
     padding:    0 0 0 10%;
     position:   fixed;
+    transition: none;
     width:      20%;
   }
 
@@ -31,7 +32,11 @@ header {
     justify-content: space-between;
     width:           100%;
 
-    > .website-title {
+    @media screen and ( min-aspect-ratio: 4/3 ) {
+      padding: 1.0rem;
+    }
+
+    > span.website-title {
       color:       rgb(63, 63, 63);
       font-size:   1.6rem;
       font-weight: bold;
@@ -48,7 +53,7 @@ header {
       justify-content: center;
       width:           25%;
 
-      @media screen and (min-aspect-ratio: 4 / 3) {
+      @media screen and ( min-aspect-ratio: 4/3 ) {
         display: none;
       }
 
@@ -76,7 +81,7 @@ header {
       justify-content: center;
       width:           25%;
 
-      @media screen and (min-aspect-ratio: 4 / 3) {
+      @media screen and ( min-aspect-ratio: 4/3 ) {
         display: none;
       }
     }

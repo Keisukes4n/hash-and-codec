@@ -230,7 +230,6 @@ main section.result-area {
   height: 0;
   /** change to 14.0rem by JavaScript. */
   margin: 1.0rem 0.5rem 1.0rem 0.5rem;
-  padding: 0.5rem;
   overflow-y: hidden;
   transition: height 200ms ease-out 200ms;
 }
@@ -239,6 +238,7 @@ main section.result-area > textarea {
   border: none;
   box-sizing: border-box;
   height: 8.0rem;
+  padding: 0.5rem;
   width: 100%;
 }
 

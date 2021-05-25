@@ -1,3 +1,8 @@
+/**
+ * module file: _script.js
+ * description: 
+ */
+
 /** functions */
 function displayBase64() {
   elementButtonProcessBase64.style.border   = 'rgb(127, 127, 127) solid thin';
@@ -60,10 +65,10 @@ elementButtonProcessUuencode.addEventListener( 'click', () => {
 });
 
 /** for css transition of result area */
-const elementSectionResultArea = document.getElementById( 'sectionResultArea' );
-  window.addEventListener( 'load', () => {
-    elementSectionResultArea.style.height = '14.0rem';
-  });
+window.addEventListener( 'load', () => {
+  const elementSectionResultArea = document.getElementById( 'sectionResultArea' );
+  elementSectionResultArea.style.height = '14.0rem';
+});
 
 const processType = sessionStorage.getItem( 'processType' );
 switch ( processType ) {
@@ -81,3 +86,4 @@ switch ( processType ) {
     break;
 }
 
+/** A module file is end up here. : index/_script.js */

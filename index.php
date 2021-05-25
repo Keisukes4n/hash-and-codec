@@ -16,6 +16,7 @@
   </head>
   <body>
     <?php include_once './modules/header/_central.php'; ?>
+
     <main>
       <h1><?=htmlspecialchars( $_SERVER['PHP_SELF'], ENT_QUOTES );?></h1>
       <div class="process-selector" id="divProcessSelector">
@@ -27,6 +28,7 @@
       <?php include_once './modules/function/_hash.php'; ?>
       <?php include_once './modules/function/_uuencode.php'; ?>
     </main>
+    
     <?php include_once './modules/footer/_central.php'; ?>
   </body>
 </html>

@@ -40,7 +40,7 @@
   }
 ?>
 
-<form action="" class="hash-generation" id="formHashGeneration" method="POST">
+<form action="" class="hash-generation" id="formHashGenerator" method="POST">
   <input type="hidden" name="conversion-process" value="hash">
 
   <?php if ( isset( $_POST[$name_algos] ) && isset( $_POST[$name_textarea_hash] ) ): ?>

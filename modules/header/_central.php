@@ -16,7 +16,7 @@
     <?php  ?>
     </div>
     <span class="website-title" id="spanWebsiteTitle">Web tools</span>
-    <div class="operation-button-right ">
+    <div class="operation-button-right" id="divOperationButtonRight">
     </div>
   </section>
   

@@ -4,41 +4,43 @@
  */
 
 /** functions */
-function clickCloseMenu( aspectRatio, eleMenuIcon, eleMenuArea ) {
-  const flag = 'N';
-  if ( aspectRatio < 4/3 ) {
-    eleMenuIcon.style.transform = 'rotate(0.0turn)';
-    eleMenuArea.style.height = '0';
-  }
-  return flag;
+function clickCloseMenu( eleImgMenuIcon, eleNavMenuArea ) {
+  eleImgMenuIcon.src          = eleImgMenuIcon.src.replace( 'menu-up', 'menu' );
+  eleNavMenuArea.style.height = '0';
 }
 
-function clickOpenMenu( aspectRatio, eleMenuIcon, eleMenuArea ) {
-  const flag = 'Y';
-  if ( aspectRatio < 4/3 ) {
-    eleMenuIcon.style.transform = 'rotate(0.5turn)';
-    eleMenuArea.style.height = '60vw';
-  }
-  return flag;
+function clickOpenMenu( eleImgMenuIcon, eleNavMenuArea ) {
+  eleImgMenuIcon.src          = eleImgMenuIcon.src.replace( 'menu', 'menu-up' );
+  eleNavMenuArea.style.height = '70vw';
 }
 
 function clickMenuBehavior( flag ) {
-  const elementImgMenuIcon = document.getElementById( 'imgMenuIcon' );
-  const elementNavMenuArea = document.getElementById( 'navMenu' );
-  const aspectRatio        = getAspectRatio();
+  const eleImgMenuIcon = document.getElementById( 'imgMenuIcon' );
+  const eleNavMenuArea = document.getElementById( 'navMenu' );
   switch ( flag ) {
     case 'N':
-      flag = clickOpenMenu( aspectRatio, elementImgMenuIcon, elementNavMenuArea );
+      clickOpenMenu( eleImgMenuIcon, eleNavMenuArea );
       break;
     case 'Y':
-      flag = clickCloseMenu( aspectRatio, elementImgMenuIcon, elementNavMenuArea );
+      clickCloseMenu( eleImgMenuIcon, eleNavMenuArea );
       break;
   }
-  return flag;
 }
 
 function getAspectRatio() {
   const result = Number( window.innerWidth / window.innerHeight );
+  return result;
+}
+
+function getFlagOpenNavMenu() {
+  let result  = null;
+  const ele   = document.getElementById( 'navMenu' );
+  const style = window.getComputedStyle( ele );
+  if ( style.height == '0px' ) {
+    result = 'N';
+  } else {
+    result = 'Y';
+  }
   return result;
 }
 
@@ -55,53 +57,51 @@ function judgeScrollDirection( beforeY, currentY ) {
   return result;
 }
 
-function resetViewLandscape() {
-  const elementHeader      = document.getElementById( 'header' );
-  const elementImgMenuIcon = document.getElementById( 'imgMenuIcon' );
-  const elementNavMenuArea = document.getElementById( 'navMenu' );
-  const flag = 'N';
-  elementHeader.style.position       = 'fixed';
-  elementHeader.style.height         = '100vh';  
-  elementHeader.style.overflowY      = 'scroll';
-  elementImgMenuIcon.style.transform = 'rotate(0.0turn)';
-  elementNavMenuArea.style.height    = '100vw';
-  return flag;
+function resetViewToLandscape( eleHeader, eleImgMenuIcon, eleNavMenuArea ) {
+  eleHeader.style.height      = '100vh';  
+  eleHeader.style.overflowY   = 'scroll';
+  eleImgMenuIcon.src          = eleImgMenuIcon.src.replace( 'menu-up', 'menu' );
+  eleNavMenuArea.style.height = '100vw';
 }
 
-function resetViewPortrait() {
-  const elementHeader      = document.getElementById( 'header' );
-  const elementNavMenuArea = document.getElementById( 'navMenu' );
-  const flag = 'N';
-  elementHeader.style.height      = '4.0rem';
-  elementHeader.style.overflowY   = 'visible';
-  elementNavMenuArea.style.height = '0';
-  return flag;
+function resetViewToPortrait( eleHeader, eleImgMenuIcon, eleNavMenuArea ) {
+  eleHeader.style.height      = '4.0rem';
+  eleHeader.style.overflowY   = 'visible';
+  eleImgMenuIcon.src          = eleImgMenuIcon.src.replace( 'menu-up', 'menu' );
+  eleNavMenuArea.style.height = '0';
 }
 
 function scrollShowHeader() {
-  const elementHeader = document.getElementById( 'header' );
-  elementHeader.style.height = '4.0rem';
+  const eleHeader = document.getElementById( 'header' );
+  eleHeader.style.height = '4.0rem';
   window.setTimeout( () => {
-    elementHeader.style.overflowY = 'visible';
+    eleHeader.style.overflowY = 'visible';
   }, 200)
 }
     
 function scrollHideHeader() {
-  const elementHeader = document.getElementById( 'header' );
-  elementHeader.style.height    = '0';
-  elementHeader.style.overflowY = 'hidden';
+  const eleHeader = document.getElementById( 'header' );
+  eleHeader.style.height    = '0';
+  eleHeader.style.overflowY = 'hidden';
 }
 
 /** open and close the menu */
-let flagOpeningMenu = 'N';
-const elemetDivOperationButtonLeft = document.getElementById( 'divOperationButtonLeft' );
-elemetDivOperationButtonLeft.addEventListener( 'click', () => {
-  flagOpeningMenu = clickMenuBehavior( flagOpeningMenu );
+const eleDivOperationButtonLeft = document.getElementById( 'divOperationButtonLeft' );
+eleDivOperationButtonLeft.addEventListener( 'click', () => {
+  const aspectRatio = getAspectRatio();
+  const flag        = getFlagOpenNavMenu();
+  if ( aspectRatio < 4/3 ) {
+    clickMenuBehavior( flag );
+  }
 }, false );
 
+
 window.addEventListener( 'scroll', () => {
-  if ( flagOpeningMenu == 'Y' ) {
-    flagOpeningMenu = clickCloseMenu( flagOpeningMenu, elementImgMenuIcon, elementNavMenuArea );
+  const aspectRatio = getAspectRatio();
+  if ( aspectRatio < 4/3 ) {
+    const eleImgMenuIcon = document.getElementById( 'imgMenuIcon' );
+    const eleNavMenuArea = document.getElementById( 'navMenu' );
+    clickCloseMenu( eleImgMenuIcon, eleNavMenuArea );
   }
 }, false );
 
@@ -121,13 +121,15 @@ window.addEventListener( 'scroll', () => {
   }
 }, false );
 
-
 window.addEventListener( 'resize', () => {
-  const aspectRatio = getAspectRatio();
+  const aspectRatio    = getAspectRatio();
+  const eleHeader      = document.getElementById( 'header' );
+  const eleImgMenuIcon = document.getElementById( 'imgMenuIcon' );
+  const eleNavMenuArea = document.getElementById( 'navMenu' );
   if ( aspectRatio < 4/3 ) {
-    flagOpeningMenu = resetViewPortrait();
+    resetViewToPortrait( eleHeader, eleImgMenuIcon, eleNavMenuArea );
   } else {
-    flagOpeningMenu = resetViewLandscape();
+    resetViewToLandscape( eleHeader, eleImgMenuIcon, eleNavMenuArea );
   }
 }, false );
 

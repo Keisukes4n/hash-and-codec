@@ -4,86 +4,95 @@
  */
 
 /** functions */
-function displayBase64() {
-  elementButtonProcessBase64.style.border   = 'rgb(127, 127, 127) solid thin';
-  elementButtonProcessHash.style.border     = 'hidden';
-  elementButtonProcessUuencode.style.border = 'hidden';
-  elementFormBase64Codec.style.display      = 'flex';
-  elementFormHashGeneration.style.display   = 'none';
-  elementFormUuencodeCodec.style.display    = 'none';
+function dispalyCodecTiles( styleButton, styleForm ) {
+  styleButton.border = 'rgb(127, 127, 127) solid thin';
+  styleForm.display  = 'flex';
+}
+
+function expandResultArea() {
+  const element = document.getElementById( 'sectionResultArea' );
+  if ( element != null ) {
+    element.style.height = '14.0rem';
+  }
+}
+
+function hideCodecTiles( styleButton, styleForm ) {
+  styleButton.border = 'hidden';
+  styleForm.display  = 'none';
+}
+
+function callEachCodec() {
+  const processType = sessionStorage.getItem( 'processType' );
+
+  const styleBase64 = {
+    button: document.getElementById( 'buttonProcessBase64' ).style,
+    form:   document.getElementById( 'formBase64Codec' ).style
+  }
+  const styleHash = {
+    button: document.getElementById( 'buttonProcessHash' ).style,
+    form:   document.getElementById( 'formHashGenerator' ).style
+  }
+  const styleUuencode = {
+    button: document.getElementById( 'buttonProcessUuencode' ).style,
+    form:   document.getElementById( 'formUuencodeCodec' ).style
+  }
+
+  switch ( processType ) {
+    case 'base64':
+      dispalyCodecTiles( styleBase64.button, styleBase64.form );
+      hideCodecTiles( styleHash.button, styleHash.form );
+      hideCodecTiles( styleUuencode.button, styleUuencode.form );
+      break;
+    case 'hash':
+      dispalyCodecTiles( styleHash.button, styleHash.form );
+      hideCodecTiles( styleBase64.button, styleBase64.form );
+      hideCodecTiles( styleUuencode.button, styleUuencode.form );
+      break;
+    case 'uuencode':
+      dispalyCodecTiles( styleUuencode.button, styleUuencode.form );
+      hideCodecTiles( styleBase64.button, styleBase64.form );
+      hideCodecTiles( styleHash.button, styleHash.form );
+      break;
+    default:
+      dispalyCodecTiles( styleBase64.button, styleBase64.form );
+      hideCodecTiles( styleHash.button, styleHash.form );
+      hideCodecTiles( styleUuencode.button, styleUuencode.form );
+      break;
+  } 
+}
+
+/** actions when click elements */
+document.getElementById( 'buttonProcessBase64' ).addEventListener( 'click', () => {
   try {
     sessionStorage.setItem( 'processType', 'base64' );
   } catch ( error ) {
     console.log( error );
   }
-}
+  callEachCodec();
+}, false );
 
-function displayHash() {
-  elementButtonProcessBase64.style.border   = 'hidden';
-  elementButtonProcessHash.style.border     = 'rgb(127, 127, 127) solid thin';
-  elementButtonProcessUuencode.style.border = 'hidden';
-  elementFormBase64Codec.style.display      = 'none';
-  elementFormHashGeneration.style.display   = 'flex';
-  elementFormUuencodeCodec.style.display    = 'none';
+document.getElementById( 'buttonProcessHash' ).addEventListener( 'click', () => {
   try {
     sessionStorage.setItem( 'processType', 'hash' );
   } catch ( error ) {
     console.log( error );
   }
-}
+  callEachCodec();
+}, false );
 
-function displayUuencode() {
-  elementButtonProcessBase64.style.border   = 'hidden';
-  elementButtonProcessHash.style.border     = 'hidden';
-  elementButtonProcessUuencode.style.border = 'rgb(127, 127, 127) solid thin';
-  elementFormBase64Codec.style.display      = 'none';
-  elementFormHashGeneration.style.display   = 'none';
-  elementFormUuencodeCodec.style.display    = 'flex';
+document.getElementById( 'buttonProcessUuencode' ).addEventListener( 'click', () => {
   try {
     sessionStorage.setItem( 'processType', 'uuencode' );
   } catch ( error ) {
     console.log( error );
   }
-}
-
-/** actions when click elements */
-const elementButtonProcessBase64   = document.getElementById( 'buttonProcessBase64' );
-const elementButtonProcessHash     = document.getElementById( 'buttonProcessHash' );
-const elementButtonProcessUuencode = document.getElementById( 'buttonProcessUuencode' );
-const elementFormBase64Codec       = document.getElementById( 'formBase64Codec' );
-const elementFormHashGeneration    = document.getElementById( 'formHashGeneration' );
-const elementFormUuencodeCodec     = document.getElementById( 'formUuencodeCodec' );
-
-elementButtonProcessHash.addEventListener( 'click', () => {
-  displayHash();
-});
-elementButtonProcessBase64.addEventListener( 'click', () => {
-  displayBase64();
-});
-elementButtonProcessUuencode.addEventListener( 'click', () => {
-  displayUuencode();
-});
+  callEachCodec();
+}, false );
 
 /** for css transition of result area */
-window.addEventListener( 'load', () => {
-  const elementSectionResultArea = document.getElementById( 'sectionResultArea' );
-  elementSectionResultArea.style.height = '14.0rem';
-});
+window.addEventListener( 'load', expandResultArea );
 
-const processType = sessionStorage.getItem( 'processType' );
-switch ( processType ) {
-  case 'base64':
-    displayBase64();
-    break;
-  case 'hash':
-    displayHash();
-    break;
-  case 'uuencode':
-    displayUuencode();
-    break;
-  default:
-    displayBase64();
-    break;
-}
+/** initialization of expression */
+window.addEventListener( 'load', callEachCodec );
 
-/** A module file is end up here. : index/_script.js */
+/** a module file is end up here. : index/_script.js */

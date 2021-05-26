@@ -143,6 +143,19 @@ header > section.primary > .operation-button-right {
   }
 }
 
+header > section.primary > .operation-button-right > img {
+  height: 3.0rem;
+  width: 3.0rem;
+}
+
+header > section.primary > .operation-button-right > img:hover {
+  background: #cfcfcf;
+}
+
+header > section.primary > .operation-button-right > span {
+  font-weight: bold;
+}
+
 /**
  * _main.scss
  */
@@ -265,8 +278,8 @@ main button.post:hover {
 nav.menu {
   background: #efefef;
   box-shadow: 0 0 2px #3f3f3f;
-  margin: 0.5rem 0 0 2.0rem;
-  height: 0;
+  margin: 0.5rem auto 0 2.0rem;
+  height: 0px;
   overflow-y: scroll;
   transition: height 200ms ease-out 0ms;
   width: 60%;

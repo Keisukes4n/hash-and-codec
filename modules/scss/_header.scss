@@ -84,6 +84,19 @@ header {
       @media screen and ( min-aspect-ratio: 4/3 ) {
         display: none;
       }
+
+      > img {
+        height: 3.0rem;
+        width:  3.0rem;
+  
+        &:hover {
+          background: rgb(207, 207, 207);
+        }
+      }
+  
+      > span {
+        font-weight: bold;
+      }
     }
   } /** end: section.primary {} */
 }

@@ -6,8 +6,8 @@
 nav.menu {
   background:   rgb(239, 239, 239);
   box-shadow:   0 0 2px rgb(63, 63, 63);
-  margin:       0.5rem 0 0 2.0rem;
-  height:       0;
+  margin:       0.5rem auto 0 2.0rem;
+  height:       0px;
   overflow-y:   scroll;
   transition:   height 200ms ease-out 0ms;
   width:        60%;

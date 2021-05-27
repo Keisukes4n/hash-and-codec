@@ -52,6 +52,7 @@
     </section>
     <hr>
   <?php endif; ?>
+  
 
   <section class="tile">
     <h2>1. Select "Encode" or "Decode" (base64)</h2>
@@ -68,7 +69,7 @@
   <section class="tile">
     <h2>2. Input text</h2>
     <textarea name="<?=htmlspecialchars( $name_textarea_base64, ENT_QUOTES );?>" placeholder="text" required></textarea>
-    <button class="post" type="submit">Post!</button>
+    <button class="post" id="buttonPost" type="submit">Post!</button>
     <p>The result wiil be displayed after posted.</p>
   </section>
 </form>

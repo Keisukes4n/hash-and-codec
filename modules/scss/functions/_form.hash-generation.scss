@@ -13,7 +13,7 @@ form.hash-generation {
     box-shadow: 0 0 2px 0px rgb(63, 63, 63);
     box-sizing: border-box;
     flex:       1 1 100%;
-    margin:     1.0rem 0.5rem 1.0rem 0.5rem;
+    margin:     1.0rem;
     padding:    0.5rem;
 
     > div.algorithm-list {
@@ -50,6 +50,7 @@ form.hash-generation {
       border:     none;
       box-sizing: border-box;
       height:     8.0rem;
+      padding:    0.5rem;
       width:      100%;
     }
   } /** end: section.tile {} */

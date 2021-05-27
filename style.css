@@ -242,7 +242,8 @@ main section.result-area {
   flex: 1 1 100%;
   height: 0;
   /** change to 14.0rem by JavaScript. */
-  margin: 1.0rem 0.5rem 1.0rem 0.5rem;
+  margin: 1.0rem;
+  padding: 0.5rem;
   overflow-y: hidden;
   transition: height 200ms ease-out 200ms;
 }
@@ -288,9 +289,9 @@ nav.menu {
 @media screen and (min-aspect-ratio: 4 / 3) {
   nav.menu {
     box-shadow: none;
-    max-height: 100%;
-    overflow-y: visible;
+    height: 100%;
     margin: 0;
+    overflow-y: visible;
     transition: none;
     width: auto;
   }
@@ -353,7 +354,7 @@ form.hash-generation > section.tile {
   box-shadow: 0 0 2px 0px #3f3f3f;
   box-sizing: border-box;
   flex: 1 1 100%;
-  margin: 1.0rem 0.5rem 1.0rem 0.5rem;
+  margin: 1.0rem;
   padding: 0.5rem;
   /** end: div.algorithm-list {} */
 }
@@ -392,6 +393,7 @@ form.hash-generation > section.tile > textarea {
   border: none;
   box-sizing: border-box;
   height: 8.0rem;
+  padding: 0.5rem;
   width: 100%;
 }
 
@@ -419,7 +421,7 @@ form.base64-codec > section.tile {
   box-shadow: 0 0 2px #3f3f3f;
   box-sizing: border-box;
   flex: 1 1 100%;
-  margin: 1.0rem 0.5rem 1.0rem 0.5rem;
+  margin: 1.0rem;
   padding: 0.5rem;
   /** end: div.coding-process {} */
 }
@@ -460,6 +462,7 @@ form.base64-codec > section.tile > textarea {
   border: none;
   box-sizing: border-box;
   height: 8.0rem;
+  padding: 0.5rem;
   width: 100%;
 }
 
@@ -487,7 +490,7 @@ form.uuencode-codec > section.tile {
   box-shadow: 0 0 2px #3f3f3f;
   box-sizing: border-box;
   flex: 1 1 100%;
-  margin: 1.0rem 0.5rem 1.0rem 0.5rem;
+  margin: 1.0rem;
   padding: 0.5rem;
   /** end: div.coding-process {} */
 }
@@ -528,6 +531,7 @@ form.uuencode-codec > section.tile > textarea {
   border: none;
   box-sizing: border-box;
   height: 8.0rem;
+  padding: 0.5rem;
   width: 100%;
 }
 

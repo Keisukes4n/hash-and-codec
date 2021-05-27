@@ -4,9 +4,9 @@
  */
 
 /** functions */
-function dispalyCodecTiles( styleButton, styleForm ) {
-  styleButton.border = 'rgb(127, 127, 127) solid thin';
-  styleForm.display  = 'flex';
+function dispalyCodecTiles( elements ) {
+  elements.button.style.border = 'rgb(127, 127, 127) solid thin';
+  elements.form.style.display  = 'flex';
 }
 
 function expandResultArea() {
@@ -16,47 +16,47 @@ function expandResultArea() {
   }
 }
 
-function hideCodecTiles( styleButton, styleForm ) {
-  styleButton.border = 'hidden';
-  styleForm.display  = 'none';
+function hideCodecTiles( elements ) {
+  elements.button.style.border = 'hidden';
+  elements.form.style.display  = 'none';
 }
 
 function callEachCodec() {
   const processType = sessionStorage.getItem( 'processType' );
 
-  const styleBase64 = {
-    button: document.getElementById( 'buttonProcessBase64' ).style,
-    form:   document.getElementById( 'formBase64Codec' ).style
+  const elementsBase64 = {
+    button: document.getElementById( 'buttonProcessBase64' ),
+    form:   document.getElementById( 'formBase64Codec' )
   }
-  const styleHash = {
-    button: document.getElementById( 'buttonProcessHash' ).style,
-    form:   document.getElementById( 'formHashGenerator' ).style
+  const elementsHash = {
+    button: document.getElementById( 'buttonProcessHash' ),
+    form:   document.getElementById( 'formHashGenerator' )
   }
-  const styleUuencode = {
-    button: document.getElementById( 'buttonProcessUuencode' ).style,
-    form:   document.getElementById( 'formUuencodeCodec' ).style
+  const elementsUuencode = {
+    button: document.getElementById( 'buttonProcessUuencode' ),
+    form:   document.getElementById( 'formUuencodeCodec' )
   }
 
   switch ( processType ) {
     case 'base64':
-      dispalyCodecTiles( styleBase64.button, styleBase64.form );
-      hideCodecTiles( styleHash.button, styleHash.form );
-      hideCodecTiles( styleUuencode.button, styleUuencode.form );
+      dispalyCodecTiles( elementsBase64 );
+      hideCodecTiles( elementsHash );
+      hideCodecTiles( elementsUuencode );
       break;
     case 'hash':
-      dispalyCodecTiles( styleHash.button, styleHash.form );
-      hideCodecTiles( styleBase64.button, styleBase64.form );
-      hideCodecTiles( styleUuencode.button, styleUuencode.form );
+      dispalyCodecTiles( elementsHash );
+      hideCodecTiles( elementsBase64 );
+      hideCodecTiles( elementsUuencode );
       break;
     case 'uuencode':
-      dispalyCodecTiles( styleUuencode.button, styleUuencode.form );
-      hideCodecTiles( styleBase64.button, styleBase64.form );
-      hideCodecTiles( styleHash.button, styleHash.form );
+      dispalyCodecTiles( elementsUuencode );
+      hideCodecTiles( elementsBase64 );
+      hideCodecTiles( elementsHash );
       break;
     default:
-      dispalyCodecTiles( styleBase64.button, styleBase64.form );
-      hideCodecTiles( styleHash.button, styleHash.form );
-      hideCodecTiles( styleUuencode.button, styleUuencode.form );
+      dispalyCodecTiles( elementsBase64 );
+      hideCodecTiles( elementsHash );
+      hideCodecTiles( elementsUuencode );
       break;
   } 
 }

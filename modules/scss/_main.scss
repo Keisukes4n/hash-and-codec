@@ -82,7 +82,8 @@ main {
     box-sizing: border-box;
     flex:       1 1 100%;
     height:     0; /** change to 14.0rem by JavaScript. */
-    margin:     1.0rem 0.5rem 1.0rem 0.5rem;
+    margin:     1.0rem;
+    padding:    0.5rem;
     overflow-y: hidden;
     transition: height 200ms ease-out 200ms;
 

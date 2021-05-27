@@ -11,15 +11,16 @@
 <header id="header">
   <section class="primary">
     <div class="operation-button-left" id="divOperationButtonLeft">
-    <?php  ?>
+    <!--
       <img src="<?php echo $pass_modules_icon; ?>/menu-icon-plain.svg" alt="menu-icon-plain.svg" id="imgMenuIcon">
-    <?php  ?>
+    -->
     </div>
     <span class="website-title" id="spanWebsiteTitle">Web tools</span>
     <div class="operation-button-right" id="divOperationButtonRight">
     </div>
   </section>
   
+  <!--
   <nav class="menu" id="navMenu">
     <div class="categories">
       <ul>
@@ -81,6 +82,7 @@
     </div>
     <p>Click an icon at upper left side to close this menu.</p>
   </nav>
+  -->
 </header>
 
 <?php unset( $pass_modules_icon ); ?>

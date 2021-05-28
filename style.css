@@ -319,6 +319,7 @@ nav.menu > div.categories > ul > a.item {
   display: flex;
   margin: 0.5rem 0 0.5rem 0;
   padding: 1.0rem 0.5rem 1.0rem 0.5rem;
+  transition: background 200ms ease-out 0ms;
 }
 
 nav.menu > div.categories > ul > a.item:hover {
@@ -337,6 +338,12 @@ nav.menu > div.categories > ul > a.item > li {
 
 nav.menu > p {
   text-align: center;
+}
+
+@media screen and (min-aspect-ratio: 4 / 3) {
+  nav.menu > p {
+    display: none;
+  }
 }
 
 /**

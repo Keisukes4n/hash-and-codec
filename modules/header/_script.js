@@ -11,7 +11,7 @@ function clickCloseMenu( elementImgMenuIcon, elementNavMenuArea ) {
 
 function clickOpenMenu( elementImgMenuIcon, elementNavMenuArea ) {
   elementImgMenuIcon.src          = elementImgMenuIcon.src.replace( 'menu', 'menu-up' );
-  elementNavMenuArea.style.height = '70vw';
+  elementNavMenuArea.style.height = '70vh';
 }
 
 function clickMenuBehavior( flag ) {
@@ -61,7 +61,7 @@ function resetViewToLandscape( elementHeader, elementImgMenuIcon, elementNavMenu
   elementHeader.style.height      = '100vh';  
   elementHeader.style.overflowY   = 'scroll';
   elementImgMenuIcon.src          = elementImgMenuIcon.src.replace( 'menu-up', 'menu' );
-  elementNavMenuArea.style.height = '100vw';
+  elementNavMenuArea.style.height = '100vh';
 }
 
 function resetViewToPortrait( elementHeader, elementImgMenuIcon, elementNavMenuArea ) {
@@ -95,7 +95,6 @@ elementDivOperationButtonLeft.addEventListener( 'click', () => {
   }
 }, false );
 
-
 window.addEventListener( 'scroll', () => {
   const aspectRatio = getAspectRatio();
   if ( aspectRatio < 4/3 ) {
@@ -105,12 +104,11 @@ window.addEventListener( 'scroll', () => {
   }
 }, false );
 
-
 /** show and hide the header */
 const scrollObject = { beforeY: 0, currentY: window.scrollY, directionY: null };
 window.addEventListener( 'scroll', () => {
   const aspectRatio = getAspectRatio();
-  if ( aspectRatio < 4/3) {
+  if ( aspectRatio < 4/3 ) {
     scrollObject.currentY   = window.scrollY;    
     scrollObject.directionY = judgeScrollDirection( scrollObject.beforeY, scrollObject.currentY );
     scrollObject.beforeY    = scrollObject.currentY;
@@ -133,4 +131,4 @@ window.addEventListener( 'resize', () => {
   }
 }, false );
 
-/** A module file is end up here. : header/_script.js */
+/** a module file is end up here. : header/_script.js */

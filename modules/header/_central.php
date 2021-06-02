@@ -11,9 +11,9 @@
 <header id="header">
   <section class="primary">
     <div class="operation-button-left" id="divOperationButtonLeft">
-    <!--
+    
       <img src="<?php echo $pass_modules_icon; ?>/menu-icon-plain.svg" alt="menu-icon-plain.svg" id="imgMenuIcon">
-    -->
+    
     </div>
     <span class="website-title" id="spanWebsiteTitle">Web tools</span>
     <div class="operation-button-right" id="divOperationButtonRight">

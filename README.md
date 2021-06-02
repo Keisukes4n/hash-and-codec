@@ -1,5 +1,5 @@
 # Web tools - String conversion
-Version: 0.0.44
+Version: 0.0.45
 
 ## Overview
 This repository is web tools about bsse64, UUENCODE ... and etc codec. And it have been using for design and skill experiment personally.

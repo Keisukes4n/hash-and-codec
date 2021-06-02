@@ -1,0 +1,6 @@
+{
+  "conpilerOption": {
+    "lib":[ "ES6", "DOM" ],
+    "strict": true
+  }
+}

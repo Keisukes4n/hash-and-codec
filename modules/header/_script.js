@@ -66,7 +66,7 @@ function resetViewToPortrait(header, imgMenuIcon, navMenuArea) {
 function scrollShowHeader() {
     var header = document.getElementById('header');
     header.style.height = '4.0rem';
-    window.setTimeout(function () {
+    setTimeout(function () {
         header.style.overflowY = 'visible';
     }, 200);
 }

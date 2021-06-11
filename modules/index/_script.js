@@ -4,7 +4,6 @@
  */
 /** functions */
 function dispalyCodecTiles(elements) {
-    elements.button.style.border = 'rgb(127, 127, 127) solid thin';
     elements.form.style.display = 'flex';
 }
 function expandResultArea() {
@@ -14,7 +13,7 @@ function expandResultArea() {
     }
 }
 function hideCodecTiles(elements) {
-    elements.button.style.border = 'hidden';
+    elements.button.style.backgroundColor = 'none';
     elements.form.style.display = 'none';
 }
 function exceptionLog(identifier) {
@@ -23,15 +22,15 @@ function exceptionLog(identifier) {
 function callEachCodec() {
     var processType = sessionStorage.getItem('processType');
     var base64 = {
-        button: document.getElementById('buttonProcessBase64'),
+        button: document.getElementById('labelProcessBase64'),
         form: document.getElementById('formBase64Codec')
     };
     var hash = {
-        button: document.getElementById('buttonProcessHash'),
+        button: document.getElementById('labelProcessHash'),
         form: document.getElementById('formHashGenerator')
     };
     var uuencode = {
-        button: document.getElementById('buttonProcessUuencode'),
+        button: document.getElementById('labelProcessUuencode'),
         form: document.getElementById('formUuencodeCodec')
     };
     switch (processType) {
@@ -58,7 +57,7 @@ function callEachCodec() {
     }
 }
 /** actions when click elements */
-document.getElementById('buttonProcessBase64').addEventListener('click', function () {
+document.getElementById('labelProcessBase64').addEventListener('click', function () {
     try {
         sessionStorage.setItem('processType', 'base64');
     }
@@ -67,7 +66,7 @@ document.getElementById('buttonProcessBase64').addEventListener('click', functio
     }
     callEachCodec();
 }, false);
-document.getElementById('buttonProcessHash').addEventListener('click', function () {
+document.getElementById('labelProcessHash').addEventListener('click', function () {
     try {
         sessionStorage.setItem('processType', 'hash');
     }
@@ -76,7 +75,7 @@ document.getElementById('buttonProcessHash').addEventListener('click', function 
     }
     callEachCodec();
 }, false);
-document.getElementById('buttonProcessUuencode').addEventListener('click', function () {
+document.getElementById('labelProcessUuencode').addEventListener('click', function () {
     try {
         sessionStorage.setItem('processType', 'uuencode');
     }

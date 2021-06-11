@@ -1,6 +1,6 @@
 {
   "conpilerOption": {
-    "lib":[ "ES6", "DOM" ],
+    "lib":[ "ES2015", "DOM" ],
     "strict": true
   }
 }

@@ -20,9 +20,18 @@
     <main>
       <h1><?=htmlspecialchars( $_SERVER['PHP_SELF'], ENT_QUOTES );?></h1>
       <div class="process-selector" id="divProcessSelector">
-        <button id="buttonProcessBase64" type="button">Base64</button>
-        <button id="buttonProcessHash" type="button">Hash</button>
-        <button id="buttonProcessUuencode" type="button">UUENCODE</button>
+        <label id="labelProcessBase64">
+          <input type="radio" name="input-selector">
+          <span>Base64</span>
+        </label>
+        <label id="labelProcessHash">
+          <input type="radio" name="input-selector">
+          <span>Hash</span>
+        </label>
+        <label id="labelProcessUuencode">
+          <input type="radio" name="input-selector">
+          <span>UUENCODE</span>
+        </label>
       </div>
       <?php include_once './modules/function/_base64.php'; ?>
       <?php include_once './modules/function/_hash.php'; ?>

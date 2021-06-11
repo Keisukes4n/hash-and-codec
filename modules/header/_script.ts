@@ -73,11 +73,11 @@ function resetViewToPortrait( header:HTMLElement, imgMenuIcon:HTMLImageElement, 
 function scrollShowHeader():void {
   const header:HTMLElement = document.getElementById( 'header' );
   header.style.height = '4.0rem';
-  window.setTimeout( () => {
+  setTimeout( () => {
     header.style.overflowY = 'visible';
   }, 200);
 }
-    
+
 function scrollHideHeader():void {
   const header:HTMLElement = document.getElementById( 'header' );
   header.style.height    = '0';
@@ -104,9 +104,9 @@ function processScrollEvents():void { /** show and hide the header. */
   window.addEventListener( 'scroll', () => {
     const aspectRatio:number = getAspectRatio();
     if ( aspectRatio < 4/3 ) {
-      obj.currentY   = window.scrollY;    
+      obj.currentY = window.scrollY;    
       judgeScrollDirection( obj.beforeY, obj.currentY );
-      obj.beforeY    = obj.currentY;
+      obj.beforeY  = obj.currentY;
 
       if ( obj.currentY == 0 ) {
         scrollShowHeader();
@@ -137,4 +137,5 @@ function processClickEvent():void { /** open and close the menu. */
 processClickEvent();
 processResizeEvents();
 processScrollEvents();
+
 /** a module file is end up here. : header/_script.js */

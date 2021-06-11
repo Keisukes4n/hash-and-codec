@@ -5,7 +5,7 @@
 
 /** functions */
 function dispalyCodecTiles( elements:codecSelector ):void {
-  elements.button.style.border = 'rgb(127, 127, 127) solid thin';
+
   elements.form.style.display  = 'flex';
 }
 
@@ -17,7 +17,7 @@ function expandResultArea():void {
 }
 
 function hideCodecTiles( elements:codecSelector ):void {
-  elements.button.style.border = 'hidden';
+  elements.button.style.backgroundColor = 'none';
   elements.form.style.display  = 'none';
 }
 
@@ -29,15 +29,15 @@ function callEachCodec():void {
   const processType:String = sessionStorage.getItem( 'processType' );
 
   const base64:codecSelector = {
-    button: document.getElementById( 'buttonProcessBase64' ),
+    button: document.getElementById( 'labelProcessBase64' ),
     form:   document.getElementById( 'formBase64Codec' )
   }
   const hash:codecSelector = {
-    button: document.getElementById( 'buttonProcessHash' ),
+    button: document.getElementById( 'labelProcessHash' ),
     form:   document.getElementById( 'formHashGenerator' )
   }
   const uuencode:codecSelector = {
-    button: document.getElementById( 'buttonProcessUuencode' ),
+    button: document.getElementById( 'labelProcessUuencode' ),
     form:   document.getElementById( 'formUuencodeCodec' )
   }
 
@@ -66,7 +66,7 @@ function callEachCodec():void {
 }
 
 /** actions when click elements */
-document.getElementById( 'buttonProcessBase64' ).addEventListener( 'click', () => {
+document.getElementById( 'labelProcessBase64' ).addEventListener( 'click', () => {
   try {
     sessionStorage.setItem( 'processType', 'base64' );
   } catch ( identifier:any ) { 
@@ -75,7 +75,7 @@ document.getElementById( 'buttonProcessBase64' ).addEventListener( 'click', () =
   callEachCodec();
 }, false );
 
-document.getElementById( 'buttonProcessHash' ).addEventListener( 'click', () => {
+document.getElementById( 'labelProcessHash' ).addEventListener( 'click', () => {
   try {
     sessionStorage.setItem( 'processType', 'hash' );
   } catch ( identifier ) {
@@ -84,7 +84,7 @@ document.getElementById( 'buttonProcessHash' ).addEventListener( 'click', () => 
   callEachCodec();
 }, false );
 
-document.getElementById( 'buttonProcessUuencode' ).addEventListener( 'click', () => {
+document.getElementById( 'labelProcessUuencode' ).addEventListener( 'click', () => {
   try {
     sessionStorage.setItem( 'processType', 'uuencode' );
   } catch ( identifier ) {

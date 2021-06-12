@@ -22,15 +22,15 @@ function exceptionLog(identifier) {
 function callEachCodec() {
     var processType = sessionStorage.getItem('processType');
     var base64 = {
-        button: document.getElementById('labelProcessBase64'),
+        button: document.getElementById('buttonProcessBase64'),
         form: document.getElementById('formBase64Codec')
     };
     var hash = {
-        button: document.getElementById('labelProcessHash'),
+        button: document.getElementById('buttonProcessHash'),
         form: document.getElementById('formHashGenerator')
     };
     var uuencode = {
-        button: document.getElementById('labelProcessUuencode'),
+        button: document.getElementById('buttonProcessUuencode'),
         form: document.getElementById('formUuencodeCodec')
     };
     switch (processType) {
@@ -56,17 +56,37 @@ function callEachCodec() {
             break;
     }
 }
+function changeButtonColor(eventTarget) {
+    if (eventTarget instanceof HTMLElement) {
+        console.log(eventTarget);
+        eventTarget.style.background = 'rgb(239, 239, 239)';
+        eventTarget.addEventListener('mouseout', function () {
+            eventTarget.style.background = 'rgb(255, 255, 255)';
+        });
+    }
+}
+function mouseoverButton() {
+    document.getElementById('buttonProcessBase64')
+        .addEventListener('mouseover', function (event) {
+        changeButtonColor(event.target);
+        event.target.addEventListener('click', function () {
+            try {
+                sessionStorage.setItem('processType', 'base64');
+            }
+            catch (identifier) {
+                exceptionLog(identifier);
+            }
+            callEachCodec();
+        }, false);
+    }, false);
+    document.getElementById('buttonProcessHash')
+        .addEventListener('mouseover', function (event) { return changeButtonColor(event.target); }, false);
+    document.getElementById('buttonProcessUuencode')
+        .addEventListener('mouseover', function (event) { return changeButtonColor(event.target); }, false);
+}
+mouseoverButton();
 /** actions when click elements */
-document.getElementById('labelProcessBase64').addEventListener('click', function () {
-    try {
-        sessionStorage.setItem('processType', 'base64');
-    }
-    catch (identifier) {
-        exceptionLog(identifier);
-    }
-    callEachCodec();
-}, false);
-document.getElementById('labelProcessHash').addEventListener('click', function () {
+document.getElementById('buttonProcessHash').addEventListener('click', function () {
     try {
         sessionStorage.setItem('processType', 'hash');
     }
@@ -75,7 +95,7 @@ document.getElementById('labelProcessHash').addEventListener('click', function (
     }
     callEachCodec();
 }, false);
-document.getElementById('labelProcessUuencode').addEventListener('click', function () {
+document.getElementById('buttonProcessUuencode').addEventListener('click', function () {
     try {
         sessionStorage.setItem('processType', 'uuencode');
     }

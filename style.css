@@ -218,7 +218,7 @@ main div.process-selector {
   justify-content: center;
 }
 
-main div.process-selector label {
+main div.process-selector button {
   background: white;
   border: none;
   border-radius: 4px;
@@ -226,18 +226,9 @@ main div.process-selector label {
   box-sizing: border-box;
   flex: 0 0 20%;
   font-size: large;
-  justify-content: center;
   margin: 0.5rem;
   padding: 1.0rem;
   transition: background 200ms ease-out 0ms;
-}
-
-main div.process-selector label:hover {
-  background: #dfdfdf;
-}
-
-main div.process-selector label input {
-  visibility: hidden;
 }
 
 main section.result-area {

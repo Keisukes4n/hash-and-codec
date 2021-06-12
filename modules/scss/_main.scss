@@ -58,7 +58,7 @@ main {
     display:         flex;
     justify-content: center;
     
-    label {
+    button {
       background:    rgb(255, 255, 255);
       border:        none;
       border-radius: 4px;
@@ -66,18 +66,9 @@ main {
       box-sizing:    border-box;
       flex:          0 0 20%;
       font-size:     large;
-      justify-content: center;
       margin:        0.5rem;
       padding:       1.0rem;
       transition:    background 200ms ease-out 0ms;
-
-      &:hover {
-        background: rgb(223, 223, 223);
-      }
-
-      input {
-        visibility: hidden;
-      }
     }
   }
 

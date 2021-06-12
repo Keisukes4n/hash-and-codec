@@ -29,15 +29,15 @@ function callEachCodec():void {
   const processType:String = sessionStorage.getItem( 'processType' );
 
   const base64:codecSelector = {
-    button: document.getElementById( 'labelProcessBase64' ),
+    button: document.getElementById( 'buttonProcessBase64' ),
     form:   document.getElementById( 'formBase64Codec' )
   }
   const hash:codecSelector = {
-    button: document.getElementById( 'labelProcessHash' ),
+    button: document.getElementById( 'buttonProcessHash' ),
     form:   document.getElementById( 'formHashGenerator' )
   }
   const uuencode:codecSelector = {
-    button: document.getElementById( 'labelProcessUuencode' ),
+    button: document.getElementById( 'buttonProcessUuencode' ),
     form:   document.getElementById( 'formUuencodeCodec' )
   }
 
@@ -65,17 +65,40 @@ function callEachCodec():void {
   } 
 }
 
-/** actions when click elements */
-document.getElementById( 'labelProcessBase64' ).addEventListener( 'click', () => {
-  try {
-    sessionStorage.setItem( 'processType', 'base64' );
-  } catch ( identifier:any ) { 
-    exceptionLog( identifier );
+function changeButtonColor( eventTarget:EventTarget) {
+  if ( eventTarget instanceof HTMLElement) {
+    console.log(eventTarget);
+    eventTarget.style.background = 'rgb(239, 239, 239)';
+    eventTarget.addEventListener( 'mouseout', () => {
+      eventTarget.style.background = 'rgb(255, 255, 255)';
+    });
   }
-  callEachCodec();
-}, false );
+}
 
-document.getElementById( 'labelProcessHash' ).addEventListener( 'click', () => {
+function mouseoverButton() {
+  document.getElementById( 'buttonProcessBase64' )
+    .addEventListener( 'mouseover', ( event:Event ) => {
+      changeButtonColor( event.target );
+      event.target.addEventListener( 'click', () => {
+        try {
+          sessionStorage.setItem( 'processType', 'base64' );
+        } catch ( identifier:unknown ) { 
+          exceptionLog( identifier );
+        }
+        callEachCodec();
+      }, false );
+    }, false );
+  document.getElementById( 'buttonProcessHash' )
+    .addEventListener( 'mouseover', ( event:Event ) => changeButtonColor( event.target ), false );
+  document.getElementById( 'buttonProcessUuencode' )
+    .addEventListener( 'mouseover', ( event:Event ) => changeButtonColor( event.target ), false );
+}
+
+mouseoverButton();
+
+/** actions when click elements */
+
+document.getElementById( 'buttonProcessHash' ).addEventListener( 'click', () => {
   try {
     sessionStorage.setItem( 'processType', 'hash' );
   } catch ( identifier ) {
@@ -84,7 +107,7 @@ document.getElementById( 'labelProcessHash' ).addEventListener( 'click', () => {
   callEachCodec();
 }, false );
 
-document.getElementById( 'labelProcessUuencode' ).addEventListener( 'click', () => {
+document.getElementById( 'buttonProcessUuencode' ).addEventListener( 'click', () => {
   try {
     sessionStorage.setItem( 'processType', 'uuencode' );
   } catch ( identifier ) {

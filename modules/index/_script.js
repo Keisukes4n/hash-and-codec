@@ -3,24 +3,17 @@
  * description:
  */
 /** functions */
-function dispalyCodecTiles(elements) {
-    elements.form.style.display = 'flex';
+function dispalyCodecTiles(button, form) {
+    form.style.display = 'flex';
 }
-function expandResultArea() {
-    var element = document.getElementById('sectionResultArea');
-    if (element != null) {
-        element.style.height = '14.0rem';
-    }
-}
-function hideCodecTiles(elements) {
-    elements.button.style.backgroundColor = 'none';
-    elements.form.style.display = 'none';
+function hideCodecTiles(button, form) {
+    button.style.background = 'none';
+    form.style.display = 'none';
 }
 function exceptionLog(identifier) {
     console.log(identifier.name + ' : ' + identifier.message);
 }
-function callEachCodec() {
-    var processType = sessionStorage.getItem('processType');
+function callCodec(processType) {
     var base64 = {
         button: document.getElementById('buttonProcessBase64'),
         form: document.getElementById('formBase64Codec')
@@ -35,77 +28,67 @@ function callEachCodec() {
     };
     switch (processType) {
         case 'base64':
-            dispalyCodecTiles(base64);
-            hideCodecTiles(hash);
-            hideCodecTiles(uuencode);
+            dispalyCodecTiles(base64.button, base64.form);
+            hideCodecTiles(hash.button, hash.form);
+            hideCodecTiles(uuencode.button, uuencode.form);
             break;
         case 'hash':
-            dispalyCodecTiles(hash);
-            hideCodecTiles(base64);
-            hideCodecTiles(uuencode);
+            dispalyCodecTiles(hash.button, hash.form);
+            hideCodecTiles(base64.button, base64.form);
+            hideCodecTiles(uuencode.button, uuencode.form);
             break;
         case 'uuencode':
-            dispalyCodecTiles(uuencode);
-            hideCodecTiles(base64);
-            hideCodecTiles(hash);
+            dispalyCodecTiles(uuencode.button, uuencode.form);
+            hideCodecTiles(base64.button, base64.form);
+            hideCodecTiles(hash.button, hash.form);
             break;
         default:
-            dispalyCodecTiles(base64);
-            hideCodecTiles(hash);
-            hideCodecTiles(uuencode);
+            dispalyCodecTiles(base64.button, base64.form);
+            hideCodecTiles(hash.button, hash.form);
+            hideCodecTiles(uuencode.button, uuencode.form);
             break;
     }
 }
-function changeButtonColor(eventTarget) {
+function selectorBehavior(eventTarget, processType) {
     if (eventTarget instanceof HTMLElement) {
-        console.log(eventTarget);
-        eventTarget.style.background = 'rgb(239, 239, 239)';
-        eventTarget.addEventListener('mouseout', function () {
-            eventTarget.style.background = 'rgb(255, 255, 255)';
+        var element_1 = eventTarget;
+        element_1.style.background = 'rgb(239, 239, 239)';
+        element_1.addEventListener('mouseout', function () {
+            element_1.style.background = 'none';
         });
-    }
-}
-function mouseoverButton() {
-    document.getElementById('buttonProcessBase64')
-        .addEventListener('mouseover', function (event) {
-        changeButtonColor(event.target);
-        event.target.addEventListener('click', function () {
+        element_1.addEventListener('click', function () {
             try {
-                sessionStorage.setItem('processType', 'base64');
+                sessionStorage.setItem('processType', processType);
+                callCodec(processType);
             }
             catch (identifier) {
                 exceptionLog(identifier);
             }
-            callEachCodec();
         }, false);
-    }, false);
-    document.getElementById('buttonProcessHash')
-        .addEventListener('mouseover', function (event) { return changeButtonColor(event.target); }, false);
-    document.getElementById('buttonProcessUuencode')
-        .addEventListener('mouseover', function (event) { return changeButtonColor(event.target); }, false);
+    }
 }
-mouseoverButton();
-/** actions when click elements */
-document.getElementById('buttonProcessHash').addEventListener('click', function () {
-    try {
-        sessionStorage.setItem('processType', 'hash');
-    }
-    catch (identifier) {
-        exceptionLog(identifier);
-    }
-    callEachCodec();
-}, false);
-document.getElementById('buttonProcessUuencode').addEventListener('click', function () {
-    try {
-        sessionStorage.setItem('processType', 'uuencode');
-    }
-    catch (identifier) {
-        exceptionLog(identifier);
-    }
-    callEachCodec();
-}, false);
-/** for css transition of result area */
-window.addEventListener('load', expandResultArea);
-/** initialization of expression */
-window.addEventListener('load', callEachCodec);
+function loadEvents() {
+    /** for css transition of result area */
+    window.addEventListener('load', function () {
+        var element = document.getElementById('sectionResultArea');
+        if (element != null) {
+            element.style.height = '14.0rem';
+        }
+    }, false);
+    /** initialization of expression */
+    window.addEventListener('load', function () {
+        var processType = sessionStorage.getItem('processType');
+        callCodec(processType);
+    });
+}
+function mouseoverEvents() {
+    document.getElementById('buttonProcessBase64')
+        .addEventListener('mouseover', function (event) { return selectorBehavior(event.target, 'base64'); }, false);
+    document.getElementById('buttonProcessHash')
+        .addEventListener('mouseover', function (event) { return selectorBehavior(event.target, 'hash'); }, false);
+    document.getElementById('buttonProcessUuencode')
+        .addEventListener('mouseover', function (event) { return selectorBehavior(event.target, 'uuencode'); }, false);
+}
+loadEvents();
+mouseoverEvents();
 /** a module file is end up here. : index/_script.js */ 

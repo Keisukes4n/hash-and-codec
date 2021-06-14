@@ -4,12 +4,13 @@
  */
 
 /** functions */
-function dispalyCodecTiles( button:HTMLElement, form:HTMLElement ):void {
-  form.style.display  = 'flex';
+function dispalyCodecTiles( label:HTMLElement, form:HTMLElement ):void {
+  //label.style.background = 'rgb(239, 239 ,239)';
+  form.style.display      = 'flex';
 }
 
-function hideCodecTiles( button:HTMLElement, form:HTMLElement ):void {
-  button.style.background = 'none';
+function hideCodecTiles( label:HTMLElement, form:HTMLElement ):void {
+  //label.style.background = 'rgb(255,255,255)';
   form.style.display      = 'none';
 }
 
@@ -19,51 +20,55 @@ function exceptionLog( identifier:any ):void {
 
 function callCodec( processType:string ):void {
   const base64:codecSelector = {
-    button: document.getElementById( 'buttonProcessBase64' ),
+    label: document.getElementById( 'labelProcessBase64' ),
     form:   document.getElementById( 'formBase64Codec' )
   }
   const hash:codecSelector = {
-    button: document.getElementById( 'buttonProcessHash' ),
+    label: document.getElementById( 'labelProcessHash' ),
     form:   document.getElementById( 'formHashGenerator' )
   }
   const uuencode:codecSelector = {
-    button: document.getElementById( 'buttonProcessUuencode' ),
+    label: document.getElementById( 'labelProcessUuencode' ),
     form:   document.getElementById( 'formUuencodeCodec' )
   }
 
   switch ( processType ) {
     case 'base64':
-      dispalyCodecTiles( base64.button, base64.form );
-      hideCodecTiles( hash.button, hash.form );
-      hideCodecTiles( uuencode.button, uuencode.form );
+      dispalyCodecTiles( base64.label, base64.form );
+      hideCodecTiles( hash.label, hash.form );
+      hideCodecTiles( uuencode.label, uuencode.form );
       break;
     case 'hash':
-      dispalyCodecTiles( hash.button, hash.form );
-      hideCodecTiles( base64.button, base64.form );
-      hideCodecTiles( uuencode.button, uuencode.form );
+      dispalyCodecTiles( hash.label, hash.form );
+      hideCodecTiles( base64.label, base64.form );
+      hideCodecTiles( uuencode.label, uuencode.form );
       break;
     case 'uuencode':
-      dispalyCodecTiles( uuencode.button, uuencode.form );
-      hideCodecTiles( base64.button, base64.form );
-      hideCodecTiles( hash.button, hash.form );
+      dispalyCodecTiles( uuencode.label, uuencode.form );
+      hideCodecTiles( base64.label, base64.form );
+      hideCodecTiles( hash.label, hash.form );
       break;
     default:
-      dispalyCodecTiles( base64.button, base64.form );
-      hideCodecTiles( hash.button, hash.form );
-      hideCodecTiles( uuencode.button, uuencode.form );
+      dispalyCodecTiles( base64.label, base64.form );
+      hideCodecTiles( hash.label, hash.form );
+      hideCodecTiles( uuencode.label, uuencode.form );
       break;
-  } 
+  }
 }
 
-function selectorBehavior( eventTarget:EventTarget, processType:string ) {
+function selectorBehavior( eventTarget:EventTarget, processType:string ):void {
   if ( eventTarget instanceof HTMLElement) {
     const element:HTMLElement = eventTarget;
+    /*
     
-    element.style.background = 'rgb(239, 239, 239)';
+    if ( sessionStorage.getItem( 'processType' ) != processType ) {
+      element.style.background = 'rgb(223, 223, 223)';
 
-    element.addEventListener( 'mouseout', () => {
-      element.style.background = 'none';
-    });
+      element.addEventListener( 'mouseout', () => {
+        element.style.background = 'none';
+      });
+    }
+    */
 
     element.addEventListener( 'click', () => {
       try {
@@ -93,11 +98,11 @@ function loadEvents() {
 }
 
 function mouseoverEvents() {
-  document.getElementById( 'buttonProcessBase64' )
+  document.getElementById( 'labelProcessBase64' )
     .addEventListener( 'mouseover', ( event:Event ) => selectorBehavior( event.target, 'base64' ), false );
-  document.getElementById( 'buttonProcessHash' )
+  document.getElementById( 'labelProcessHash' )
     .addEventListener( 'mouseover', ( event:Event ) => selectorBehavior( event.target, 'hash' ), false );
-  document.getElementById( 'buttonProcessUuencode' )
+  document.getElementById( 'labelProcessUuencode' )
     .addEventListener( 'mouseover', ( event:Event ) => selectorBehavior( event.target, 'uuencode' ), false );
 }
 

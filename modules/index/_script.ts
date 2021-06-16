@@ -4,14 +4,12 @@
  */
 
 /** functions */
-function dispalyCodecTiles( label:HTMLElement, form:HTMLElement ):void {
-  //label.style.background = 'rgb(239, 239 ,239)';
-  form.style.display      = 'flex';
+function dispalyCodecTiles( form:HTMLElement ):void {
+  form.style.display = 'flex';
 }
 
-function hideCodecTiles( label:HTMLElement, form:HTMLElement ):void {
-  //label.style.background = 'rgb(255,255,255)';
-  form.style.display      = 'none';
+function hideCodecTiles( form:HTMLElement ):void {
+  form.style.display = 'none';
 }
 
 function exceptionLog( identifier:any ):void {
@@ -20,38 +18,35 @@ function exceptionLog( identifier:any ):void {
 
 function callCodec( processType:string ):void {
   const base64:codecSelector = {
-    label: document.getElementById( 'labelProcessBase64' ),
-    form:   document.getElementById( 'formBase64Codec' )
+    form: document.getElementById( 'formBase64Codec' )
   }
   const hash:codecSelector = {
-    label: document.getElementById( 'labelProcessHash' ),
-    form:   document.getElementById( 'formHashGenerator' )
+    form: document.getElementById( 'formHashGenerator' )
   }
   const uuencode:codecSelector = {
-    label: document.getElementById( 'labelProcessUuencode' ),
-    form:   document.getElementById( 'formUuencodeCodec' )
+    form: document.getElementById( 'formUuencodeCodec' )
   }
 
   switch ( processType ) {
     case 'base64':
-      dispalyCodecTiles( base64.label, base64.form );
-      hideCodecTiles( hash.label, hash.form );
-      hideCodecTiles( uuencode.label, uuencode.form );
+      dispalyCodecTiles( base64.form );
+      hideCodecTiles( hash.form );
+      hideCodecTiles( uuencode.form );
       break;
     case 'hash':
-      dispalyCodecTiles( hash.label, hash.form );
-      hideCodecTiles( base64.label, base64.form );
-      hideCodecTiles( uuencode.label, uuencode.form );
+      dispalyCodecTiles( hash.form );
+      hideCodecTiles( base64.form );
+      hideCodecTiles( uuencode.form );
       break;
     case 'uuencode':
-      dispalyCodecTiles( uuencode.label, uuencode.form );
-      hideCodecTiles( base64.label, base64.form );
-      hideCodecTiles( hash.label, hash.form );
+      dispalyCodecTiles( uuencode.form );
+      hideCodecTiles( base64.form );
+      hideCodecTiles( hash.form );
       break;
     default:
-      dispalyCodecTiles( base64.label, base64.form );
-      hideCodecTiles( hash.label, hash.form );
-      hideCodecTiles( uuencode.label, uuencode.form );
+      dispalyCodecTiles( base64.form );
+      hideCodecTiles( hash.form );
+      hideCodecTiles( uuencode.form );
       break;
   }
 }
@@ -59,22 +54,12 @@ function callCodec( processType:string ):void {
 function selectorBehavior( eventTarget:EventTarget, processType:string ):void {
   if ( eventTarget instanceof HTMLElement) {
     const element:HTMLElement = eventTarget;
-    /*
-    
-    if ( sessionStorage.getItem( 'processType' ) != processType ) {
-      element.style.background = 'rgb(223, 223, 223)';
-
-      element.addEventListener( 'mouseout', () => {
-        element.style.background = 'none';
-      });
-    }
-    */
 
     element.addEventListener( 'click', () => {
       try {
         sessionStorage.setItem( 'processType', processType );
         callCodec( processType );
-      } catch ( identifier:any ) { 
+      } catch ( identifier:any ) {
         exceptionLog( identifier );
       }
     }, false );
@@ -95,6 +80,21 @@ function loadEvents() {
     const processType:string = sessionStorage.getItem( 'processType' );
     callCodec( processType );
   });
+
+  /** selector initirazetion*/
+  window.addEventListener( 'load', () => {
+    const processType:string     = sessionStorage.getItem( 'processType' );
+    const selector:HTMLElement   = document.getElementById( 'divProcessSelector' );
+    try {
+      const input:HTMLInputElement = selector.querySelector( 'input[value="' + processType + '"]' );
+      input.checked = true;
+    } catch ( identifier:any ) {
+      const input:HTMLInputElement = selector.querySelector( 'input[value="base64"]' );
+      input.checked = true;
+      exceptionLog( identifier );
+    }
+  });
+
 }
 
 function mouseoverEvents() {

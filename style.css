@@ -222,14 +222,14 @@ main div.process-selector label {
   background: white;
   border: none;
   border-radius: 4px;
-  box-shadow: 0 0 2px #7f7f7f;
   box-sizing: border-box;
   flex: 0 0 20%;
   font-size: large;
+  font-weight: bold;
   margin: 0.5rem;
-  padding: 1.0rem;
-  transition: background 200ms ease-out 0ms;
+  padding: 0.5rem 1.0rem 0.5rem 1.0rem;
   text-align: center;
+  transition: background-color 200ms ease-out 0ms;
 }
 
 main div.process-selector label:hover {
@@ -240,9 +240,12 @@ main div.process-selector label input {
   display: none;
 }
 
-main div.process-selector label input:checked + span {
-  display: block;
+main div.process-selector label input:checked + div {
   border-bottom: #7f7f7f solid medium;
+}
+
+main div.process-selector label div {
+  padding: 0.5rem 0 0.5rem 0;
 }
 
 main section.result-area {

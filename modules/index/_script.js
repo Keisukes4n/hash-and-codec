@@ -3,12 +3,10 @@
  * description:
  */
 /** functions */
-function dispalyCodecTiles(label, form) {
-    //label.style.background = 'rgb(239, 239 ,239)';
+function dispalyCodecTiles(form) {
     form.style.display = 'flex';
 }
-function hideCodecTiles(label, form) {
-    //label.style.background = 'rgb(255,255,255)';
+function hideCodecTiles(form) {
     form.style.display = 'none';
 }
 function exceptionLog(identifier) {
@@ -16,53 +14,40 @@ function exceptionLog(identifier) {
 }
 function callCodec(processType) {
     var base64 = {
-        label: document.getElementById('labelProcessBase64'),
         form: document.getElementById('formBase64Codec')
     };
     var hash = {
-        label: document.getElementById('labelProcessHash'),
         form: document.getElementById('formHashGenerator')
     };
     var uuencode = {
-        label: document.getElementById('labelProcessUuencode'),
         form: document.getElementById('formUuencodeCodec')
     };
     switch (processType) {
         case 'base64':
-            dispalyCodecTiles(base64.label, base64.form);
-            hideCodecTiles(hash.label, hash.form);
-            hideCodecTiles(uuencode.label, uuencode.form);
+            dispalyCodecTiles(base64.form);
+            hideCodecTiles(hash.form);
+            hideCodecTiles(uuencode.form);
             break;
         case 'hash':
-            dispalyCodecTiles(hash.label, hash.form);
-            hideCodecTiles(base64.label, base64.form);
-            hideCodecTiles(uuencode.label, uuencode.form);
+            dispalyCodecTiles(hash.form);
+            hideCodecTiles(base64.form);
+            hideCodecTiles(uuencode.form);
             break;
         case 'uuencode':
-            dispalyCodecTiles(uuencode.label, uuencode.form);
-            hideCodecTiles(base64.label, base64.form);
-            hideCodecTiles(hash.label, hash.form);
+            dispalyCodecTiles(uuencode.form);
+            hideCodecTiles(base64.form);
+            hideCodecTiles(hash.form);
             break;
         default:
-            dispalyCodecTiles(base64.label, base64.form);
-            hideCodecTiles(hash.label, hash.form);
-            hideCodecTiles(uuencode.label, uuencode.form);
+            dispalyCodecTiles(base64.form);
+            hideCodecTiles(hash.form);
+            hideCodecTiles(uuencode.form);
             break;
     }
 }
 function selectorBehavior(eventTarget, processType) {
     if (eventTarget instanceof HTMLElement) {
         var element = eventTarget;
-        /*
-        
-        if ( sessionStorage.getItem( 'processType' ) != processType ) {
-          element.style.background = 'rgb(223, 223, 223)';
-    
-          element.addEventListener( 'mouseout', () => {
-            element.style.background = 'none';
-          });
-        }
-        */
         element.addEventListener('click', function () {
             try {
                 sessionStorage.setItem('processType', processType);
@@ -86,6 +71,20 @@ function loadEvents() {
     window.addEventListener('load', function () {
         var processType = sessionStorage.getItem('processType');
         callCodec(processType);
+    });
+    /** selector initirazetion*/
+    window.addEventListener('load', function () {
+        var processType = sessionStorage.getItem('processType');
+        var selector = document.getElementById('divProcessSelector');
+        try {
+            var input = selector.querySelector('input[value="' + processType + '"]');
+            input.checked = true;
+        }
+        catch (identifier) {
+            var input = selector.querySelector('input[value="base64"]');
+            input.checked = true;
+            exceptionLog(identifier);
+        }
     });
 }
 function mouseoverEvents() {

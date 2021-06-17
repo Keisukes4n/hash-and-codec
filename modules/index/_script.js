@@ -1,98 +1,100 @@
 /**
  * module file: _script.js
- * description: 
+ * description:
  */
-
 /** functions */
-function dispalyCodecTiles( elements ) {
-  elements.button.style.border = 'rgb(127, 127, 127) solid thin';
-  elements.form.style.display  = 'flex';
+function dispalyCodecTiles(form) {
+    form.style.display = 'flex';
 }
-
-function expandResultArea() {
-  const element = document.getElementById( 'sectionResultArea' );
-  if ( element != null ) {
-    element.style.height = '14.0rem';
-  }
+function hideCodecTiles(form) {
+    form.style.display = 'none';
 }
-
-function hideCodecTiles( elements ) {
-  elements.button.style.border = 'hidden';
-  elements.form.style.display  = 'none';
+function exceptionLog(identifier) {
+    console.log(identifier.name + ' : ' + identifier.message);
 }
-
-function callEachCodec() {
-  const processType = sessionStorage.getItem( 'processType' );
-
-  const elementsBase64 = {
-    button: document.getElementById( 'buttonProcessBase64' ),
-    form:   document.getElementById( 'formBase64Codec' )
-  }
-  const elementsHash = {
-    button: document.getElementById( 'buttonProcessHash' ),
-    form:   document.getElementById( 'formHashGenerator' )
-  }
-  const elementsUuencode = {
-    button: document.getElementById( 'buttonProcessUuencode' ),
-    form:   document.getElementById( 'formUuencodeCodec' )
-  }
-
-  switch ( processType ) {
-    case 'base64':
-      dispalyCodecTiles( elementsBase64 );
-      hideCodecTiles( elementsHash );
-      hideCodecTiles( elementsUuencode );
-      break;
-    case 'hash':
-      dispalyCodecTiles( elementsHash );
-      hideCodecTiles( elementsBase64 );
-      hideCodecTiles( elementsUuencode );
-      break;
-    case 'uuencode':
-      dispalyCodecTiles( elementsUuencode );
-      hideCodecTiles( elementsBase64 );
-      hideCodecTiles( elementsHash );
-      break;
-    default:
-      dispalyCodecTiles( elementsBase64 );
-      hideCodecTiles( elementsHash );
-      hideCodecTiles( elementsUuencode );
-      break;
-  } 
+function callCodec(processType) {
+    var base64 = {
+        form: document.getElementById('formBase64Codec')
+    };
+    var hash = {
+        form: document.getElementById('formHashGenerator')
+    };
+    var uuencode = {
+        form: document.getElementById('formUuencodeCodec')
+    };
+    switch (processType) {
+        case 'base64':
+            dispalyCodecTiles(base64.form);
+            hideCodecTiles(hash.form);
+            hideCodecTiles(uuencode.form);
+            break;
+        case 'hash':
+            dispalyCodecTiles(hash.form);
+            hideCodecTiles(base64.form);
+            hideCodecTiles(uuencode.form);
+            break;
+        case 'uuencode':
+            dispalyCodecTiles(uuencode.form);
+            hideCodecTiles(base64.form);
+            hideCodecTiles(hash.form);
+            break;
+        default:
+            dispalyCodecTiles(base64.form);
+            hideCodecTiles(hash.form);
+            hideCodecTiles(uuencode.form);
+            break;
+    }
 }
-
-/** actions when click elements */
-document.getElementById( 'buttonProcessBase64' ).addEventListener( 'click', () => {
-  try {
-    sessionStorage.setItem( 'processType', 'base64' );
-  } catch ( error ) {
-    console.log( error );
-  }
-  callEachCodec();
-}, false );
-
-document.getElementById( 'buttonProcessHash' ).addEventListener( 'click', () => {
-  try {
-    sessionStorage.setItem( 'processType', 'hash' );
-  } catch ( error ) {
-    console.log( error );
-  }
-  callEachCodec();
-}, false );
-
-document.getElementById( 'buttonProcessUuencode' ).addEventListener( 'click', () => {
-  try {
-    sessionStorage.setItem( 'processType', 'uuencode' );
-  } catch ( error ) {
-    console.log( error );
-  }
-  callEachCodec();
-}, false );
-
-/** for css transition of result area */
-window.addEventListener( 'load', expandResultArea );
-
-/** initialization of expression */
-window.addEventListener( 'load', callEachCodec );
-
-/** a module file is end up here. : index/_script.js */
+function selectorBehavior(eventTarget, processType) {
+    if (eventTarget instanceof HTMLElement) {
+        var element = eventTarget;
+        element.addEventListener('click', function () {
+            try {
+                sessionStorage.setItem('processType', processType);
+                callCodec(processType);
+            }
+            catch (identifier) {
+                exceptionLog(identifier);
+            }
+        }, false);
+    }
+}
+function loadEvents() {
+    /** for css transition of result area */
+    window.addEventListener('load', function () {
+        var element = document.getElementById('sectionResultArea');
+        if (element != null) {
+            element.style.height = '14.0rem';
+        }
+    }, false);
+    /** initialization of expression */
+    window.addEventListener('load', function () {
+        var processType = sessionStorage.getItem('processType');
+        callCodec(processType);
+    });
+    /** selector initirazetion*/
+    window.addEventListener('load', function () {
+        var processType = sessionStorage.getItem('processType');
+        var selector = document.getElementById('divProcessSelector');
+        try {
+            var input = selector.querySelector('input[value="' + processType + '"]');
+            input.checked = true;
+        }
+        catch (identifier) {
+            var input = selector.querySelector('input[value="base64"]');
+            input.checked = true;
+            exceptionLog(identifier);
+        }
+    });
+}
+function mouseoverEvents() {
+    document.getElementById('labelProcessBase64')
+        .addEventListener('mouseover', function (event) { return selectorBehavior(event.target, 'base64'); }, false);
+    document.getElementById('labelProcessHash')
+        .addEventListener('mouseover', function (event) { return selectorBehavior(event.target, 'hash'); }, false);
+    document.getElementById('labelProcessUuencode')
+        .addEventListener('mouseover', function (event) { return selectorBehavior(event.target, 'uuencode'); }, false);
+}
+loadEvents();
+mouseoverEvents();
+/** a module file is end up here. : index/_script.js */ 

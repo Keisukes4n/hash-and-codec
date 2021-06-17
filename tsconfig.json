@@ -1,0 +1,6 @@
+{
+  "conpilerOption": {
+    "lib":[ "ES2015", "DOM" ],
+    "strict": true
+  }
+}

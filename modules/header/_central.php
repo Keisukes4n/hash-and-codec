@@ -1,90 +1,58 @@
-<?php 
-  /**
-   * module file: _header.php
-   * description: This file is called from index.php in front directory.
-   */
+<?php
 
-  /** parameters */
-  $pass_modules_icon = './modules/icon';
+declare( strict_types=1 );
+
+/**
+ * module file: _header.php
+ * description: This file is called from index.php in front directory.
+ */
+
+class header {
+  private string $icons_pass;
+  private string $license_pass;
+
+  public function __construct() {
+    $this->icons_pass   = './modules/icon';
+    $this->license_pass = './license';
+  }
+
+  public function getIconsPass(): string {
+    return $this->icons_pass;
+  }
+
+  public function getLicensePass(): string {
+    return $this->license_pass;
+  }
+}
+
+$header_instance = new header;
+
 ?>
 
 <header id="header">
   <section class="primary">
     <div class="operation-button-left" id="divOperationButtonLeft">
-    <!--
-      <img src="<?php echo $pass_modules_icon; ?>/menu-icon-plain.svg" alt="menu-icon-plain.svg" id="imgMenuIcon">
-    -->
+      <img src="<?php echo $header_instance->getIconsPass(); ?>/menu-icon-plain.svg" alt="menu-icon-plain.svg" id="imgMenuIcon">
     </div>
     <span class="website-title" id="spanWebsiteTitle">Web tools</span>
     <div class="operation-button-right" id="divOperationButtonRight">
     </div>
   </section>
   
-  <!--
   <nav class="menu" id="navMenu">
     <div class="categories">
       <ul>
-        <h3>list1</h3>
-        <a class="item" href="">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/option-icon-plain.svg" alt="option-icon-plain.svg" >
-          <li>item1-1</li>
-        </a>
-      </ul>
-      <ul>
-        <h3>list2</h3>
-        <a class="item" href="">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/guide-icon-plain.svg" alt="guide-icon-plain.svg">
-          <li>item2-1</li>
-        </a>
-        <a class="item" href="">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/guide-icon-plain.svg" alt="guide-icon-plain.svg">
-          <li>item2-2</li>
-        </a>
-        <a class="item" href="">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/guide-icon-plain.svg" alt="guide-icon-plain.svg">
-          <li>item2-3</li>
-        </a>
-      </ul>
-      <ul>
-        <h3>list3</h3>
-          <a class="item" href="" rel="noopener noreferrer" target="_balnk">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/license-icon-plain.svg" alt="/icons/license-icon-plain.svg">
-          <li>item3-1</li>
-        </a>
-        <a class="item" href="" rel="noopener noreferrer" target="_balnk">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/information-icon-plain.svg" alt="information-icon-plain.svg" >
-          <li>item3-2</li>
-        </a>
-        <a class="item" href="" rel="noopener noreferrer" target="_balnk">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/information-icon-plain.svg" alt="information-icon-plain.svg" >
-          <li>item3-3</li>
-        </a>
-        <a class="item" href="" rel="noopener noreferrer" target="_balnk">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/information-icon-plain.svg" alt="information-icon-plain.svg" >
-          <li>item3-4</li>
-        </a>
-      </ul>
-      <ul>
-        <h3>list4</h3>
-        <a class="item" href="">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/guide-icon-plain.svg" alt="guide-icon-plain.svg">
-          <li>item4-1</li>
-        </a>
-        <a class="item" href="">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/guide-icon-plain.svg" alt="guide-icon-plain.svg">
-          <li>item4-2</li>
-        </a>
-        <a class="item" href="">
-          <img src="<?=htmlspecialchars( $pass_modules_icon, ENT_QUOTES );?>/guide-icon-plain.svg" alt="guide-icon-plain.svg">
-          <li>item4-3</li>
+        <h3>Information</h3>
+        <a class="item" href="<?php echo $header_instance->getLicensePass(); ?>">
+          <img src="<?php echo $header_instance->getIconsPass(); ?>/license-icon-plain.svg" alt="license-icon-plain.svg" >
+          <li>License</li>
         </a>
       </ul>
     </div>
     <p>Click an icon at upper left side to close this menu.</p>
   </nav>
-  -->
 </header>
 
-<?php unset( $pass_modules_icon ); ?>
+<?php unset( $header_instance ); ?>
 
 <?php /** a module file is end up here. : header/_central.php */ ?>

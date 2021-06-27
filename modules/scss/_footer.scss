@@ -4,19 +4,19 @@
  * _footer.scss
  */
 footer {
-  background:  rgb(63, 63, 63);
+  background:  var( --footer-bg-color );
   box-sizing:  border-box;
-  box-shadow:  0 0 2px rgb(63, 63, 63);
-  color:       rgb(255, 255, 255);
+  box-shadow:  var( --shadow-param );
+  color:       var( --footer-color );
   display:     flex;
   align-items: center;
   flex-flow:   column;
   padding:     1.0rem;
 
   @media screen and ( min-aspect-ratio: 4/3 ) {
-    background: rgb(255, 255, 255);
+    background: var( --bg-color );
     box-shadow: none;
-    color:      rgb(31, 31, 31);
+    color:      var( --font-color );
     margin:     0 0 0 30%;
     width:      60%;
   }

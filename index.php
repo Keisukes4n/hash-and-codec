@@ -37,9 +37,9 @@ declare( strict_types=1 );
           <div>UUENCODE</div>
         </label>
       </div>
-      <?php include_once './modules/function/_base64.php'; ?>
-      <?php include_once './modules/function/_hash.php'; ?>
-      <?php include_once './modules/function/_uuencode.php'; ?>
+      <?php include_once './modules/features/_base64.php'; ?>
+      <?php include_once './modules/features/_hash.php'; ?>
+      <?php include_once './modules/features/_uuencode.php'; ?>
     </main>
     
     <?php include_once './modules/footer/_central.php'; ?>

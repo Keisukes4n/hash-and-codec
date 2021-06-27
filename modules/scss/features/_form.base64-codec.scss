@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/**
+ * _form.base64-codec.scss
+ */
+form.base64-codec {
+  display:         flex;
+  flex:            1 1 auto;
+  flex-flow:       row wrap;
+  justify-content: center;
+
+  > section.tile {
+    background: var( --tile-bg-color );
+    box-shadow: var( --shadow-param );
+    flex:       1 1 100%;
+    margin:     var( --tile-margin );
+
+    > div.coding-process {
+      display: grid;
+      gap:     var( --grid-gap );
+      grid:    auto-flow auto / repeat( auto-fill, minmax( 45%, auto ) );
+      padding: var( --tile-parts-padding );
+  
+      > label {
+        align-items:   center;
+        background:    var( --button-bg-color );
+        border-radius: var( --button-border-radius );
+        box-shadow:    var( --shadow-param );
+        display:       flex;
+        font-weight:   bold;
+        padding:       var( --radio-padding );
+        transition:    var( --button-transition-bg );
+  
+        &:hover {
+          background: var( --button-bg-color-hover );
+        }
+  
+        > input {
+          margin: 0 0.5rem 0 0.5rem;
+        }
+      }
+    } /** end: div.coding-process {} */
+
+    > h2 {
+      margin:  0;
+      padding: var( --tile-parts-padding );
+    }
+
+    > textarea {
+      box-sizing: border-box;
+      height:     var( --textarea-height );
+      margin:     var( --textarea-margin );
+      padding:    var( --textarea-padding );
+      width:      var( --textarea-width );
+    }
+  } /** end: section.tile {} */
+
+  p {
+    text-align: center;
+  }
+}

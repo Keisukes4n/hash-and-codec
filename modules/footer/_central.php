@@ -31,16 +31,15 @@ $footer_instance = new footer;
 
 <footer>
   <div class="item">
-    <p>Modified date: <?php echo htmlspecialchars( $footer_instance->getModDate(), ENT_QUOTES ); ?></p>
+    <p>Modified date: <?php echo $footer_instance->getModDate(); ?></p>
   </div>
   <div class="item">
     <p>License: Apache License Version 2.0, CC BY 4.0</p>
   </div>
   <div class="item">
-    <p>Copyright 2021 <?php echo htmlspecialchars( $footer_instance->getAuthorName(), ENT_QUOTES ); ?></p>
+    <p>Copyright 2021 <?php echo $footer_instance->getAuthorName(); ?></p>
   </div>
 </footer>
 
 <?php unset( $footer_instance ); ?>
-
 <?php /** a module file is end up here. : footer/_central.php */ ?>

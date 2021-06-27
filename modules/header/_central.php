@@ -54,5 +54,4 @@ $header_instance = new header;
 </header>
 
 <?php unset( $header_instance ); ?>
-
 <?php /** a module file is end up here. : header/_central.php */ ?>

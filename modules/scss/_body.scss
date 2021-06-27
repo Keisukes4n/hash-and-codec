@@ -4,8 +4,8 @@
  * _body.scss
  */
 body {
-	background:    rgb(255, 255, 255);
-  color:         rgb(31, 31, 31);
+	background:    var( --bg-color );
+  color:         var( --font-color );
   display:       flex;
   flex-flow:     column;
   height:        100vh;

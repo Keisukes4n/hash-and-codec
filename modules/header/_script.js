@@ -12,8 +12,8 @@ function clickOpenMenu(imgMenuIcon, navMenuArea) {
     navMenuArea.style.height = '70vh';
 }
 function clickMenuBehavior(flag) {
-    var imgMenuIcon = document.getElementById('imgMenuIcon');
-    var navMenuArea = document.getElementById('navMenu');
+    const imgMenuIcon = document.getElementById('imgMenuIcon');
+    const navMenuArea = document.getElementById('navMenu');
     switch (flag) {
         case 'N':
             clickOpenMenu(imgMenuIcon, navMenuArea);
@@ -27,9 +27,9 @@ function getAspectRatio() {
     return Number(window.innerWidth / window.innerHeight);
 }
 function getFlagOpenNavMenu() {
-    var result = 'result';
-    var elementNavMenu = document.getElementById('navMenu');
-    var styleNavMenu = window.getComputedStyle(elementNavMenu);
+    let result = 'result';
+    const elementNavMenu = document.getElementById('navMenu');
+    const styleNavMenu = window.getComputedStyle(elementNavMenu);
     if (styleNavMenu.height == '0px') {
         result = 'N';
     }
@@ -39,8 +39,8 @@ function getFlagOpenNavMenu() {
     return result;
 }
 function judgeScrollDirection(beforeY, currentY) {
-    var result = 'result';
-    var fluctuation = currentY - beforeY;
+    let result = 'result';
+    let fluctuation = currentY - beforeY;
     if (fluctuation > 0) {
         result = 'down';
         scrollHideHeader();
@@ -64,24 +64,24 @@ function resetViewToPortrait(header, imgMenuIcon, navMenuArea) {
     navMenuArea.style.height = '0px';
 }
 function scrollShowHeader() {
-    var header = document.getElementById('header');
+    const header = document.getElementById('header');
     header.style.height = '4.0rem';
-    setTimeout(function () {
+    setTimeout(() => {
         header.style.overflowY = 'visible';
     }, 200);
 }
 function scrollHideHeader() {
-    var header = document.getElementById('header');
+    const header = document.getElementById('header');
     header.style.height = '0';
     header.style.overflowY = 'hidden';
 }
 /** process for event */
 function processResizeEvents() {
-    window.addEventListener('resize', function () {
-        var aspectRatio = getAspectRatio();
-        var header = document.getElementById('header');
-        var navMenuArea = document.getElementById('navMenu');
-        var imgMenuIcon = document.getElementById('imgMenuIcon');
+    window.addEventListener('resize', () => {
+        const aspectRatio = getAspectRatio();
+        const header = document.getElementById('header');
+        const navMenuArea = document.getElementById('navMenu');
+        const imgMenuIcon = document.getElementById('imgMenuIcon');
         if (aspectRatio < 4 / 3) {
             resetViewToPortrait(header, imgMenuIcon, navMenuArea);
         }
@@ -91,9 +91,9 @@ function processResizeEvents() {
     }, false);
 }
 function processScrollEvents() {
-    var obj = { beforeY: 0, currentY: window.scrollY };
-    window.addEventListener('scroll', function () {
-        var aspectRatio = getAspectRatio();
+    const obj = { beforeY: 0, currentY: window.scrollY };
+    window.addEventListener('scroll', () => {
+        const aspectRatio = getAspectRatio();
         if (aspectRatio < 4 / 3) {
             obj.currentY = window.scrollY;
             judgeScrollDirection(obj.beforeY, obj.currentY);
@@ -103,19 +103,19 @@ function processScrollEvents() {
             }
         }
     }, false);
-    window.addEventListener('scroll', function () {
-        var aspectRatio = getAspectRatio();
+    window.addEventListener('scroll', () => {
+        const aspectRatio = getAspectRatio();
         if (aspectRatio < 4 / 3) {
-            var imgMenuIcon = document.getElementById('imgMenuIcon');
-            var navMenuArea = document.getElementById('navMenu');
+            const imgMenuIcon = document.getElementById('imgMenuIcon');
+            const navMenuArea = document.getElementById('navMenu');
             clickCloseMenu(imgMenuIcon, navMenuArea);
         }
     }, false);
 }
 function processClickEvent() {
-    document.getElementById('divOperationButtonLeft').addEventListener('click', function () {
-        var aspectRatio = getAspectRatio();
-        var flag = getFlagOpenNavMenu();
+    document.getElementById('divOperationButtonLeft').addEventListener('click', () => {
+        const aspectRatio = getAspectRatio();
+        const flag = getFlagOpenNavMenu();
         if (aspectRatio < 4 / 3) {
             clickMenuBehavior(flag);
         }

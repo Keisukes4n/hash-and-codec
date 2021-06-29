@@ -3,7 +3,110 @@
  * description: 
  */
 
+class codecSwitch {
+  private selector: HTMLElement|null;
+
+  private selectorLabels: selectorLables;
+  private codecForms: codecForms;
+
+  private targetForm: HTMLElement|null;
+  private targetLable: HTMLElement|null;
+  private targetProcess: string;
+
+  private initCodecType: string;
+
+  private sectionResult: HTMLElement|null;
+
+  constructor() {
+    this.selector = document.getElementById( 'divProcessSelector' );
+    
+    this.codecForms ={
+      base64:   document.getElementById( 'formBase64Codec' ),
+      hash:     document.getElementById( 'formHashGenerator' ),
+      uuencode: document.getElementById( 'formUuencodeCodec' )
+    }
+
+    this.selectorLabels = {
+      base64:   document.getElementById( 'labelProcessBase64' ),
+      hash:     document.getElementById( 'labelProcessHash' ),
+      uuencode: document.getElementById( 'labelProcessUuencode' )
+    };
+
+    this.initCodecType = sessionStorage.getItem( 'processType' ) ?? 'base64';
+
+    this.targetForm    = document.getElementById( 'formBase64Codec' );
+    this.targetLable   = this.selectorLabels.base64;
+    this.targetProcess = this.initCodecType;
+
+    this.sectionResult = document.getElementById( 'sectionResultArea' );
+  }
+
+  public prepareClickEvents(): void {
+    Object.values( this.selectorLabels ).forEach( ( label: HTMLElement|null ) => {
+      label?.addEventListener( 'click', () => {
+        this.targetLable   = label;
+        this.targetProcess = label.querySelector( 'input' )?.value ?? 'base64';
+        try {
+          sessionStorage.setItem( 'processType', this.targetProcess );
+        } catch ( identifier: any ) {
+          console.log( identifier.message );
+        }
+
+        this.hideAllCodec();
+        this.displayTargetCodec();
+      }, false );
+    }) // end: forEach()
+  }
+
+  public prepareLoadEvents(): void {
+    window.addEventListener( 'load', () => {
+      if ( this.selector instanceof HTMLElement ) {
+        let input: HTMLInputElement|null;
+        input = this.selector.querySelector( 'input[value="' + this.initCodecType + '"]' );
+        if ( input instanceof HTMLInputElement ) {
+          console.log( input);
+          input.checked = true;
+        }
+      }
+
+      if ( this.sectionResult instanceof HTMLElement ) {
+        this.sectionResult.style.height = '14.0rem';
+      }
+
+      this.hideAllCodec();
+      this.displayTargetCodec();
+    }, false );
+  }
+
+  public hideAllCodec(): void {
+    Object.values( this.codecForms ).forEach( ( form: HTMLElement|null) => {
+      if ( form instanceof HTMLElement ) {
+        form.style.display = 'none';
+      }
+    });
+  }
+
+  public displayTargetCodec(): void {
+    console.log( this.targetProcess );
+    switch ( this.targetProcess ) {
+      case 'base64':
+        this.targetForm = this.codecForms.base64;
+        break;
+      case 'hash':
+        this.targetForm = this.codecForms.hash;
+        break;
+      case 'uuencode':
+        this.targetForm = this.codecForms.uuencode;
+    }
+    if ( this.targetForm instanceof HTMLElement ) {
+      this.targetForm.style.display = 'flex';
+    }
+  }
+}
+
+
 /** functions */
+/*
 function dispalyCodecTiles( form:HTMLElement ):void {
   form.style.display = 'flex';
 }
@@ -50,7 +153,7 @@ function callCodec( processType:string ):void {
       break;
   }
 }
-
+/
 function selectorBehavior( eventTarget:EventTarget, processType:string ):void {
   if ( eventTarget instanceof HTMLElement) {
     const element:HTMLElement = eventTarget;
@@ -65,37 +168,14 @@ function selectorBehavior( eventTarget:EventTarget, processType:string ):void {
     }, false );
   }
 }
-
 function loadEvents() {
-  /** for css transition of result area */
-  window.addEventListener( 'load', () => {
-    const element:HTMLElement = document.getElementById( 'sectionResultArea' );
-    if ( element != null ) {
-      element.style.height = '14.0rem';
-    }
-  }, false);
-
-  /** initialization of expression */
   window.addEventListener( 'load', () => {
     const processType:string = sessionStorage.getItem( 'processType' );
     callCodec( processType );
   });
 
-  /** selector initirazetion*/
-  window.addEventListener( 'load', () => {
-    const processType:string     = sessionStorage.getItem( 'processType' );
-    const selector:HTMLElement   = document.getElementById( 'divProcessSelector' );
-    try {
-      const input:HTMLInputElement = selector.querySelector( 'input[value="' + processType + '"]' );
-      input.checked = true;
-    } catch ( identifier:any ) {
-      const input:HTMLInputElement = selector.querySelector( 'input[value="base64"]' );
-      input.checked = true;
-      exceptionLog( identifier );
-    }
-  });
-
 }
+
 
 function mouseoverEvents() {
   document.getElementById( 'labelProcessBase64' )
@@ -105,8 +185,10 @@ function mouseoverEvents() {
   document.getElementById( 'labelProcessUuencode' )
     .addEventListener( 'mouseover', ( event:Event ) => selectorBehavior( event.target, 'uuencode' ), false );
 }
+*/
 
-loadEvents();
-mouseoverEvents();
+const codecSwitchInstance:codecSwitch = new codecSwitch;
+codecSwitchInstance.prepareClickEvents();
+codecSwitchInstance.prepareLoadEvents();
 
 /** a module file is end up here. : index/_script.js */

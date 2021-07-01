@@ -1,127 +1,132 @@
+"use strict";
 /**
  * module file: _script.js
  * description:
  */
-/** functions */
-function clickCloseMenu(imgMenuIcon, navMenuArea) {
-    imgMenuIcon.src = imgMenuIcon.src.replace('menu-up', 'menu');
-    navMenuArea.style.height = '0px';
-}
-function clickOpenMenu(imgMenuIcon, navMenuArea) {
-    imgMenuIcon.src = imgMenuIcon.src.replace('menu', 'menu-up');
-    navMenuArea.style.height = '70vh';
-}
-function clickMenuBehavior(flag) {
-    var imgMenuIcon = document.getElementById('imgMenuIcon');
-    var navMenuArea = document.getElementById('navMenu');
-    switch (flag) {
-        case 'N':
-            clickOpenMenu(imgMenuIcon, navMenuArea);
-            break;
-        case 'Y':
-            clickCloseMenu(imgMenuIcon, navMenuArea);
-            break;
+class headerControl {
+    constructor() {
+        this.aspectRatio = window.innerWidth / window.innerHeight;
+        this.header = document.getElementById('header');
+        this.menu = document.getElementById('navMenu');
+        this.menuIcon = document.getElementById('imgMenuIcon');
+        this.buttonLeft = document.getElementById('divOperationButtonLeft');
+        this.scroll = {
+            beforeY: 0,
+            currentY: window.scrollY
+        };
     }
-}
-function getAspectRatio() {
-    return Number(window.innerWidth / window.innerHeight);
-}
-function getFlagOpenNavMenu() {
-    var result = 'result';
-    var elementNavMenu = document.getElementById('navMenu');
-    var styleNavMenu = window.getComputedStyle(elementNavMenu);
-    if (styleNavMenu.height == '0px') {
-        result = 'N';
+    currentAspectRatio() {
+        this.aspectRatio = window.innerWidth / window.innerHeight;
+        return this.aspectRatio;
     }
-    else {
-        result = 'Y';
-    }
-    return result;
-}
-function judgeScrollDirection(beforeY, currentY) {
-    var result = 'result';
-    var fluctuation = currentY - beforeY;
-    if (fluctuation > 0) {
-        result = 'down';
-        scrollHideHeader();
-    }
-    else {
-        result = 'up';
-        scrollShowHeader();
-    }
-    return result;
-}
-function resetViewToLandscape(header, imgMenuIcon, navMenuArea) {
-    header.style.height = '100vh';
-    header.style.overflowY = 'scroll';
-    imgMenuIcon.src = imgMenuIcon.src.replace('menu-up', 'menu');
-    navMenuArea.style.height = '100vh';
-}
-function resetViewToPortrait(header, imgMenuIcon, navMenuArea) {
-    header.style.height = '4.0rem';
-    header.style.overflowY = 'visible';
-    imgMenuIcon.src = imgMenuIcon.src.replace('menu-up', 'menu');
-    navMenuArea.style.height = '0px';
-}
-function scrollShowHeader() {
-    var header = document.getElementById('header');
-    header.style.height = '4.0rem';
-    setTimeout(function () {
-        header.style.overflowY = 'visible';
-    }, 200);
-}
-function scrollHideHeader() {
-    var header = document.getElementById('header');
-    header.style.height = '0';
-    header.style.overflowY = 'hidden';
-}
-/** process for event */
-function processResizeEvents() {
-    window.addEventListener('resize', function () {
-        var aspectRatio = getAspectRatio();
-        var header = document.getElementById('header');
-        var navMenuArea = document.getElementById('navMenu');
-        var imgMenuIcon = document.getElementById('imgMenuIcon');
-        if (aspectRatio < 4 / 3) {
-            resetViewToPortrait(header, imgMenuIcon, navMenuArea);
+    watchScrollDirection() {
+        this.scroll.currentY = window.scrollY;
+        const fluctuation = this.scroll.currentY - this.scroll.beforeY;
+        let result = '';
+        if (fluctuation > 0) {
+            result = 'down';
         }
-        else {
-            resetViewToLandscape(header, imgMenuIcon, navMenuArea);
+        else if (fluctuation < 0) {
+            result = 'up';
         }
-    }, false);
-}
-function processScrollEvents() {
-    var obj = { beforeY: 0, currentY: window.scrollY };
-    window.addEventListener('scroll', function () {
-        var aspectRatio = getAspectRatio();
-        if (aspectRatio < 4 / 3) {
-            obj.currentY = window.scrollY;
-            judgeScrollDirection(obj.beforeY, obj.currentY);
-            obj.beforeY = obj.currentY;
-            if (obj.currentY == 0) {
-                scrollShowHeader();
+        this.scroll.beforeY = this.scroll.currentY;
+        return result;
+    }
+    prepareMenuActionScroll() {
+        let menu;
+        if (this.menu instanceof HTMLElement) {
+            menu = this.menu;
+        }
+        let icon;
+        if (this.menuIcon instanceof HTMLImageElement) {
+            icon = this.menuIcon;
+        }
+        window.addEventListener('scroll', () => {
+            if ((this.currentAspectRatio() < 4 / 3) && (menu.style.height == '70vh')) {
+                icon.src = icon.src.replace('menu-up', 'menu');
+                menu.style.height = '0px';
             }
+        }, false);
+    }
+    prepareMenuActionClick() {
+        var _a;
+        let menu;
+        if (this.menu instanceof HTMLElement) {
+            menu = this.menu;
         }
-    }, false);
-    window.addEventListener('scroll', function () {
-        var aspectRatio = getAspectRatio();
-        if (aspectRatio < 4 / 3) {
-            var imgMenuIcon = document.getElementById('imgMenuIcon');
-            var navMenuArea = document.getElementById('navMenu');
-            clickCloseMenu(imgMenuIcon, navMenuArea);
+        let icon;
+        if (this.menuIcon instanceof HTMLImageElement) {
+            icon = this.menuIcon;
         }
-    }, false);
+        (_a = this.buttonLeft) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => {
+            switch (menu.style.height) {
+                case '':
+                case '0px':
+                    icon.src = icon.src.replace('menu', 'menu-up');
+                    menu.style.height = '70vh';
+                    break;
+                case '70vh':
+                    icon.src = icon.src.replace('menu-up', 'menu');
+                    menu.style.height = '0px';
+                    break;
+            }
+        }, false);
+    }
+    prepareHeaderActionScroll() {
+        let header;
+        if (this.header instanceof HTMLElement) {
+            header = this.header;
+        }
+        window.addEventListener('scroll', () => {
+            if (this.currentAspectRatio() < 4 / 3) {
+                const direction = this.watchScrollDirection();
+                switch (direction) {
+                    case 'up':
+                        header.style.height = '4.0rem';
+                        setTimeout(() => {
+                            header.style.overflowY = 'visible';
+                        }, 200);
+                        break;
+                    case 'down':
+                        header.style.height = '0';
+                        header.style.overflowY = 'hidden';
+                        break;
+                }
+            }
+        }, false);
+    }
+    prepareLayoutChangeResize() {
+        let header;
+        if (this.header instanceof HTMLElement) {
+            header = this.header;
+        }
+        let menu;
+        if (this.menu instanceof HTMLElement) {
+            menu = this.menu;
+        }
+        let icon;
+        if (this.menuIcon instanceof HTMLImageElement) {
+            icon = this.menuIcon;
+        }
+        window.addEventListener('resize', () => {
+            if (this.currentAspectRatio() < 4 / 3) {
+                header.style.height = '4.0rem';
+                header.style.overflowY = 'visible';
+                icon.src = icon.src.replace('menu-up', 'menu');
+                menu.style.height = '0px';
+            }
+            else {
+                header.style.height = '100vh';
+                header.style.overflowY = 'scroll';
+                icon.src = icon.src.replace('menu-up', 'menu');
+                menu.style.height = '100vh';
+            }
+        }, false);
+    }
 }
-function processClickEvent() {
-    document.getElementById('divOperationButtonLeft').addEventListener('click', function () {
-        var aspectRatio = getAspectRatio();
-        var flag = getFlagOpenNavMenu();
-        if (aspectRatio < 4 / 3) {
-            clickMenuBehavior(flag);
-        }
-    }, false);
-}
-processClickEvent();
-processResizeEvents();
-processScrollEvents();
+const headerControlInstance = new headerControl;
+headerControlInstance.prepareMenuActionClick();
+headerControlInstance.prepareMenuActionScroll();
+headerControlInstance.prepareHeaderActionScroll();
+headerControlInstance.prepareLayoutChangeResize();
 /** a module file is end up here. : header/_script.js */ 

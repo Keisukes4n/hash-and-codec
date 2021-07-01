@@ -1,11 +1,41 @@
 @charset "UTF-8";
 
+:root {
+  --bg-color: rgba( 255, 255, 255, 1 );
+
+  --button-bg-color:       rgba( 223, 223, 223, 1 );
+  --button-bg-color-hover: rgba( 191, 191, 191, 1 );
+  --button-border-radius:  4px;
+  --button-padding-small:  0.5rem 1.0rem 0.5rem 1.0rem;      
+  --button-transition-bg:  background-color 100ms  ease-out 0ms;
+
+  --grid-gap: 1.0rem 1.0rem;
+
+  --radio-padding: 1.0rem 0.5rem 1.0rem 0.5rem;
+
+  --font-color: rgba( 63, 63, 63, 1 );
+
+  --footer-color:    rgba( 247, 247, 247, 1);
+  --footer-bg-color: rgba( 63, 63, 63, 1 );
+
+  --textarea-height:  8.0rem;
+  --textarea-margin:  1.0rem;
+  --textarea-padding: 0.5rem;
+  --textarea-width:   calc( 100% - 2.0rem );
+
+  --tile-bg-color:      rgba( 247, 247, 247, 1);
+  --tile-margin:        1.0rem;
+  --tile-parts-padding: 1.0rem;
+
+  --shadow-param: 0 0 2px rgba( 175, 175, 175, 1 );
+}
+
 @import "modules/scss/_body.scss";
 @import "modules/scss/_footer.scss";
 @import "modules/scss/_header.scss";
 @import "modules/scss/_main.scss";
 @import "modules/scss/_nav.menu.scss";
 
-@import "modules/scss/functions/_form.hash-generation.scss";
-@import "modules/scss/functions/_form.base64-codec.scss";
-@import "modules/scss/functions/_form.uuencode-codec.scss";
+@import "modules/scss/features/_form.hash-generation.scss";
+@import "modules/scss/features/_form.base64-codec.scss";
+@import "modules/scss/features/_form.uuencode-codec.scss";

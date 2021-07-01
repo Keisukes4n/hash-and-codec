@@ -3,110 +3,95 @@
  * description: 
  */
 
-/** functions */
-function dispalyCodecTiles( form:HTMLElement ):void {
-  form.style.display = 'flex';
-}
+class codecSwitch {
+  private codecForms:     codecForms;
+  private sectionResult:  HTMLElement|null;
+  private selectorDiv:    HTMLElement|null;
+  private selectorLabels: selectorLables;
+  private targetForm:     HTMLElement|null;
+  private targetProcess:  string;
 
-function hideCodecTiles( form:HTMLElement ):void {
-  form.style.display = 'none';
-}
-
-function exceptionLog( identifier:any ):void {
-  console.log( identifier.name + ' : ' + identifier.message );
-}
-
-function callCodec( processType:string ):void {
-  const base64:codecSelector = {
-    form: document.getElementById( 'formBase64Codec' )
+  constructor() {
+    this.codecForms ={
+      base64:   document.getElementById( 'formBase64Codec' ),
+      hash:     document.getElementById( 'formHashGenerator' ),
+      uuencode: document.getElementById( 'formUuencodeCodec' )
+    }
+    this.sectionResult  = document.getElementById( 'sectionResultArea' );
+    this.selectorDiv    = document.getElementById( 'divProcessSelector' );
+    this.selectorLabels = {
+      base64:   document.getElementById( 'labelProcessBase64' ),
+      hash:     document.getElementById( 'labelProcessHash' ),
+      uuencode: document.getElementById( 'labelProcessUuencode' )
+    };
+    this.targetForm    = document.getElementById( 'formBase64Codec' );
+    this.targetProcess = sessionStorage.getItem( 'processType' ) ?? 'base64';
   }
-  const hash:codecSelector = {
-    form: document.getElementById( 'formHashGenerator' )
-  }
-  const uuencode:codecSelector = {
-    form: document.getElementById( 'formUuencodeCodec' )
-  }
 
-  switch ( processType ) {
-    case 'base64':
-      dispalyCodecTiles( base64.form );
-      hideCodecTiles( hash.form );
-      hideCodecTiles( uuencode.form );
-      break;
-    case 'hash':
-      dispalyCodecTiles( hash.form );
-      hideCodecTiles( base64.form );
-      hideCodecTiles( uuencode.form );
-      break;
-    case 'uuencode':
-      dispalyCodecTiles( uuencode.form );
-      hideCodecTiles( base64.form );
-      hideCodecTiles( hash.form );
-      break;
-    default:
-      dispalyCodecTiles( base64.form );
-      hideCodecTiles( hash.form );
-      hideCodecTiles( uuencode.form );
-      break;
-  }
-}
-
-function selectorBehavior( eventTarget:EventTarget, processType:string ):void {
-  if ( eventTarget instanceof HTMLElement) {
-    const element:HTMLElement = eventTarget;
-
-    element.addEventListener( 'click', () => {
-      try {
-        sessionStorage.setItem( 'processType', processType );
-        callCodec( processType );
-      } catch ( identifier:any ) {
-        exceptionLog( identifier );
+  public prepareClickEvents(): void {
+    Object.values( this.selectorLabels ).forEach( ( label: HTMLElement|null ) => {
+      if ( label instanceof HTMLElement ) {
+        label.addEventListener( 'click', () => {
+          const codecName = label.querySelector( 'input' )?.value ?? 'base64';
+          try {
+            sessionStorage.setItem( 'processType', codecName );
+          } catch ( identifier: any ) {
+            console.log( identifier.message );
+          }
+          this.hideAllCodecForm();
+          this.displayCodecForm( codecName );
+        }, false );
       }
+    })
+  }
+
+  public prepareLoadEvents(): void {
+    window.addEventListener( 'load', () => {
+      if ( this.selectorDiv instanceof HTMLElement ) {
+        const input: HTMLInputElement|null = this.selectorDiv
+          .querySelector( 'input[value="' + this.targetProcess + '"]' );
+        if ( input instanceof HTMLInputElement ) {
+          input.checked = true;
+        }
+      }
+      if ( this.sectionResult instanceof HTMLElement ) {
+        this.sectionResult.style.height = '14.0rem';
+      }
+      this.hideAllCodecForm();
+      this.displayCodecForm( this.targetProcess );
     }, false );
   }
-}
 
-function loadEvents() {
-  /** for css transition of result area */
-  window.addEventListener( 'load', () => {
-    const element:HTMLElement = document.getElementById( 'sectionResultArea' );
-    if ( element != null ) {
-      element.style.height = '14.0rem';
+  public hideAllCodecForm(): void {
+    Object.values( this.codecForms ).forEach( ( form: HTMLElement|null) => {
+      if ( form instanceof HTMLElement ) {
+        form.style.display = 'none';
+      }
+    });
+  }
+
+  public displayCodecForm( codecName: string ): void {
+    switch ( codecName ) {
+      case 'base64':
+        this.targetForm = this.codecForms.base64;
+        break;
+      case 'hash':
+        this.targetForm = this.codecForms.hash;
+        break;
+      case 'uuencode':
+        this.targetForm = this.codecForms.uuencode;
+        break;
+      default:
+        this.targetForm = this.codecForms.base64;
     }
-  }, false);
-
-  /** initialization of expression */
-  window.addEventListener( 'load', () => {
-    const processType:string = sessionStorage.getItem( 'processType' );
-    callCodec( processType );
-  });
-
-  /** selector initirazetion*/
-  window.addEventListener( 'load', () => {
-    const processType:string     = sessionStorage.getItem( 'processType' );
-    const selector:HTMLElement   = document.getElementById( 'divProcessSelector' );
-    try {
-      const input:HTMLInputElement = selector.querySelector( 'input[value="' + processType + '"]' );
-      input.checked = true;
-    } catch ( identifier:any ) {
-      const input:HTMLInputElement = selector.querySelector( 'input[value="base64"]' );
-      input.checked = true;
-      exceptionLog( identifier );
+    if ( this.targetForm instanceof HTMLElement ) {
+      this.targetForm.style.display = 'flex';
     }
-  });
-
+  }
 }
 
-function mouseoverEvents() {
-  document.getElementById( 'labelProcessBase64' )
-    .addEventListener( 'mouseover', ( event:Event ) => selectorBehavior( event.target, 'base64' ), false );
-  document.getElementById( 'labelProcessHash' )
-    .addEventListener( 'mouseover', ( event:Event ) => selectorBehavior( event.target, 'hash' ), false );
-  document.getElementById( 'labelProcessUuencode' )
-    .addEventListener( 'mouseover', ( event:Event ) => selectorBehavior( event.target, 'uuencode' ), false );
-}
-
-loadEvents();
-mouseoverEvents();
+const codecSwitchInstance:codecSwitch = new codecSwitch;
+codecSwitchInstance.prepareClickEvents();
+codecSwitchInstance.prepareLoadEvents();
 
 /** a module file is end up here. : index/_script.js */

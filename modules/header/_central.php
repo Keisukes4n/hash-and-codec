@@ -9,19 +9,13 @@ declare( strict_types=1 );
 
 class header {
   private string $icons_pass;
-  private string $license_pass;
 
   public function __construct() {
     $this->icons_pass   = './modules/icon';
-    $this->license_pass = './license';
   }
 
   public function getIconsPass(): string {
     return $this->icons_pass;
-  }
-
-  public function getLicensePass(): string {
-    return $this->license_pass;
   }
 }
 
@@ -42,10 +36,14 @@ $header_instance = new header;
   <nav class="menu" id="navMenu">
     <div class="categories">
       <ul>
-        <h3>Information</h3>
-        <a class="item" href="<?php echo $header_instance->getLicensePass(); ?>">
+        <h3>License</h3>
+        <a class="item" href="https://www.apache.org/licenses/LICENSE-2.0.html" target="_blank" rel="noreferrer">
           <img src="<?php echo $header_instance->getIconsPass(); ?>/license-icon-plain.svg" alt="license-icon-plain.svg" >
-          <li>License</li>
+          <li>Apache License, Version 2.0</li>
+        </a>
+        <a class="item" href="https://creativecommons.org/licenses/by/4.0/deed.en" target="_blank" rel="noreferrer">
+          <img src="<?php echo $header_instance->getIconsPass(); ?>/license-icon-plain.svg" alt="license-icon-plain.svg" >
+          <li>CC BY 4.0</li>
         </a>
       </ul>
     </div>

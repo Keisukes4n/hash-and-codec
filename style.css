@@ -80,7 +80,7 @@ header {
   overflow-y: visible;
   position: fixed;
   transition: height 200ms ease-out 0ms;
-  width: 100%;
+  width: 100vw;
   /** end: section.primary {} */
 }
 
@@ -184,7 +184,8 @@ header > section.primary > .operation-button-right > span {
  */
 main {
   box-sizing: border-box;
-  padding: 4.0rem 2.0rem 4.0rem 2.0rem;
+  padding: 4.0rem 5.0vw 4.0rem 5.0vw;
+  width: 100vw;
 }
 
 @media screen and (min-aspect-ratio: 4 / 3) {

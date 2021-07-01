@@ -1,6 +1,6 @@
 
-interface codecSelector {
-  [key:string]:HTMLElement;
+interface scrollParams {
+  [key:string]:number;
 }
 
 interface selectorLables {
@@ -9,8 +9,4 @@ interface selectorLables {
 
 interface codecForms {
   [key: string]: HTMLElement|null;
-}
-
-interface scrollInfo {
-  [key:string]:number;
 }

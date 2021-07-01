@@ -13,7 +13,7 @@ header {
   overflow-y: visible;
   position:   fixed;
   transition: height 200ms ease-out 0ms;
-  width:      100%;
+  width:      100vw;
 
   @media screen and ( min-aspect-ratio: 4/3 ) {
     flex-flow:  column;

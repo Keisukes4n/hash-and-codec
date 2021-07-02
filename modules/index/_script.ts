@@ -26,20 +26,23 @@ class codecSwitch {
     };
     this.targetForm    = document.getElementById( 'formBase64Codec' );
     this.targetProcess = sessionStorage.getItem( 'processType' ) ?? 'base64';
+
+    this.prepareClickEvents();
+    this.prepareLoadEvents();
   }
 
   public prepareClickEvents(): void {
     Object.values( this.selectorLabels ).forEach( ( label: HTMLElement|null ) => {
       if ( label instanceof HTMLElement ) {
         label.addEventListener( 'click', () => {
-          const codecName = label.querySelector( 'input' )?.value ?? 'base64';
+          this.targetProcess = label.querySelector( 'input' )?.value ?? 'base64';
           try {
-            sessionStorage.setItem( 'processType', codecName );
+            sessionStorage.setItem( 'processType', this.targetProcess );
           } catch ( identifier: any ) {
             console.log( identifier.message );
           }
           this.hideAllCodecForm();
-          this.displayCodecForm( codecName );
+          this.displayCodecForm();
         }, false );
       }
     })
@@ -58,7 +61,7 @@ class codecSwitch {
         this.sectionResult.style.height = '14.0rem';
       }
       this.hideAllCodecForm();
-      this.displayCodecForm( this.targetProcess );
+      this.displayCodecForm();
     }, false );
   }
 
@@ -70,8 +73,8 @@ class codecSwitch {
     });
   }
 
-  public displayCodecForm( codecName: string ): void {
-    switch ( codecName ) {
+  public displayCodecForm(): void {
+    switch ( this.targetProcess ) {
       case 'base64':
         this.targetForm = this.codecForms.base64;
         break;
@@ -91,7 +94,5 @@ class codecSwitch {
 }
 
 const codecSwitchInstance:codecSwitch = new codecSwitch;
-codecSwitchInstance.prepareClickEvents();
-codecSwitchInstance.prepareLoadEvents();
 
 /** a module file is end up here. : index/_script.js */

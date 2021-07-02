@@ -10,7 +10,7 @@ nav.menu {
   height:       0px;
   overflow-y:   scroll;
   transition:   height 200ms ease-out 0ms;
-  width:        60%;
+  width:        60vw;
 
   @media screen and ( min-aspect-ratio: 4/3 ) {
     box-shadow: none;

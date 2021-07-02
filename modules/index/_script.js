@@ -20,21 +20,23 @@ class codecSwitch {
         };
         this.targetForm = document.getElementById('formBase64Codec');
         this.targetProcess = (_a = sessionStorage.getItem('processType')) !== null && _a !== void 0 ? _a : 'base64';
+        this.prepareClickEvents();
+        this.prepareLoadEvents();
     }
     prepareClickEvents() {
         Object.values(this.selectorLabels).forEach((label) => {
             if (label instanceof HTMLElement) {
                 label.addEventListener('click', () => {
                     var _a, _b;
-                    const codecName = (_b = (_a = label.querySelector('input')) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : 'base64';
+                    this.targetProcess = (_b = (_a = label.querySelector('input')) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : 'base64';
                     try {
-                        sessionStorage.setItem('processType', codecName);
+                        sessionStorage.setItem('processType', this.targetProcess);
                     }
                     catch (identifier) {
                         console.log(identifier.message);
                     }
                     this.hideAllCodecForm();
-                    this.displayCodecForm(codecName);
+                    this.displayCodecForm();
                 }, false);
             }
         });
@@ -52,7 +54,7 @@ class codecSwitch {
                 this.sectionResult.style.height = '14.0rem';
             }
             this.hideAllCodecForm();
-            this.displayCodecForm(this.targetProcess);
+            this.displayCodecForm();
         }, false);
     }
     hideAllCodecForm() {
@@ -62,8 +64,8 @@ class codecSwitch {
             }
         });
     }
-    displayCodecForm(codecName) {
-        switch (codecName) {
+    displayCodecForm() {
+        switch (this.targetProcess) {
             case 'base64':
                 this.targetForm = this.codecForms.base64;
                 break;
@@ -82,6 +84,4 @@ class codecSwitch {
     }
 }
 const codecSwitchInstance = new codecSwitch;
-codecSwitchInstance.prepareClickEvents();
-codecSwitchInstance.prepareLoadEvents();
 /** a module file is end up here. : index/_script.js */ 

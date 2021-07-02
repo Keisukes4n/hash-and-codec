@@ -4,7 +4,6 @@
  */
 
 class headerControl {
-  private aspectRatio: number;
   private buttonLeft:  HTMLElement|null;
   private header:      HTMLElement|null;
   private menu:        HTMLElement|null;
@@ -12,32 +11,34 @@ class headerControl {
   private scroll:      scrollParams;
 
   constructor() {
-    this.aspectRatio = window.innerWidth / window.innerHeight;
     this.header      = document.getElementById( 'header' );
     this.menu        = document.getElementById( 'navMenu' );
     this.menuIcon    = document.getElementById( 'imgMenuIcon' );
     this.buttonLeft  = document.getElementById( 'divOperationButtonLeft' );
     this.scroll      = {
       beforeY:  0,
-      currentY: window.scrollY
     }
+
+    this.prepareHeaderActionScroll();
+    this.prepareMenuActionClick();
+    this.prepareMenuActionScroll();
+    this.prepareLayoutChangeResize();
   }
 
   public currentAspectRatio(): number {
-    this.aspectRatio = window.innerWidth / window.innerHeight;
-    return this.aspectRatio;
+    return window.innerWidth / window.innerHeight;
   }
 
   public watchScrollDirection(): string {
-    this.scroll.currentY = window.scrollY;
-    const fluctuation: number = this.scroll.currentY - this.scroll.beforeY;
+    const currentY: number    = window.scrollY;
+    const fluctuation: number = currentY - this.scroll.beforeY;
     let result: string = '';
     if ( fluctuation > 0 ) {
       result = 'down';
     } else if ( fluctuation < 0) {
       result = 'up';
     }
-    this.scroll.beforeY  = this.scroll.currentY;
+    this.scroll.beforeY  = currentY;
     return result;
   }
 
@@ -120,15 +121,14 @@ class headerControl {
       icon = this.menuIcon;
     }
     window.addEventListener( 'resize', () => {
+      icon.src               = icon.src.replace( 'menu-up', 'menu' );
       if ( this.currentAspectRatio() < 4/3 ) {
         header.style.height    = '4.0rem';
         header.style.overflowY = 'visible';
-        icon.src               = icon.src.replace( 'menu-up', 'menu' );
         menu.style.height      = '0px';
       } else {
         header.style.height    = '100vh';  
         header.style.overflowY = 'scroll';
-        icon.src               = icon.src.replace( 'menu-up', 'menu' );
         menu.style.height      = '100vh';
       }
     }, false );
@@ -136,9 +136,5 @@ class headerControl {
 }
 
 const headerControlInstance = new headerControl;
-headerControlInstance.prepareMenuActionClick();
-headerControlInstance.prepareMenuActionScroll();
-headerControlInstance.prepareHeaderActionScroll();
-headerControlInstance.prepareLayoutChangeResize();
 
 /** a module file is end up here. : header/_script.js */
